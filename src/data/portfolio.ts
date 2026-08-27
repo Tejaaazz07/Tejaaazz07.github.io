@@ -174,7 +174,7 @@ export const portfolioData: PortfolioData = {
                 'Deliver humorous, engaging, and persuasive presentations to recruit members and align project teams.'
             ],
             skills: ['Leadership', 'Public Speaking', 'Team Building', 'Event Coordination', 'Executive Presentations'],
-            startDate: '2024-07-01',
+            startDate: '2025-07-01',
             isOngoing: true,
             location: 'Coimbatore, India',
             type: 'volunteer',
@@ -187,8 +187,8 @@ export const portfolioData: PortfolioData = {
             institution: 'Kumaraguru College of Liberal Arts and Sciences',
             degree: 'Bachelor of Commerce (B.Com)',
             major: 'Commerce, Finance & Financial Analytics',
-            startDate: '2023-08-01',
-            endDate: '2027-05-31',
+            startDate: '2025-08-01',
+            endDate: '2028-05-31',
             isOngoing: true,
             activities: ['Rotaract Club (Club Service Director)', 'Protosem Innovation Cohort', 'Finance & Commerce Club'],
             achievements: ['Appointed Club Service Director', 'Selected for PRICE ProtoSem Innovation Fellowship']
@@ -218,7 +218,7 @@ export const portfolioData: PortfolioData = {
             id: 'ach-2',
             title: 'Club Service Director Appointment',
             issuer: 'Rotaract Club of Kumaraguru Institutions',
-            date: '2024-07',
+            date: '2025-07',
             description: 'Elected to lead club service operations, community engagement, and cross-functional team coordination.',
             category: 'recognition',
             tags: ['Leadership', 'Community Service', 'Public Speaking']
