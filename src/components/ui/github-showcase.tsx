@@ -25,16 +25,16 @@ import { motion, AnimatePresence, useInView, animate } from 'framer-motion';
 import { useIsInStack } from './showcase-stack';
 import { useLenis } from 'lenis/react';
 
-const GITHUB_USER = "Arfazrll";
+const GITHUB_USER = "Tejaaazz07";
 
 const PINNED_REPOS = [
   {
-    name: "PersonalBlog",
-    desc: "Professional portfolio built with Next.js 15, TypeScript, and Tailwind CSS. Features 3D physics (R3F), GSAP animations, and real-time coding stats via WakaTime and GitHub APIs. Support EN/ID.",
-    stars: 67,
-    forks: 12,
+    name: "Tejaaazz07.github.io",
+    desc: "Personal portfolio and ATS resume showcasing Commerce, AI automation with n8n, financial modeling, and PRICE ProtoSem.",
+    stars: 1,
+    forks: 0,
     lang: "TypeScript",
-    url: "https://github.com/Arfazrll/PersonalBlog"
+    url: "https://github.com/Tejaaazz07/Tejaaazz07.github.io"
   },
   {
     name: "Browser-Automation-Agent",
