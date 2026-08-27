@@ -17,8 +17,8 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #0b0f19;
-      color: #1e293b;
+      background-color: #040405;
+      color: #f8fafc;
     }
     
     @media print {
@@ -39,45 +39,56 @@
         border: none !important;
         padding: 0 !important;
         max-width: 100% !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .print-orange {
+        color: #ea580c !important;
+      }
+      .print-border {
+        border-color: #e2e8f0 !important;
+      }
+      .print-text {
+        color: #334155 !important;
       }
     }
   </style>
 </head>
-<body class="min-h-screen py-8 px-4 sm:px-6 antialiased flex flex-col items-center">
+<body class="min-h-screen py-8 px-4 sm:px-6 antialiased flex flex-col items-center selection:bg-orange-500 selection:text-black">
 
   <!-- Top Action Navigation Bar (Hidden when printed) -->
   <div class="w-full max-w-4xl mb-6 flex items-center justify-between no-print">
-    <a href="index.html" class="inline-flex items-center gap-2 text-xs font-mono text-cyan-400 hover:text-cyan-300 transition-colors bg-slate-900/80 px-4 py-2 rounded-xl border border-white/10">
+    <a href="index.html" class="inline-flex items-center gap-2 text-xs font-mono text-orange-400 hover:text-orange-300 transition-colors bg-[#111115] px-4 py-2 rounded-xl border border-orange-500/20">
       <i class="fa-solid fa-arrow-left"></i>
       <span>Back to Portfolio</span>
     </a>
     
-    <button onclick="window.print()" class="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-lg shadow-cyan-500/20">
+    <button onclick="window.print()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-black font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-lg shadow-orange-500/20">
       <i class="fa-solid fa-print"></i>
       <span>Print / Save PDF</span>
     </button>
   </div>
 
-  <!-- Main Clean ATS Resume Document (Single Clean Card) -->
-  <div class="resume-card w-full max-w-4xl bg-white rounded-2xl p-8 sm:p-12 shadow-2xl border border-slate-200 text-slate-900 space-y-6 text-left">
+  <!-- Main Clean ATS Resume Document -->
+  <div class="resume-card w-full max-w-4xl bg-[#0d0d12] print:bg-white rounded-2xl p-8 sm:p-12 shadow-2xl border border-orange-500/20 print:border-none text-slate-100 print:text-black space-y-6 text-left">
     
     <!-- 1. Header Section -->
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-b border-slate-200 pb-6">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-b border-orange-500/20 print:border-slate-200 pb-6">
       <div class="flex items-center gap-5">
-        <div class="w-20 h-20 rounded-2xl overflow-hidden border border-slate-300 p-0.5 bg-slate-100 flex-shrink-0">
-          <img src="profile.jpeg?v=6" alt="Tejas" class="w-full h-full object-cover rounded-xl" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Tejas&background=06b6d4&color=ffffff&size=160&bold=true';">
+        <div class="w-20 h-20 rounded-2xl overflow-hidden border border-orange-500/40 print:border-slate-300 p-0.5 bg-[#181820] flex-shrink-0">
+          <img src="profile.jpeg?v=7" alt="Tejas" class="w-full h-full object-cover rounded-xl" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Tejas&background=f97316&color=000000&size=160&bold=true';">
         </div>
         <div>
-          <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">TEJAS</h1>
-          <p class="text-sm font-semibold text-cyan-700 mt-0.5">B.Com Student • AI Automation & Financial Analytics</p>
-          <div class="flex flex-wrap items-center gap-2.5 text-xs text-slate-600 mt-2 font-mono">
-            <span><i class="fa-solid fa-location-dot text-cyan-600 mr-1"></i>Coimbatore, Tamil Nadu</span>
+          <h1 class="text-3xl font-extrabold text-white print:text-black tracking-tight">TEJAS</h1>
+          <p class="text-sm font-semibold text-orange-400 print:text-orange-600 mt-0.5">B.Com Student • AI Automation & Financial Analytics</p>
+          <div class="flex flex-wrap items-center gap-2.5 text-xs text-slate-400 print:text-slate-600 mt-2 font-mono">
+            <span><i class="fa-solid fa-location-dot text-orange-500 mr-1"></i>Coimbatore, Tamil Nadu</span>
             <span>•</span>
-            <a href="https://www.linkedin.com/in/tejas-s-k-333a78359" target="_blank" class="hover:text-cyan-700 underline font-medium">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/tejas-s-k-333a78359" target="_blank" class="hover:text-orange-400 underline font-medium text-slate-300 print:text-black">LinkedIn</a>
             <span>•</span>
-            <a href="https://github.com/Tejaaazz07" target="_blank" class="hover:text-cyan-700 underline font-medium">GitHub</a>
+            <a href="https://github.com/Tejaaazz07" target="_blank" class="hover:text-orange-400 underline font-medium text-slate-300 print:text-black">GitHub</a>
             <span>•</span>
-            <a href="https://tejaaazz07.github.io" target="_blank" class="hover:text-cyan-700 underline font-medium">Portfolio</a>
+            <a href="https://tejaaazz07.github.io" target="_blank" class="hover:text-orange-400 underline font-medium text-slate-300 print:text-black">Portfolio</a>
           </div>
         </div>
       </div>
@@ -85,41 +96,41 @@
 
     <!-- 2. Simple Summary -->
     <div>
-      <h2 class="text-xs font-bold font-mono uppercase tracking-widest text-cyan-700 border-b border-slate-200 pb-1 mb-2">
+      <h2 class="text-xs font-bold font-mono uppercase tracking-widest text-orange-400 print:text-orange-600 border-b border-orange-500/20 print:border-slate-200 pb-1 mb-2">
         Summary
       </h2>
-      <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+      <p class="text-xs sm:text-sm text-slate-300 print:text-slate-700 leading-relaxed">
         Second-year Bachelor of Commerce (B.Com) student at Kumaraguru College with strong interest and practical skills in financial modeling, Microsoft Excel, and autonomous AI agent workflows (n8n). Active student leader serving as Rotaract Club Service Director and Innovation Engineer Trainee at PRICE ProtoSem.
       </p>
     </div>
 
     <!-- 3. Education -->
     <div>
-      <h2 class="text-xs font-bold font-mono uppercase tracking-widest text-cyan-700 border-b border-slate-200 pb-1 mb-2">
+      <h2 class="text-xs font-bold font-mono uppercase tracking-widest text-orange-400 print:text-orange-600 border-b border-orange-500/20 print:border-slate-200 pb-1 mb-2">
         Education
       </h2>
       <div class="space-y-2.5 text-xs sm:text-sm">
         <div class="flex justify-between items-baseline">
           <div>
-            <span class="font-bold text-slate-900">Bachelor of Commerce (B.Com)</span> — 
-            <span class="text-slate-700">Kumaraguru College of Liberal Arts and Sciences</span>
+            <span class="font-bold text-white print:text-black">Bachelor of Commerce (B.Com)</span> — 
+            <span class="text-slate-300 print:text-slate-700">Kumaraguru College of Liberal Arts and Sciences</span>
           </div>
-          <span class="text-xs font-mono text-slate-500">2023 – 2027</span>
+          <span class="text-xs font-mono text-slate-400 print:text-slate-500">2023 – 2027</span>
         </div>
 
         <div class="flex justify-between items-baseline">
           <div>
-            <span class="font-bold text-slate-900">PRICE ProtoSem Fellowship</span> — 
-            <span class="text-slate-700">Forge Innovations & RAI</span>
+            <span class="font-bold text-white print:text-black">PRICE ProtoSem Fellowship</span> — 
+            <span class="text-slate-300 print:text-slate-700">Forge Innovations & RAI</span>
           </div>
-          <span class="text-xs font-mono text-slate-500">2025 – Present</span>
+          <span class="text-xs font-mono text-slate-400 print:text-slate-500">2025 – Present</span>
         </div>
       </div>
     </div>
 
     <!-- 4. Experience & Leadership -->
     <div>
-      <h2 class="text-xs font-bold font-mono uppercase tracking-widest text-cyan-700 border-b border-slate-200 pb-1 mb-2">
+      <h2 class="text-xs font-bold font-mono uppercase tracking-widest text-orange-400 print:text-orange-600 border-b border-orange-500/20 print:border-slate-200 pb-1 mb-2">
         Experience & Leadership
       </h2>
       
@@ -128,11 +139,11 @@
         <!-- ProtoSem -->
         <div>
           <div class="flex justify-between items-baseline">
-            <span class="font-bold text-slate-900">Innovation Engineer Trainee — PRICE ProtoSem</span>
-            <span class="text-xs font-mono text-slate-500">20-Week Programme</span>
+            <span class="font-bold text-white print:text-black">Innovation Engineer Trainee — PRICE ProtoSem</span>
+            <span class="text-xs font-mono text-slate-400 print:text-slate-500">20-Week Programme</span>
           </div>
-          <p class="text-xs text-slate-600 mt-0.5 italic">Forge Innovations & RAI • Coimbatore, India</p>
-          <ul class="list-disc list-outside ml-4 mt-1.5 space-y-1 text-xs text-slate-700">
+          <p class="text-xs text-orange-400/80 print:text-slate-600 mt-0.5 italic">Forge Innovations & RAI • Coimbatore, India</p>
+          <ul class="list-disc list-outside ml-4 mt-1.5 space-y-1 text-xs text-slate-300 print:text-slate-700">
             <li>Selected for a 20-week programme to build real-world solutions for retail and commerce challenges.</li>
             <li>Collaborating with multidisciplinary teams using AI, IoT, data analytics, and rapid prototyping.</li>
             <li>Working across 4 milestone phases from problem discovery to venture validation.</li>
@@ -142,11 +153,11 @@
         <!-- Rotaract Club -->
         <div>
           <div class="flex justify-between items-baseline">
-            <span class="font-bold text-slate-900">Club Service Director — Rotaract Club</span>
-            <span class="text-xs font-mono text-slate-500">2024 – Present</span>
+            <span class="font-bold text-white print:text-black">Club Service Director — Rotaract Club</span>
+            <span class="text-xs font-mono text-slate-400 print:text-slate-500">2024 – Present</span>
           </div>
-          <p class="text-xs text-slate-600 mt-0.5 italic">Kumaraguru Institutions • Coimbatore, India</p>
-          <ul class="list-disc list-outside ml-4 mt-1.5 space-y-1 text-xs text-slate-700">
+          <p class="text-xs text-orange-400/80 print:text-slate-600 mt-0.5 italic">Kumaraguru Institutions • Coimbatore, India</p>
+          <ul class="list-disc list-outside ml-4 mt-1.5 space-y-1 text-xs text-slate-300 print:text-slate-700">
             <li>Directing club service operations and organizing campus-wide community events.</li>
             <li>Delivering engaging presentations and speeches to onboard and align new members.</li>
             <li>Leading project teams and facilitating smooth coordination between club committees.</li>
@@ -158,7 +169,7 @@
 
     <!-- 5. Key Projects -->
     <div>
-      <h2 class="text-xs font-bold font-mono uppercase tracking-widest text-cyan-700 border-b border-slate-200 pb-1 mb-2">
+      <h2 class="text-xs font-bold font-mono uppercase tracking-widest text-orange-400 print:text-orange-600 border-b border-orange-500/20 print:border-slate-200 pb-1 mb-2">
         Key Projects
       </h2>
       
@@ -166,20 +177,20 @@
         
         <div>
           <div class="flex justify-between items-baseline">
-            <span class="font-bold text-slate-900">Autonomous Ad Generation AI Agent</span>
-            <span class="text-xs font-mono text-slate-500">n8n, LLM APIs</span>
+            <span class="font-bold text-white print:text-black">Autonomous Ad Generation AI Agent</span>
+            <span class="text-xs font-mono text-slate-400 print:text-slate-500">n8n, LLM APIs</span>
           </div>
-          <p class="text-xs text-slate-700 mt-1">
+          <p class="text-xs text-slate-300 print:text-slate-700 mt-1">
             Built an automated agent in n8n that takes product briefs and generates high-converting marketing copy, headlines, and visual ideas for multi-channel social media campaigns.
           </p>
         </div>
 
         <div>
           <div class="flex justify-between items-baseline">
-            <span class="font-bold text-slate-900">Digital Marketing & Brand Growth Strategy</span>
-            <span class="text-xs font-mono text-slate-500">Social Strategy, Analytics</span>
+            <span class="font-bold text-white print:text-black">Digital Marketing & Brand Growth Strategy</span>
+            <span class="text-xs font-mono text-slate-400 print:text-slate-500">Social Strategy, Analytics</span>
           </div>
-          <p class="text-xs text-slate-700 mt-1">
+          <p class="text-xs text-slate-300 print:text-slate-700 mt-1">
             Planned and executed targeted social media campaigns for digital brand growth. Analyzed audience response data to improve ad creative performance and customer conversion rates.
           </p>
         </div>
@@ -189,26 +200,26 @@
 
     <!-- 6. Skills & Toolset -->
     <div>
-      <h2 class="text-xs font-bold font-mono uppercase tracking-widest text-cyan-700 border-b border-slate-200 pb-1 mb-2">
+      <h2 class="text-xs font-bold font-mono uppercase tracking-widest text-orange-400 print:text-orange-600 border-b border-orange-500/20 print:border-slate-200 pb-1 mb-2">
         Skills & Tools
       </h2>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
         <div>
-          <span class="font-bold text-slate-900">AI & Automation:</span>
-          <span class="text-slate-700"> n8n Automation Engine, AI Prompt Engineering, LLM Integration.</span>
+          <span class="font-bold text-white print:text-black">AI & Automation:</span>
+          <span class="text-slate-300 print:text-slate-700"> n8n Automation Engine, AI Prompt Engineering, LLM Integration.</span>
         </div>
         <div>
-          <span class="font-bold text-slate-900">Finance & Analytics:</span>
-          <span class="text-slate-700"> Microsoft Excel (Financial Modeling & Forecasting), Market Research.</span>
+          <span class="font-bold text-white print:text-black">Finance & Analytics:</span>
+          <span class="text-slate-300 print:text-slate-700"> Microsoft Excel (Financial Modeling & Forecasting), Market Research.</span>
         </div>
         <div>
-          <span class="font-bold text-slate-900">Marketing & Growth:</span>
-          <span class="text-slate-700"> Digital Marketing, Social Media Strategy, Copywriting, Funnel Optimization.</span>
+          <span class="font-bold text-white print:text-black">Marketing & Growth:</span>
+          <span class="text-slate-300 print:text-slate-700"> Digital Marketing, Social Media Strategy, Copywriting, Funnel Optimization.</span>
         </div>
         <div>
-          <span class="font-bold text-slate-900">Leadership:</span>
-          <span class="text-slate-700"> Public Speaking, Team Coordination, Event Management, Presentation Delivery.</span>
+          <span class="font-bold text-white print:text-black">Leadership:</span>
+          <span class="text-slate-300 print:text-slate-700"> Public Speaking, Team Coordination, Event Management, Presentation Delivery.</span>
         </div>
       </div>
     </div>

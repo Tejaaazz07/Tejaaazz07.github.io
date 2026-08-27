@@ -14,43 +14,55 @@
       theme: {
         extend: {
           colors: {
-            glass: {
-              surface: 'rgba(15, 23, 42, 0.65)',
-              card: 'rgba(30, 41, 59, 0.45)',
-              border: 'rgba(255, 255, 255, 0.12)',
-              glow: 'rgba(6, 182, 212, 0.15)',
+            black: {
+              950: '#030304',
+              900: '#070709',
+              850: '#0b0b0e',
+              800: '#101014',
+              750: '#16161b',
+              700: '#1c1c23',
             },
-            cyan: {
-              300: '#67e8f9',
-              400: '#22d3ee',
-              500: '#06b6d4',
+            ember: {
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316', // Vibrant Orange
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
             },
-            ocean: {
-              400: '#38bdf8',
-              500: '#0ea5e9',
+            amber: {
+              400: '#fbbf24',
+              500: '#f59e0b',
             }
           },
           fontFamily: {
-            sans: ['Outfit', 'Inter', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            display: ['Syne', 'Outfit', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace']
           },
           animation: {
-            'float-slow': 'float 8s ease-in-out infinite',
-            'float-reverse': 'float-rev 10s ease-in-out infinite',
-            'pulse-glow': 'pulse-glow 5s ease-in-out infinite alternate',
+            'float-glow': 'floatGlow 8s ease-in-out infinite',
+            'float-reverse': 'floatRev 10s ease-in-out infinite',
+            'pulse-ember': 'pulseEmber 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'slide-horizontal': 'slideH 20s linear infinite',
+            'shimmer-orange': 'shimmerOrange 2.5s linear infinite',
           },
           keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-              '50%': { transform: 'translateY(-20px) rotate(2deg)' },
+            floatGlow: {
+              '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+              '50%': { transform: 'translate(15px, -25px) scale(1.08)' }
             },
-            'float-rev': {
-              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-              '50%': { transform: 'translateY(25px) rotate(-3deg)' },
+            floatRev: {
+              '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+              '50%': { transform: 'translate(-20px, 20px) scale(0.95)' }
             },
-            'pulse-glow': {
-              '0%': { opacity: '0.4', transform: 'scale(0.95)' },
-              '100%': { opacity: '0.8', transform: 'scale(1.05)' },
+            pulseEmber: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.05)' }
+            },
+            shimmerOrange: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' }
             }
           }
         }
@@ -58,10 +70,10 @@
     }
   </script>
 
-  <!-- Google Fonts: Outfit & JetBrains Mono -->
+  <!-- Google Fonts: Plus Jakarta Sans, Syne, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -75,97 +87,122 @@
     }
 
     body {
-      font-family: 'Outfit', sans-serif;
-      background-color: #050814;
-      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #040405;
+      color: #f8fafc;
       overflow-x: hidden;
     }
 
-    /* Ambient Animated Glassmorphic Light Spheres */
-    .glass-orb {
+    h1, h2, h3, .font-display {
+      font-family: 'Syne', sans-serif;
+    }
+
+    /* Ambient Ember & Orange Backlight Spheres */
+    .ember-orb {
       position: fixed;
       border-radius: 50%;
-      filter: blur(90px);
+      filter: blur(100px);
       pointer-events: none;
       z-index: 0;
     }
 
-    .orb-1 {
+    .orb-ember-1 {
       top: -10%;
-      left: -5%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.28) 0%, rgba(14, 165, 233, 0.05) 70%, transparent 100%);
-      animation: float 12s ease-in-out infinite;
-    }
-
-    .orb-2 {
-      top: 35%;
-      right: -8%;
+      left: -8%;
       width: 550px;
       height: 550px;
-      background: radial-gradient(circle, rgba(147, 51, 234, 0.22) 0%, rgba(6, 182, 212, 0.08) 70%, transparent 100%);
-      animation: float-rev 14s ease-in-out infinite;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.22) 0%, rgba(234, 88, 12, 0.04) 70%, transparent 100%);
+      animation: floatGlow 12s ease-in-out infinite;
     }
 
-    .orb-3 {
-      bottom: -10%;
-      left: 20%;
+    .orb-ember-2 {
+      top: 40%;
+      right: -10%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, rgba(16, 185, 129, 0.08) 70%, transparent 100%);
-      animation: float 16s ease-in-out infinite;
+      background: radial-gradient(circle, rgba(251, 146, 60, 0.18) 0%, rgba(180, 83, 9, 0.05) 70%, transparent 100%);
+      animation: floatRev 15s ease-in-out infinite;
     }
 
-    /* Pure Frosted Glass Panel */
-    .glass-panel {
-      background: rgba(13, 20, 36, 0.55);
-      backdrop-filter: blur(28px) saturate(190%);
-      -webkit-backdrop-filter: blur(28px) saturate(190%);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+    .orb-ember-3 {
+      bottom: -10%;
+      left: 15%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(234, 88, 12, 0.20) 0%, rgba(245, 158, 11, 0.05) 70%, transparent 100%);
+      animation: floatGlow 18s ease-in-out infinite;
+    }
+
+    /* Dark Grid Background Pattern */
+    .dark-grid-bg {
+      background-image: 
+        radial-gradient(rgba(249, 115, 22, 0.08) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px, 64px 64px, 64px 64px;
+    }
+
+    /* Smoky Glass Panels with Orange Refraction */
+    .glass-card-orange {
+      background: rgba(11, 11, 14, 0.72);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(249, 115, 22, 0.16);
       box-shadow: 
-        inset 0 1px 1px 0 rgba(255, 255, 255, 0.18),
-        0 20px 40px -15px rgba(0, 0, 0, 0.7);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.12),
+        0 20px 40px -15px rgba(0, 0, 0, 0.8);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
     }
 
-    .glass-panel:hover {
-      background: rgba(18, 28, 52, 0.7);
-      border-color: rgba(34, 211, 238, 0.4);
+    .glass-card-orange:hover {
+      background: rgba(16, 16, 20, 0.85);
+      border-color: rgba(249, 115, 22, 0.45);
+      transform: translateY(-4px);
       box-shadow: 
-        inset 0 1px 2px 0 rgba(255, 255, 255, 0.3),
-        0 25px 50px -12px rgba(6, 182, 212, 0.2);
+        inset 0 1px 2px 0 rgba(251, 146, 60, 0.25),
+        0 25px 50px -12px rgba(249, 115, 22, 0.20);
     }
 
-    /* Glass Pill & Tag Styles */
-    .glass-pill {
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+    /* Pill Styles */
+    .pill-orange {
+      background: rgba(249, 115, 22, 0.12);
+      border: 1px solid rgba(249, 115, 22, 0.35);
+      color: #fdba74;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
     }
 
-    .glass-pill-cyan {
-      background: rgba(6, 182, 212, 0.12);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(34, 211, 238, 0.3);
-      color: #67e8f9;
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    .pill-dark {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
-    /* Gradient Text */
-    .gradient-cyan-text {
-      background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 45%, #06b6d4 100%);
+    /* Typography Gradients */
+    .gradient-orange-text {
+      background: linear-gradient(135deg, #ffffff 10%, #fed7aa 50%, #f97316 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    /* Subtle Grid Layer */
-    .glass-grid-bg {
-      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-      background-size: 36px 36px;
+    .gradient-gold-text {
+      background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Shimmer Button */
+    .btn-gradient-orange {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #f59e0b 100%);
+      transition: all 0.3s ease;
+    }
+
+    .btn-gradient-orange:hover {
+      box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.45);
+      transform: translateY(-2px);
     }
 
     /* Custom Scrollbar */
@@ -173,68 +210,71 @@
       width: 7px;
     }
     ::-webkit-scrollbar-track {
-      background: #050814;
+      background: #040405;
     }
     ::-webkit-scrollbar-thumb {
-      background: rgba(34, 211, 238, 0.25);
+      background: rgba(249, 115, 22, 0.3);
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #06b6d4;
+      background: #f97316;
     }
   </style>
 </head>
-<body class="glass-grid-bg relative min-h-screen selection:bg-cyan-500 selection:text-black">
+<body class="dark-grid-bg relative min-h-screen selection:bg-ember-500 selection:text-black">
 
-  <!-- Ambient Floating Colored Glass Orbs -->
-  <div class="glass-orb orb-1"></div>
-  <div class="glass-orb orb-2"></div>
-  <div class="glass-orb orb-3"></div>
+  <!-- Ambient Light Orbs -->
+  <div class="ember-orb orb-ember-1"></div>
+  <div class="ember-orb orb-ember-2"></div>
+  <div class="ember-orb orb-ember-3"></div>
 
-  <!-- FLOATING FROSTED GLASS HEADER NAVIGATION -->
-  <header class="fixed top-5 left-0 right-0 z-50 px-4 sm:px-6">
-    <div class="max-w-5xl mx-auto flex items-center justify-between glass-panel rounded-2xl px-5 py-3 shadow-2xl">
+  <!-- FLOATING NAVIGATION BAR (Slide Down from Top) -->
+  <header class="fixed top-5 left-0 right-0 z-50 px-4 sm:px-6" data-aos="fade-down" data-aos-duration="800">
+    <div class="max-w-5xl mx-auto flex items-center justify-between glass-card-orange rounded-2xl px-5 py-3 shadow-2xl">
       
-      <!-- Brand Identity -->
+      <!-- Brand Logo -->
       <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-ocean-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-cyan-500/30 group-hover:scale-105 transition-transform">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ember-500 to-amber-500 flex items-center justify-center text-black font-black font-display text-xl shadow-lg shadow-ember-500/30 group-hover:scale-105 transition-transform duration-300">
           T
         </div>
         <div class="text-left leading-tight">
-          <div class="font-bold text-base tracking-wide text-white group-hover:text-cyan-300 transition-colors">Tejas</div>
-          <div class="text-[11px] text-cyan-400 font-mono font-medium">B.Com • AI & Finance</div>
+          <div class="font-bold text-base tracking-wide text-white group-hover:text-ember-400 transition-colors">Tejas</div>
+          <div class="text-[11px] text-ember-400 font-mono font-medium flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-ember-400 animate-pulse"></span>
+            B.Com Student
+          </div>
         </div>
       </a>
 
-      <!-- Navigation Links -->
+      <!-- Desktop Links -->
       <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
-        <a href="#about" class="hover:text-cyan-300 transition-colors">About</a>
-        <a href="#projects" class="hover:text-cyan-300 transition-colors">Projects</a>
-        <a href="#protosem" class="hover:text-cyan-200 text-cyan-400 font-semibold flex items-center gap-1.5 glass-pill-cyan px-3.5 py-1 rounded-xl">
+        <a href="#about" class="hover:text-ember-400 transition-colors">About</a>
+        <a href="#projects" class="hover:text-ember-400 transition-colors">Projects</a>
+        <a href="#protosem" class="hover:text-amber-200 text-ember-400 font-semibold flex items-center gap-1.5 pill-orange px-3.5 py-1 rounded-xl shadow-sm">
           <i class="fa-solid fa-cube text-xs"></i>
           <span>ProtoSem 20W</span>
         </a>
-        <a href="#experience" class="hover:text-cyan-300 transition-colors">Leadership</a>
-        <a href="#skills" class="hover:text-cyan-300 transition-colors">Skills</a>
-        <a href="#contact" class="hover:text-cyan-300 transition-colors">Contact</a>
+        <a href="#experience" class="hover:text-ember-400 transition-colors">Leadership</a>
+        <a href="#skills" class="hover:text-ember-400 transition-colors">Skills</a>
+        <a href="#contact" class="hover:text-ember-400 transition-colors">Contact</a>
       </nav>
 
-      <!-- Right Action Utilities -->
+      <!-- Right Action Items -->
       <div class="flex items-center gap-2.5">
-        <a href="resume.html" class="flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold rounded-xl bg-gradient-to-r from-cyan-400 to-ocean-500 text-slate-950 hover:opacity-90 transition-all duration-300 shadow-md shadow-cyan-500/20">
+        <a href="resume.html" class="flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold rounded-xl btn-gradient-orange text-black transition-all duration-300 shadow-md shadow-ember-500/20">
           <i class="fa-regular fa-file-lines text-xs"></i>
           <span>Resume</span>
         </a>
 
-        <!-- Social Icons -->
+        <!-- Social Quick Connects -->
         <div class="hidden sm:flex items-center gap-1.5 pl-2 border-l border-white/10">
-          <a href="https://www.linkedin.com/in/tejas-s-k-333a78359" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg glass-pill hover:bg-[#0A66C2] text-slate-300 hover:text-white flex items-center justify-center transition-all" title="LinkedIn Profile">
+          <a href="https://www.linkedin.com/in/tejas-s-k-333a78359" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg pill-dark hover:bg-[#0A66C2] text-slate-300 hover:text-white flex items-center justify-center transition-all hover:scale-105" title="LinkedIn Profile">
             <i class="fa-brands fa-linkedin-in text-xs"></i>
           </a>
-          <a href="https://www.instagram.com/tejas.archives_?igsi=MXU5cmRuaTltYnoyNQ==" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg glass-pill hover:bg-pink-600 text-slate-300 hover:text-white flex items-center justify-center transition-all" title="Instagram Profile">
+          <a href="https://www.instagram.com/tejas.archives_?igsi=MXU5cmRuaTltYnoyNQ==" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg pill-dark hover:bg-pink-600 text-slate-300 hover:text-white flex items-center justify-center transition-all hover:scale-105" title="Instagram Profile">
             <i class="fa-brands fa-instagram text-xs"></i>
           </a>
-          <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg glass-pill hover:bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition-all" title="GitHub Profile">
+          <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg pill-dark hover:bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition-all hover:scale-105" title="GitHub Profile">
             <i class="fa-brands fa-github text-xs"></i>
           </a>
         </div>
@@ -243,44 +283,51 @@
     </div>
   </header>
 
-  <!-- MAIN CONTENT CONTAINER -->
+  <!-- MAIN CONTAINER -->
   <main class="max-w-5xl mx-auto px-4 sm:px-6 pt-32 pb-24 relative z-10 space-y-16">
 
-    <!-- HERO SECTION (Pure Frosted Glass Presentation) -->
-    <section id="hero" class="text-left" data-aos="fade-up" data-aos-duration="800">
-      <div class="glass-panel rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+    <!-- 1. HERO SECTION (Slide Up + Fade with Glowing Orange Accents) -->
+    <section id="hero" class="text-left" data-aos="fade-up" data-aos-duration="900">
+      <div class="glass-card-orange rounded-3xl p-8 sm:p-12 relative overflow-hidden">
         
+        <!-- Corner Backing Glow -->
+        <div class="absolute -right-24 -top-24 w-80 h-80 bg-ember-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-24 -bottom-24 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
         <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 relative z-10">
           
-          <!-- Avatar Card with Frosted Border -->
-          <div class="relative flex-shrink-0 group">
-            <div class="w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden glass-pill border border-cyan-400/40 p-1.5 shadow-2xl shadow-cyan-500/20">
-              <img src="profile.jpeg?v=5" 
+          <!-- Avatar Card with Sliding Zoom -->
+          <div class="relative flex-shrink-0 group" data-aos="zoom-in" data-aos-delay="200">
+            <div class="w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden pill-dark border border-ember-500/40 p-1.5 shadow-2xl shadow-ember-500/20">
+              <img src="profile.jpeg?v=7" 
                    alt="Tejas" 
-                   class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
-                   onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Tejas&background=06b6d4&color=050814&size=256&bold=true';">
+                   class="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105"
+                   onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Tejas&background=f97316&color=000000&size=256&bold=true';">
             </div>
-            <!-- Live Status Indicator -->
-            <div class="absolute -bottom-2 -right-2 glass-panel border border-cyan-400/50 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg">
-              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-              <span class="text-[11px] font-mono font-semibold text-cyan-300 uppercase tracking-wider">Active</span>
+            <!-- Live Badge -->
+            <div class="absolute -bottom-2.5 -right-2.5 glass-card-orange border border-ember-500/60 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg">
+              <span class="w-2.5 h-2.5 rounded-full bg-ember-500 animate-ping"></span>
+              <span class="text-[10px] font-mono font-bold text-ember-300 uppercase tracking-widest">Active</span>
             </div>
           </div>
 
-          <!-- Hero Narrative -->
-          <div class="flex-1 space-y-4 text-left">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill-cyan text-xs font-mono font-medium">
-              <i class="fa-solid fa-graduation-cap text-cyan-400"></i>
+          <!-- Hero Narrative (Slide Left) -->
+          <div class="flex-1 space-y-4 text-left" data-aos="fade-left" data-aos-delay="300">
+            
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full pill-orange text-xs font-mono font-medium">
+              <i class="fa-solid fa-graduation-cap text-ember-400"></i>
               <span>Kumaraguru College of Liberal Arts and Sciences</span>
             </div>
 
             <div>
               <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-none">
-                Hi, I'm <span class="gradient-cyan-text">Tejas</span>
+                Hi, I'm <span class="gradient-orange-text">Tejas</span>
               </h1>
-              <div class="text-base md:text-xl font-medium text-slate-300 mt-2 h-8 flex items-center justify-start gap-2">
-                <span class="text-slate-400 font-mono">></span>
-                <span id="typed-roles" class="text-cyan-400 font-semibold font-mono"></span>
+              
+              <!-- Dynamic Typed Text -->
+              <div class="text-base md:text-xl font-medium text-slate-300 mt-2.5 h-8 flex items-center justify-start gap-2">
+                <span class="text-ember-500 font-mono">></span>
+                <span id="typed-roles" class="text-ember-400 font-semibold font-mono"></span>
               </div>
             </div>
 
@@ -288,34 +335,34 @@
               Second-year B.Com student bridging corporate finance, structured financial modeling in Microsoft Excel, and autonomous AI agents in n8n. Innovation Engineer Trainee at PRICE ProtoSem, driving real-world retail technology solutions and leading student initiatives.
             </p>
 
-            <!-- Frosted Glass Status Chips -->
+            <!-- Frosted Status Chips -->
             <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs text-slate-300">
-              <span class="px-3.5 py-1.5 rounded-xl glass-pill flex items-center gap-1.5">
-                <i class="fa-solid fa-bolt text-cyan-400"></i> n8n AI Automation
+              <span class="px-3.5 py-1.5 rounded-xl pill-dark border border-white/10 flex items-center gap-1.5 hover:border-ember-500/40 transition-colors">
+                <i class="fa-solid fa-bolt text-ember-400"></i> n8n AI Automation
               </span>
-              <span class="px-3.5 py-1.5 rounded-xl glass-pill flex items-center gap-1.5">
-                <i class="fa-solid fa-file-excel text-emerald-400"></i> MS Excel Financial Modeling
+              <span class="px-3.5 py-1.5 rounded-xl pill-dark border border-white/10 flex items-center gap-1.5 hover:border-ember-500/40 transition-colors">
+                <i class="fa-solid fa-file-excel text-amber-400"></i> MS Excel Financial Modeling
               </span>
-              <span class="px-3.5 py-1.5 rounded-xl glass-pill flex items-center gap-1.5">
-                <i class="fa-solid fa-cube text-ocean-400"></i> ProtoSem Fellow
+              <span class="px-3.5 py-1.5 rounded-xl pill-dark border border-white/10 flex items-center gap-1.5 hover:border-ember-500/40 transition-colors">
+                <i class="fa-solid fa-cube text-ember-500"></i> ProtoSem Fellow
               </span>
-              <span class="px-3.5 py-1.5 rounded-xl glass-pill flex items-center gap-1.5">
-                <i class="fa-solid fa-users text-purple-400"></i> Rotaract Director
+              <span class="px-3.5 py-1.5 rounded-xl pill-dark border border-white/10 flex items-center gap-1.5 hover:border-ember-500/40 transition-colors">
+                <i class="fa-solid fa-users text-orange-300"></i> Rotaract Director
               </span>
             </div>
 
             <!-- Action Buttons -->
             <div class="flex flex-wrap items-center justify-start gap-3 pt-3">
-              <a href="#protosem" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-400 to-ocean-500 hover:from-cyan-300 hover:to-ocean-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-lg shadow-cyan-500/25 flex items-center gap-2">
+              <a href="#protosem" class="px-6 py-3 rounded-2xl btn-gradient-orange text-black font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-lg shadow-ember-500/20">
                 <i class="fa-solid fa-cube"></i>
                 <span>Explore ProtoSem 20W</span>
               </a>
-              <a href="resume.html" class="px-5 py-3 rounded-2xl glass-pill hover:bg-white/10 text-slate-200 border border-white/15 font-semibold text-xs transition-all flex items-center gap-2">
-                <i class="fa-solid fa-file-arrow-down text-cyan-400"></i>
+              <a href="resume.html" class="px-5 py-3 rounded-2xl pill-dark hover:bg-white/10 text-slate-200 border border-white/15 hover:border-ember-500/40 font-semibold text-xs transition-all flex items-center gap-2">
+                <i class="fa-solid fa-file-arrow-down text-ember-400"></i>
                 <span>View ATS Resume</span>
               </a>
-              <a href="#contact" class="px-5 py-3 rounded-2xl glass-pill hover:bg-white/10 text-slate-200 border border-white/15 font-semibold text-xs transition-all flex items-center gap-2">
-                <i class="fa-solid fa-paper-plane text-ocean-400"></i>
+              <a href="#contact" class="px-5 py-3 rounded-2xl pill-dark hover:bg-white/10 text-slate-200 border border-white/15 hover:border-ember-500/40 font-semibold text-xs transition-all flex items-center gap-2">
+                <i class="fa-solid fa-paper-plane text-amber-400"></i>
                 <span>Get In Touch</span>
               </a>
             </div>
@@ -327,46 +374,47 @@
       </div>
     </section>
 
-    <!-- ABOUT SUMMARY SECTION -->
-    <section id="about" class="text-left scroll-mt-24" data-aos="fade-up">
-      <div class="glass-panel rounded-3xl p-8 sm:p-10 space-y-6">
-        <div class="flex items-center justify-between">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill-cyan text-xs font-mono font-semibold">
+    <!-- 2. ABOUT SUMMARY (Slide In from Left) -->
+    <section id="about" class="text-left scroll-mt-24" data-aos="fade-right" data-aos-duration="800">
+      <div class="glass-card-orange rounded-3xl p-8 sm:p-10 space-y-6">
+        
+        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full pill-orange text-xs font-mono font-semibold">
             <i class="fa-solid fa-user"></i>
             <span>BACKGROUND & IDENTITY</span>
           </div>
           <span class="text-xs font-mono text-slate-400">Coimbatore, Tamil Nadu</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-1">
           <div class="md:col-span-2 space-y-4">
             <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Commerce Acumen Fused with Autonomous Intelligence</h2>
             <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
               Pursuing a Bachelor of Commerce (B.Com) at <strong class="text-white font-semibold">Kumaraguru College of Liberal Arts and Sciences</strong>, I focus on the strategic intersection of corporate financial analysis, investment planning, and next-generation workflow automation.
             </p>
             <p class="text-slate-300 text-sm leading-relaxed font-light">
-              Through hands-on engineering with <strong class="text-cyan-300 font-semibold">n8n automation</strong> and advanced prompt architectures, I construct autonomous agents that solve real business bottlenecks. Concurrently, my role as an <strong class="text-cyan-300 font-semibold">Innovation Engineer Trainee at PRICE ProtoSem</strong> allows me to translate industry problem statements into tangible, market-ready prototypes.
+              Through hands-on engineering with <strong class="text-ember-400 font-semibold">n8n automation</strong> and structured prompt architectures, I construct autonomous agents that solve real business bottlenecks. Concurrently, my role as an <strong class="text-ember-400 font-semibold">Innovation Engineer Trainee at PRICE ProtoSem</strong> allows me to translate industry problem statements into tangible, market-ready prototypes.
             </p>
           </div>
 
-          <div class="glass-pill rounded-2xl p-5 space-y-4 border border-white/10 flex flex-col justify-between">
+          <div class="pill-dark rounded-2xl p-5 space-y-4 border border-white/10 flex flex-col justify-between" data-aos="zoom-in" data-aos-delay="200">
             <div>
-              <div class="text-xs font-mono text-cyan-400 font-semibold uppercase tracking-wider mb-2">Key Highlights</div>
+              <div class="text-xs font-mono text-ember-400 font-bold uppercase tracking-wider mb-3">Key Highlights</div>
               <ul class="space-y-2.5 text-xs text-slate-300 font-light">
                 <li class="flex items-start gap-2">
-                  <i class="fa-solid fa-circle-check text-cyan-400 mt-0.5"></i>
+                  <i class="fa-solid fa-circle-check text-ember-400 mt-0.5"></i>
                   <span>2nd-Year Commerce Student (Expected 2027)</span>
                 </li>
                 <li class="flex items-start gap-2">
-                  <i class="fa-solid fa-circle-check text-cyan-400 mt-0.5"></i>
+                  <i class="fa-solid fa-circle-check text-ember-400 mt-0.5"></i>
                   <span>PRICE ProtoSem Innovation Trainee</span>
                 </li>
                 <li class="flex items-start gap-2">
-                  <i class="fa-solid fa-circle-check text-cyan-400 mt-0.5"></i>
+                  <i class="fa-solid fa-circle-check text-ember-400 mt-0.5"></i>
                   <span>Club Service Director at Rotaract</span>
                 </li>
                 <li class="flex items-start gap-2">
-                  <i class="fa-solid fa-circle-check text-cyan-400 mt-0.5"></i>
+                  <i class="fa-solid fa-circle-check text-ember-400 mt-0.5"></i>
                   <span>Autonomous AI Agent Developer (n8n)</span>
                 </li>
               </ul>
@@ -377,30 +425,32 @@
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- PROJECTS & AI SYSTEMS SECTION (Clean Glass Cards Layout) -->
-    <section id="projects" class="text-left scroll-mt-24 space-y-6" data-aos="fade-up">
-      <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill-cyan text-xs font-mono font-semibold mb-2">
+    <!-- 3. FEATURED PROJECTS (Slide In from Left & Right) -->
+    <section id="projects" class="text-left scroll-mt-24 space-y-6">
+      
+      <div data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full pill-orange text-xs font-mono font-semibold mb-2">
           <i class="fa-solid fa-laptop-code"></i>
           <span>FEATURED PROJECTS & SYSTEMS</span>
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">AI Automation, Growth & Engineering</h2>
-        <p class="text-slate-400 text-sm max-w-xl mt-1">Practical systems developed to automate business operations and drive engagement.</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">AI Automation, Growth & Systems</h2>
+        <p class="text-slate-400 text-sm max-w-xl mt-1 font-light">Practical systems developed to automate business operations and scale engagement.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <!-- PROJECT 1: Autonomous Ad Generation AI Agent -->
-        <div class="glass-panel rounded-3xl p-7 flex flex-col justify-between space-y-6 relative overflow-hidden">
+        <!-- PROJECT 1: Autonomous Ad Generation AI Agent (Slide Left) -->
+        <div class="glass-card-orange rounded-3xl p-7 flex flex-col justify-between space-y-6" data-aos="fade-right" data-aos-duration="800">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl glass-pill-cyan flex items-center justify-center text-cyan-400 text-xl">
+              <div class="w-12 h-12 rounded-2xl pill-orange flex items-center justify-center text-ember-400 text-xl">
                 <i class="fa-solid fa-robot"></i>
               </div>
-              <span class="px-3 py-1 rounded-full text-xs font-mono glass-pill-cyan font-semibold">AI Automation</span>
+              <span class="px-3 py-1 rounded-full text-xs font-mono pill-orange font-semibold">AI Automation</span>
             </div>
 
             <div>
@@ -411,35 +461,35 @@
             </div>
 
             <!-- Interactive Live Simulator -->
-            <div class="glass-pill rounded-2xl p-4 space-y-2 border border-white/10 font-mono text-xs">
+            <div class="pill-dark rounded-2xl p-4 space-y-2 border border-white/10 font-mono text-xs">
               <div class="flex items-center justify-between text-slate-400 pb-2 border-b border-white/10">
-                <span class="flex items-center gap-1.5 text-cyan-400 font-semibold"><i class="fa-solid fa-bolt"></i> n8n Pipeline Core</span>
-                <button onclick="simulateAdGeneration()" class="px-3 py-1 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-[10px] uppercase tracking-wider transition-colors">
+                <span class="flex items-center gap-1.5 text-ember-400 font-semibold"><i class="fa-solid fa-bolt"></i> n8n Pipeline Core</span>
+                <button onclick="simulateAdGeneration()" class="px-3 py-1 rounded-lg btn-gradient-orange text-black font-bold text-[10px] uppercase tracking-wider transition-colors">
                   Run Agent
                 </button>
               </div>
               <div id="ad-simulation-output" class="text-slate-300 text-[11px] leading-relaxed pt-1 font-light">
-                <span class="text-cyan-300">> System Ready:</span> Click "Run Agent" to simulate the n8n prompt generation pipeline.
+                <span class="text-ember-400">> System Ready:</span> Click "Run Agent" to simulate the n8n prompt generation pipeline.
               </div>
             </div>
           </div>
 
           <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 font-mono text-xs text-slate-300">
-            <span class="px-2.5 py-1 rounded-lg glass-pill">n8n Engine</span>
-            <span class="px-2.5 py-1 rounded-lg glass-pill">AI Prompt Engineering</span>
-            <span class="px-2.5 py-1 rounded-lg glass-pill">LLM Orchestration</span>
-            <span class="px-2.5 py-1 rounded-lg glass-pill">JSON Workflows</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">n8n Engine</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">AI Prompt Engineering</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">LLM Orchestration</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">JSON Workflows</span>
           </div>
         </div>
 
-        <!-- PROJECT 2: Digital Marketing & Social Media Campaign Strategy -->
-        <div class="glass-panel rounded-3xl p-7 flex flex-col justify-between space-y-6 relative overflow-hidden">
+        <!-- PROJECT 2: Digital Marketing & Social Media Campaign Strategy (Slide Right) -->
+        <div class="glass-card-orange rounded-3xl p-7 flex flex-col justify-between space-y-6" data-aos="fade-left" data-aos-duration="800">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl glass-pill-cyan flex items-center justify-center text-cyan-400 text-xl">
+              <div class="w-12 h-12 rounded-2xl pill-orange flex items-center justify-center text-ember-400 text-xl">
                 <i class="fa-solid fa-bullhorn"></i>
               </div>
-              <span class="px-3 py-1 rounded-full text-xs font-mono glass-pill-cyan font-semibold">Marketing & Growth</span>
+              <span class="px-3 py-1 rounded-full text-xs font-mono pill-orange font-semibold">Marketing & Growth</span>
             </div>
 
             <div>
@@ -449,41 +499,42 @@
               </p>
             </div>
 
-            <div class="glass-pill rounded-2xl p-4 space-y-2 text-xs text-slate-300 border border-white/10 font-light">
+            <div class="pill-dark rounded-2xl p-4 space-y-2 text-xs text-slate-300 border border-white/10 font-light">
               <div class="flex items-center gap-2">
-                <i class="fa-solid fa-circle-check text-cyan-400"></i>
+                <i class="fa-solid fa-circle-check text-ember-400"></i>
                 <span>Data-backed content scheduling & organic outreach</span>
               </div>
               <div class="flex items-center gap-2">
-                <i class="fa-solid fa-circle-check text-cyan-400"></i>
+                <i class="fa-solid fa-circle-check text-ember-400"></i>
                 <span>Customer journey mapping & conversion funnel optimization</span>
               </div>
               <div class="flex items-center gap-2">
-                <i class="fa-solid fa-circle-check text-cyan-400"></i>
+                <i class="fa-solid fa-circle-check text-ember-400"></i>
                 <span>AI-assisted copywriting for viral ad concepts</span>
               </div>
             </div>
           </div>
 
           <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 font-mono text-xs text-slate-300">
-            <span class="px-2.5 py-1 rounded-lg glass-pill">Digital Marketing</span>
-            <span class="px-2.5 py-1 rounded-lg glass-pill">E-Commerce Strategy</span>
-            <span class="px-2.5 py-1 rounded-lg glass-pill">Audience Analytics</span>
-            <span class="px-2.5 py-1 rounded-lg glass-pill">Conversion Funnels</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">Digital Marketing</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">E-Commerce Strategy</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">Audience Analytics</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">Conversion Funnels</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- DEDICATED PROTOSEM SECTION (Pure Glassmorphic Styling) -->
-    <section id="protosem" class="text-left scroll-mt-24" data-aos="fade-up">
-      <div class="glass-panel rounded-3xl p-8 sm:p-12 relative overflow-hidden space-y-8">
+    <!-- 4. PROTOSEM SECTION (Slide Up with 20 Dynamic Cards) -->
+    <section id="protosem" class="text-left scroll-mt-24" data-aos="fade-up" data-aos-duration="900">
+      <div class="glass-card-orange rounded-3xl p-8 sm:p-12 relative overflow-hidden space-y-8">
         
         <!-- Header Info Area -->
         <div class="space-y-4 max-w-4xl">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill-cyan text-xs font-mono font-semibold">
-            <i class="fa-solid fa-cube text-cyan-400"></i>
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full pill-orange text-xs font-mono font-semibold">
+            <i class="fa-solid fa-cube text-ember-400"></i>
             <span>PRICE PROTOSEM INNOVATION PROGRAMME</span>
           </div>
 
@@ -491,7 +542,7 @@
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
               PRICE ProtoSem
             </h2>
-            <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-sm md:text-base font-semibold text-cyan-400 mt-2 font-mono">
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-sm md:text-base font-semibold text-ember-400 mt-2 font-mono">
               <span>Role: Innovation Engineer Trainee</span>
               <span class="text-slate-600 hidden sm:inline">•</span>
               <span class="text-slate-300 font-sans font-normal">20-Week Industry-Integrated Innovation Programme</span>
@@ -502,41 +553,41 @@
             Selected for a 20-week industry-integrated innovation programme focused on solving realworld retail and commerce challenges through AI, analytics, intelligent systems, IoT, prototyping, and entrepreneurship. Working with industry problem statements to explore, develop, and validate practical technology solutions beyond conventional classroom learning.
           </p>
 
-          <!-- 5 Programme Disciplines & Focus Areas -->
+          <!-- 5 Programme Disciplines & Focus Areas (Animated Stagger) -->
           <div class="pt-3">
             <div class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-3">Programme Disciplines & Focus Areas</div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               
-              <div class="flex items-center gap-3 p-3 rounded-2xl glass-pill hover:border-cyan-400/40 transition-all">
-                <div class="w-9 h-9 rounded-xl glass-pill-cyan flex items-center justify-center text-cyan-400 text-sm">
+              <div class="flex items-center gap-3 p-3 rounded-2xl pill-dark hover:border-ember-500/40 transition-all hover:scale-[1.02]">
+                <div class="w-9 h-9 rounded-xl pill-orange flex items-center justify-center text-ember-400 text-sm">
                   <i class="fa-solid fa-store"></i>
                 </div>
                 <span class="text-xs font-semibold text-slate-200">Phygital Retail & Intelligent Commerce</span>
               </div>
 
-              <div class="flex items-center gap-3 p-3 rounded-2xl glass-pill hover:border-cyan-400/40 transition-all">
-                <div class="w-9 h-9 rounded-xl glass-pill-cyan flex items-center justify-center text-cyan-400 text-sm">
+              <div class="flex items-center gap-3 p-3 rounded-2xl pill-dark hover:border-ember-500/40 transition-all hover:scale-[1.02]">
+                <div class="w-9 h-9 rounded-xl pill-orange flex items-center justify-center text-ember-400 text-sm">
                   <i class="fa-solid fa-brain"></i>
                 </div>
                 <span class="text-xs font-semibold text-slate-200">AI & Analytics</span>
               </div>
 
-              <div class="flex items-center gap-3 p-3 rounded-2xl glass-pill hover:border-cyan-400/40 transition-all">
-                <div class="w-9 h-9 rounded-xl glass-pill-cyan flex items-center justify-center text-cyan-400 text-sm">
+              <div class="flex items-center gap-3 p-3 rounded-2xl pill-dark hover:border-ember-500/40 transition-all hover:scale-[1.02]">
+                <div class="w-9 h-9 rounded-xl pill-orange flex items-center justify-center text-ember-400 text-sm">
                   <i class="fa-solid fa-network-wired"></i>
                 </div>
                 <span class="text-xs font-semibold text-slate-200">Intelligent Systems & IoT</span>
               </div>
 
-              <div class="flex items-center gap-3 p-3 rounded-2xl glass-pill hover:border-cyan-400/40 transition-all">
-                <div class="w-9 h-9 rounded-xl glass-pill-cyan flex items-center justify-center text-cyan-400 text-sm">
+              <div class="flex items-center gap-3 p-3 rounded-2xl pill-dark hover:border-ember-500/40 transition-all hover:scale-[1.02]">
+                <div class="w-9 h-9 rounded-xl pill-orange flex items-center justify-center text-ember-400 text-sm">
                   <i class="fa-solid fa-screwdriver-wrench"></i>
                 </div>
                 <span class="text-xs font-semibold text-slate-200">Prototyping</span>
               </div>
 
-              <div class="flex items-center gap-3 p-3 rounded-2xl glass-pill hover:border-cyan-400/40 transition-all">
-                <div class="w-9 h-9 rounded-xl glass-pill-cyan flex items-center justify-center text-cyan-400 text-sm">
+              <div class="flex items-center gap-3 p-3 rounded-2xl pill-dark hover:border-ember-500/40 transition-all hover:scale-[1.02]">
+                <div class="w-9 h-9 rounded-xl pill-orange flex items-center justify-center text-ember-400 text-sm">
                   <i class="fa-solid fa-rocket"></i>
                 </div>
                 <span class="text-xs font-semibold text-slate-200">Entrepreneurship</span>
@@ -552,48 +603,48 @@
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h3 class="text-xl font-bold text-white flex items-center gap-2.5">
-                <i class="fa-solid fa-timeline text-cyan-400"></i>
+                <i class="fa-solid fa-timeline text-ember-400"></i>
                 <span>The 20-Week Innovation Journey</span>
               </h3>
               <p class="text-xs text-slate-400 mt-1 font-mono">Structured chronological archive across 4 major programme phases.</p>
             </div>
 
-            <!-- Visual Progress Milestone Rail -->
-            <div class="hidden lg:flex items-center gap-2 glass-pill px-4 py-2 rounded-2xl font-mono text-xs text-slate-300">
-              <span class="text-cyan-400 font-bold">W01</span>
-              <span class="text-cyan-500/50">━━━━</span>
+            <!-- Milestone Progress Indicator -->
+            <div class="hidden lg:flex items-center gap-2 pill-dark px-4 py-2 rounded-2xl font-mono text-xs text-slate-300">
+              <span class="text-ember-400 font-bold">W01</span>
+              <span class="text-ember-500/50">━━━━</span>
               <span class="text-slate-300 font-bold">W05</span>
-              <span class="text-cyan-500/50">━━━━</span>
+              <span class="text-ember-500/50">━━━━</span>
               <span class="text-slate-300 font-bold">W10</span>
-              <span class="text-cyan-500/50">━━━━</span>
+              <span class="text-ember-500/50">━━━━</span>
               <span class="text-slate-300 font-bold">W15</span>
-              <span class="text-cyan-500/50">━━━━</span>
-              <span class="text-cyan-300 font-bold">W20</span>
+              <span class="text-ember-500/50">━━━━</span>
+              <span class="text-amber-400 font-bold">W20</span>
             </div>
           </div>
 
           <!-- Phase Navigation Tabs -->
           <div class="flex flex-wrap items-center gap-2" id="protosem-phase-tabs">
-            <button onclick="filterProtoSemPhase('all')" data-phase="all" class="phase-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all bg-gradient-to-r from-cyan-400 to-ocean-500 text-slate-950 shadow-md shadow-cyan-500/20">
+            <button onclick="filterProtoSemPhase('all')" data-phase="all" class="phase-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all btn-gradient-orange text-black shadow-md shadow-ember-500/20">
               All 20 Weeks
             </button>
-            <button onclick="filterProtoSemPhase(1)" data-phase="1" class="phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all glass-pill text-slate-300 hover:border-cyan-400/40">
+            <button onclick="filterProtoSemPhase(1)" data-phase="1" class="phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all pill-dark text-slate-300 hover:border-ember-500/40">
               Phase 01 <span class="text-slate-500 font-normal">(W01–05)</span>
             </button>
-            <button onclick="filterProtoSemPhase(2)" data-phase="2" class="phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all glass-pill text-slate-300 hover:border-cyan-400/40">
+            <button onclick="filterProtoSemPhase(2)" data-phase="2" class="phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all pill-dark text-slate-300 hover:border-ember-500/40">
               Phase 02 <span class="text-slate-500 font-normal">(W06–10)</span>
             </button>
-            <button onclick="filterProtoSemPhase(3)" data-phase="3" class="phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all glass-pill text-slate-300 hover:border-cyan-400/40">
+            <button onclick="filterProtoSemPhase(3)" data-phase="3" class="phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all pill-dark text-slate-300 hover:border-ember-500/40">
               Phase 03 <span class="text-slate-500 font-normal">(W11–15)</span>
             </button>
-            <button onclick="filterProtoSemPhase(4)" data-phase="4" class="phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all glass-pill text-slate-300 hover:border-cyan-400/40">
+            <button onclick="filterProtoSemPhase(4)" data-phase="4" class="phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all pill-dark text-slate-300 hover:border-ember-500/40">
               Phase 04 <span class="text-slate-500 font-normal">(W16–20)</span>
             </button>
           </div>
 
           <!-- 20-Week Cards Grid -->
           <div id="protosem-weeks-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3.5">
-            <!-- Dynamically populated by JS -->
+            <!-- Dynamically rendered -->
           </div>
 
         </div>
@@ -601,10 +652,10 @@
       </div>
     </section>
 
-    <!-- EXPERIENCE & LEADERSHIP (Frosted Timeline Cards) -->
+    <!-- 5. EXPERIENCE & LEADERSHIP (Slide In from Left) -->
     <section id="experience" class="text-left scroll-mt-24 space-y-6" data-aos="fade-up">
       <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill-cyan text-xs font-mono font-semibold mb-2">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full pill-orange text-xs font-mono font-semibold mb-2">
           <i class="fa-solid fa-briefcase"></i>
           <span>EXPERIENCE & LEADERSHIP</span>
         </div>
@@ -613,17 +664,17 @@
 
       <div class="space-y-4">
         
-        <!-- EXPERIENCE 1: ProtoSem -->
-        <div class="glass-panel rounded-3xl p-7 space-y-4">
+        <!-- ProtoSem Card -->
+        <div class="glass-card-orange rounded-3xl p-7 space-y-4" data-aos="fade-right" data-aos-duration="700">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4">
             <div>
               <h3 class="text-xl font-bold text-white flex items-center gap-2">
                 <span>PRICE ProtoSem</span>
-                <span class="text-xs px-2.5 py-0.5 rounded-full glass-pill-cyan font-mono font-medium">Fellowship</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full pill-orange font-mono font-medium">Fellowship</span>
               </h3>
-              <p class="text-sm text-cyan-400 font-medium mt-0.5">Innovation Engineer Trainee • Forge Innovations & RAI</p>
+              <p class="text-sm text-ember-400 font-medium mt-0.5">Innovation Engineer Trainee • Forge Innovations & RAI</p>
             </div>
-            <span class="text-xs font-mono text-slate-400 glass-pill px-3 py-1 rounded-lg self-start sm:self-auto">2025 – Present</span>
+            <span class="text-xs font-mono text-slate-400 pill-dark px-3 py-1 rounded-lg self-start sm:self-auto">2025 – Present</span>
           </div>
 
           <p class="text-slate-300 text-sm leading-relaxed font-light">
@@ -631,24 +682,24 @@
           </p>
 
           <div class="flex flex-wrap gap-2 pt-2 font-mono text-xs text-slate-300">
-            <span class="px-2.5 py-1 rounded-lg glass-pill">Phygital Retail</span>
-            <span class="px-2.5 py-1 rounded-lg glass-pill">AI & Analytics</span>
-            <span class="px-2.5 py-1 rounded-lg glass-pill">Intelligent Systems</span>
-            <span class="px-2.5 py-1 rounded-lg glass-pill">Rapid Prototyping</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">Phygital Retail</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">AI & Analytics</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">Intelligent Systems</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">Rapid Prototyping</span>
           </div>
         </div>
 
-        <!-- EXPERIENCE 2: Rotaract Leadership -->
-        <div class="glass-panel rounded-3xl p-7 space-y-4">
+        <!-- Rotaract Club Card -->
+        <div class="glass-card-orange rounded-3xl p-7 space-y-4" data-aos="fade-left" data-aos-duration="700">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4">
             <div>
               <h3 class="text-xl font-bold text-white flex items-center gap-2">
                 <span>Rotaract Club of Kumaraguru Institutions</span>
-                <span class="text-xs px-2.5 py-0.5 rounded-full glass-pill-cyan font-mono font-medium">Leadership</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full pill-orange font-mono font-medium">Leadership</span>
               </h3>
-              <p class="text-sm text-cyan-400 font-medium mt-0.5">Club Service Director</p>
+              <p class="text-sm text-ember-400 font-medium mt-0.5">Club Service Director</p>
             </div>
-            <span class="text-xs font-mono text-slate-400 glass-pill px-3 py-1 rounded-lg self-start sm:self-auto">2024 – Present</span>
+            <span class="text-xs font-mono text-slate-400 pill-dark px-3 py-1 rounded-lg self-start sm:self-auto">2024 – Present</span>
           </div>
 
           <p class="text-slate-300 text-sm leading-relaxed font-light">
@@ -656,20 +707,20 @@
           </p>
 
           <div class="flex flex-wrap gap-2 pt-2 font-mono text-xs text-slate-300">
-            <span class="px-2.5 py-1 rounded-lg glass-pill">Public Speaking</span>
-            <span class="px-2.5 py-1 rounded-lg glass-pill">Team Leadership</span>
-            <span class="px-2.5 py-1 rounded-lg glass-pill">Executive Presentations</span>
-            <span class="px-2.5 py-1 rounded-lg glass-pill">Event Coordination</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">Public Speaking</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">Team Leadership</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">Executive Presentations</span>
+            <span class="px-2.5 py-1 rounded-lg pill-dark">Event Coordination</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- SKILLS & COMPETENCIES (Categorized Glass Panels - Zero Power BI) -->
+    <!-- 6. SKILLS & COMPETENCIES (Slide In Cards - Zero Power BI) -->
     <section id="skills" class="text-left scroll-mt-24 space-y-6" data-aos="fade-up">
       <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill-cyan text-xs font-mono font-semibold mb-2">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full pill-orange text-xs font-mono font-semibold mb-2">
           <i class="fa-solid fa-layer-group"></i>
           <span>CORE COMPETENCIES & TOOLS</span>
         </div>
@@ -679,89 +730,89 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
         <!-- CATEGORY 1: AI & Automation -->
-        <div class="glass-panel rounded-3xl p-6 space-y-3">
-          <div class="flex items-center gap-2.5 text-cyan-400 font-bold text-base border-b border-white/10 pb-3">
+        <div class="glass-card-orange rounded-3xl p-6 space-y-3" data-aos="zoom-in-right">
+          <div class="flex items-center gap-2.5 text-ember-400 font-bold text-base border-b border-white/10 pb-3">
             <i class="fa-solid fa-microchip"></i>
             <span>AI & Workflow Automation</span>
           </div>
           <div class="space-y-2 text-xs font-mono text-slate-300">
-            <div class="p-2.5 rounded-xl glass-pill flex items-center justify-between">
+            <div class="p-2.5 rounded-xl pill-dark flex items-center justify-between">
               <span>n8n Workflow Automation Engine</span>
-              <span class="text-cyan-400 font-bold">Advanced</span>
+              <span class="text-ember-400 font-bold">Advanced</span>
             </div>
-            <div class="p-2.5 rounded-xl glass-pill flex items-center justify-between">
+            <div class="p-2.5 rounded-xl pill-dark flex items-center justify-between">
               <span>AI Prompt Engineering & LLM APIs</span>
-              <span class="text-cyan-400 font-bold">Advanced</span>
+              <span class="text-ember-400 font-bold">Advanced</span>
             </div>
-            <div class="p-2.5 rounded-xl glass-pill flex items-center justify-between">
+            <div class="p-2.5 rounded-xl pill-dark flex items-center justify-between">
               <span>Autonomous Agent Pipelines & Webhooks</span>
-              <span class="text-cyan-400 font-bold">Proficient</span>
+              <span class="text-ember-400 font-bold">Proficient</span>
             </div>
           </div>
         </div>
 
         <!-- CATEGORY 2: Financial & Spreadsheet Analytics -->
-        <div class="glass-panel rounded-3xl p-6 space-y-3">
-          <div class="flex items-center gap-2.5 text-emerald-400 font-bold text-base border-b border-white/10 pb-3">
+        <div class="glass-card-orange rounded-3xl p-6 space-y-3" data-aos="zoom-in-left">
+          <div class="flex items-center gap-2.5 text-amber-400 font-bold text-base border-b border-white/10 pb-3">
             <i class="fa-solid fa-file-excel"></i>
             <span>Financial Modeling & Analysis</span>
           </div>
           <div class="space-y-2 text-xs font-mono text-slate-300">
-            <div class="p-2.5 rounded-xl glass-pill flex items-center justify-between">
+            <div class="p-2.5 rounded-xl pill-dark flex items-center justify-between">
               <span>Microsoft Excel Financial Modeling</span>
-              <span class="text-emerald-400 font-bold">Advanced</span>
+              <span class="text-amber-400 font-bold">Advanced</span>
             </div>
-            <div class="p-2.5 rounded-xl glass-pill flex items-center justify-between">
+            <div class="p-2.5 rounded-xl pill-dark flex items-center justify-between">
               <span>Stock Market & Company Valuation</span>
-              <span class="text-emerald-400 font-bold">Proficient</span>
+              <span class="text-amber-400 font-bold">Proficient</span>
             </div>
-            <div class="p-2.5 rounded-xl glass-pill flex items-center justify-between">
+            <div class="p-2.5 rounded-xl pill-dark flex items-center justify-between">
               <span>Investment Planning & Capital Budgeting</span>
-              <span class="text-emerald-400 font-bold">Proficient</span>
+              <span class="text-amber-400 font-bold">Proficient</span>
             </div>
           </div>
         </div>
 
         <!-- CATEGORY 3: Digital Marketing & Growth -->
-        <div class="glass-panel rounded-3xl p-6 space-y-3">
-          <div class="flex items-center gap-2.5 text-ocean-400 font-bold text-base border-b border-white/10 pb-3">
+        <div class="glass-card-orange rounded-3xl p-6 space-y-3" data-aos="zoom-in-right">
+          <div class="flex items-center gap-2.5 text-orange-400 font-bold text-base border-b border-white/10 pb-3">
             <i class="fa-solid fa-bullhorn"></i>
             <span>Digital Marketing & Growth</span>
           </div>
           <div class="space-y-2 text-xs font-mono text-slate-300">
-            <div class="p-2.5 rounded-xl glass-pill flex items-center justify-between">
+            <div class="p-2.5 rounded-xl pill-dark flex items-center justify-between">
               <span>Social Media Campaign Strategy</span>
-              <span class="text-ocean-400 font-bold">Advanced</span>
+              <span class="text-orange-400 font-bold">Advanced</span>
             </div>
-            <div class="p-2.5 rounded-xl glass-pill flex items-center justify-between">
+            <div class="p-2.5 rounded-xl pill-dark flex items-center justify-between">
               <span>E-Commerce Audience Analytics</span>
-              <span class="text-ocean-400 font-bold">Proficient</span>
+              <span class="text-orange-400 font-bold">Proficient</span>
             </div>
-            <div class="p-2.5 rounded-xl glass-pill flex items-center justify-between">
+            <div class="p-2.5 rounded-xl pill-dark flex items-center justify-between">
               <span>Conversion Funnels & Ad Copywriting</span>
-              <span class="text-ocean-400 font-bold">Advanced</span>
+              <span class="text-orange-400 font-bold">Advanced</span>
             </div>
           </div>
         </div>
 
         <!-- CATEGORY 4: Leadership & Soft Skills -->
-        <div class="glass-panel rounded-3xl p-6 space-y-3">
-          <div class="flex items-center gap-2.5 text-purple-400 font-bold text-base border-b border-white/10 pb-3">
+        <div class="glass-card-orange rounded-3xl p-6 space-y-3" data-aos="zoom-in-left">
+          <div class="flex items-center gap-2.5 text-amber-300 font-bold text-base border-b border-white/10 pb-3">
             <i class="fa-solid fa-users"></i>
             <span>Leadership & Communication</span>
           </div>
           <div class="space-y-2 text-xs font-mono text-slate-300">
-            <div class="p-2.5 rounded-xl glass-pill flex items-center justify-between">
+            <div class="p-2.5 rounded-xl pill-dark flex items-center justify-between">
               <span>Public Speaking & Keynote Delivery</span>
-              <span class="text-purple-400 font-bold">Mastery</span>
+              <span class="text-amber-300 font-bold">Mastery</span>
             </div>
-            <div class="p-2.5 rounded-xl glass-pill flex items-center justify-between">
+            <div class="p-2.5 rounded-xl pill-dark flex items-center justify-between">
               <span>Team Building & Committee Direction</span>
-              <span class="text-purple-400 font-bold">Advanced</span>
+              <span class="text-amber-300 font-bold">Advanced</span>
             </div>
-            <div class="p-2.5 rounded-xl glass-pill flex items-center justify-between">
+            <div class="p-2.5 rounded-xl pill-dark flex items-center justify-between">
               <span>Strategic Negotiation & Coordination</span>
-              <span class="text-purple-400 font-bold">Advanced</span>
+              <span class="text-amber-300 font-bold">Advanced</span>
             </div>
           </div>
         </div>
@@ -769,34 +820,34 @@
       </div>
     </section>
 
-    <!-- CONTACT & ATS RESUME CTA (Frosted Glass Container) -->
+    <!-- 7. CONTACT & ATS RESUME CTA (Slide Up Container) -->
     <section id="contact" class="text-left scroll-mt-24" data-aos="fade-up">
-      <div class="glass-panel rounded-3xl p-8 sm:p-12 relative overflow-hidden space-y-6">
+      <div class="glass-card-orange rounded-3xl p-8 sm:p-12 relative overflow-hidden space-y-6">
         
         <div class="max-w-2xl space-y-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill-cyan text-xs font-mono font-semibold">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full pill-orange text-xs font-mono font-semibold">
             <i class="fa-solid fa-paper-plane"></i>
             <span>LET'S CONNECT</span>
           </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Let's Build Something Impactful</h2>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Let's Build Something High-Impact</h2>
           <p class="text-slate-300 text-sm md:text-base leading-relaxed font-light">
             Available for autonomous AI agent development, financial modeling, marketing growth collaborations, and public speaking opportunities.
           </p>
 
           <div class="flex flex-wrap items-center gap-3 pt-2">
-            <a href="https://www.linkedin.com/in/tejas-s-k-333a78359" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl glass-pill hover:bg-[#0A66C2] text-white font-semibold text-xs transition-all flex items-center gap-2.5 shadow-lg">
-              <i class="fa-brands fa-linkedin-in text-cyan-400 text-sm"></i>
+            <a href="https://www.linkedin.com/in/tejas-s-k-333a78359" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl pill-dark hover:bg-[#0A66C2] text-white font-semibold text-xs transition-all flex items-center gap-2.5 shadow-lg hover:scale-105">
+              <i class="fa-brands fa-linkedin-in text-ember-400 text-sm"></i>
               <span>LinkedIn</span>
             </a>
-            <a href="https://www.instagram.com/tejas.archives_?igsi=MXU5cmRuaTltYnoyNQ==" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl glass-pill hover:bg-pink-600 text-white font-semibold text-xs transition-all flex items-center gap-2.5 shadow-lg">
+            <a href="https://www.instagram.com/tejas.archives_?igsi=MXU5cmRuaTltYnoyNQ==" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl pill-dark hover:bg-pink-600 text-white font-semibold text-xs transition-all flex items-center gap-2.5 shadow-lg hover:scale-105">
               <i class="fa-brands fa-instagram text-pink-400 text-sm"></i>
               <span>Instagram</span>
             </a>
-            <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl glass-pill hover:bg-slate-800 text-white font-semibold text-xs transition-all flex items-center gap-2.5 shadow-lg">
+            <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl pill-dark hover:bg-slate-800 text-white font-semibold text-xs transition-all flex items-center gap-2.5 shadow-lg hover:scale-105">
               <i class="fa-brands fa-github text-slate-300 text-sm"></i>
               <span>GitHub</span>
             </a>
-            <a href="resume.html" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-400 to-ocean-500 hover:from-cyan-300 hover:to-ocean-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-cyan-500/25 flex items-center gap-2">
+            <a href="resume.html" class="px-6 py-3 rounded-2xl btn-gradient-orange text-black font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-ember-500/20 flex items-center gap-2 hover:scale-105">
               <i class="fa-regular fa-file-pdf"></i>
               <span>ATS Resume</span>
             </a>
@@ -806,23 +857,24 @@
       </div>
 
       <footer class="mt-12 text-center text-xs text-slate-500 font-mono space-y-1">
-        <p>© 2026 Tejas. Pure Glassmorphic Edition. Designed for high clarity & elegance.</p>
-        <p class="text-slate-600">Hosted with GitHub Pages • <a href="https://github.com/Tejaaazz07/Tejaaazz07.github.io" target="_blank" class="hover:text-cyan-400 underline">Repository</a></p>
+        <p>© 2026 Tejas. Black & Orange Dark Edition. Designed with smooth sliding & fade animations.</p>
+        <p class="text-slate-600">Hosted with GitHub Pages • <a href="https://github.com/Tejaaazz07/Tejaaazz07.github.io" target="_blank" class="hover:text-ember-400 underline">Repository</a></p>
       </footer>
     </section>
 
   </main>
 
-  <!-- SCRIPTS: AOS, Typed.js & ProtoSem Logic -->
+  <!-- SCRIPTS: AOS, Typed.js & ProtoSem Dynamic Systems -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
   <script>
-    // Initialize AOS
+    // Initialize AOS with smooth easing
     AOS.init({
       once: true,
-      duration: 700,
-      offset: 30,
+      duration: 800,
+      offset: 40,
+      easing: 'ease-out-cubic'
     });
 
     // Initialize Typed.js
@@ -840,7 +892,7 @@
       loop: true
     });
 
-    // PROTOSEM 20-WEEK ARCHITECTURE
+    // PROTOSEM 20-WEEK ARCHITECTURE & DATA SYSTEM
     const protoSemWeeks = [
       { week: 1, phase: 1, label: "WEEK 01", status: "FIELD NOTES IN PROGRESS", slug: "week-01" },
       { week: 2, phase: 1, label: "WEEK 02", status: "FIELD NOTES IN PROGRESS", slug: "week-02" },
@@ -875,31 +927,33 @@
         ? protoSemWeeks 
         : protoSemWeeks.filter(w => w.phase === parseInt(filterPhase));
 
-      container.innerHTML = filtered.map(w => `
+      container.innerHTML = filtered.map((w, idx) => `
         <div onclick="handleWeekClick(${w.week})" 
-             class="group relative p-4 rounded-2xl glass-panel hover:border-cyan-400/60 transition-all duration-300 flex flex-col justify-between h-36 overflow-hidden cursor-pointer hover:-translate-y-1.5 hover:shadow-lg hover:shadow-cyan-500/15">
+             data-aos="fade-up"
+             data-aos-delay="${(idx % 5) * 60}"
+             class="group relative p-4 rounded-2xl glass-card-orange hover:border-ember-500/70 transition-all duration-300 flex flex-col justify-between h-36 overflow-hidden cursor-pointer hover:-translate-y-1.5 hover:shadow-lg hover:shadow-ember-500/20">
           
           <div class="flex items-center justify-between relative z-10">
-            <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-lg glass-pill text-slate-400 group-hover:text-cyan-300 group-hover:border-cyan-400/40 transition-colors">
+            <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-lg pill-dark text-slate-400 group-hover:text-ember-300 group-hover:border-ember-500/40 transition-colors">
               PHASE 0${w.phase}
             </span>
-            <div class="w-6 h-6 rounded-lg glass-pill flex items-center justify-center text-slate-400 group-hover:text-cyan-400 transition-all">
+            <div class="w-6 h-6 rounded-lg pill-dark flex items-center justify-center text-slate-400 group-hover:text-ember-400 transition-all">
               <i class="fa-solid fa-arrow-up-right text-[10px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
             </div>
           </div>
 
           <div class="relative z-10 mt-2">
-            <div class="text-base font-extrabold text-white font-mono tracking-tight group-hover:text-cyan-300 transition-colors">
+            <div class="text-base font-extrabold text-white font-mono tracking-tight group-hover:text-ember-300 transition-colors">
               ${w.label}
             </div>
-            <div class="text-[11px] font-mono text-slate-400 mt-1 flex items-center gap-1.5 group-hover:text-cyan-400/90">
-              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400/70 animate-pulse"></span>
+            <div class="text-[11px] font-mono text-slate-400 mt-1 flex items-center gap-1.5 group-hover:text-ember-400/90">
+              <span class="w-1.5 h-1.5 rounded-full bg-ember-500/70 animate-pulse"></span>
               <span>${w.status}</span>
             </div>
           </div>
 
           <div class="w-full bg-white/5 h-1 rounded-full overflow-hidden mt-2 relative z-10">
-            <div class="bg-gradient-to-r from-cyan-400 to-ocean-500 h-full w-0 group-hover:w-full transition-all duration-500"></div>
+            <div class="bg-gradient-to-r from-ember-500 to-amber-400 h-full w-0 group-hover:w-full transition-all duration-500"></div>
           </div>
         </div>
       `).join('');
@@ -908,9 +962,9 @@
     function filterProtoSemPhase(phase) {
       document.querySelectorAll('.phase-tab-btn').forEach(btn => {
         if (btn.getAttribute('data-phase') == phase) {
-          btn.className = "phase-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all bg-gradient-to-r from-cyan-400 to-ocean-500 text-slate-950 shadow-md shadow-cyan-500/20";
+          btn.className = "phase-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all btn-gradient-orange text-black shadow-md shadow-ember-500/20";
         } else {
-          btn.className = "phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all glass-pill text-slate-300 hover:border-cyan-400/40";
+          btn.className = "phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all pill-dark text-slate-300 hover:border-ember-500/40";
         }
       });
       renderProtoSemWeeks(phase);
@@ -926,17 +980,17 @@
       if (!toast) {
         toast = document.createElement('div');
         toast.id = 'protosem-toast';
-        toast.className = 'fixed bottom-6 right-6 z-50 max-w-sm glass-panel border border-cyan-400/50 p-4 rounded-2xl shadow-2xl backdrop-blur-2xl flex items-start gap-3 transform translate-y-20 opacity-0 transition-all duration-300';
+        toast.className = 'fixed bottom-6 right-6 z-50 max-w-sm glass-card-orange border border-ember-500/50 p-4 rounded-2xl shadow-2xl backdrop-blur-2xl flex items-start gap-3 transform translate-y-20 opacity-0 transition-all duration-300';
         document.body.appendChild(toast);
       }
       toast.innerHTML = `
-        <div class="w-9 h-9 rounded-xl glass-pill-cyan flex items-center justify-center text-cyan-400 text-sm flex-shrink-0 mt-0.5">
+        <div class="w-9 h-9 rounded-xl pill-orange flex items-center justify-center text-ember-400 text-sm flex-shrink-0 mt-0.5">
           <i class="fa-solid fa-book-bookmark"></i>
         </div>
         <div class="flex-1 text-left">
           <div class="text-sm font-bold text-white flex items-center justify-between">
             <span>${title}</span>
-            <span class="text-[10px] font-mono glass-pill-cyan px-2 py-0.5 rounded-full">Archive</span>
+            <span class="text-[10px] font-mono pill-orange px-2 py-0.5 rounded-full">Archive</span>
           </div>
           <p class="text-xs text-slate-300 mt-1 leading-relaxed font-light">${msg}</p>
         </div>
@@ -950,13 +1004,13 @@
       }, 3500);
     }
 
-    // AI Simulation Execution
+    // AI Simulation Execution with Animation
     function simulateAdGeneration() {
       const out = document.getElementById('ad-simulation-output');
-      out.innerHTML = `<span class="text-cyan-300 animate-pulse">> Triggering n8n webhook → Ingesting buyer persona...</span>`;
+      out.innerHTML = `<span class="text-ember-400 animate-pulse">> Triggering n8n webhook → Processing prompt parameters...</span>`;
       setTimeout(() => {
-        out.innerHTML = `<span class="text-emerald-400">> Generated Variant:</span> "Scale Your E-Commerce Brand with AI-Powered Conversion Funnels." <br><span class="text-cyan-400">> Output Status:</span> 200 OK (Execution Time: 340ms)`;
-      }, 1000);
+        out.innerHTML = `<span class="text-amber-400">> Generated Variant:</span> "Scale Your E-Commerce Brand with AI-Powered Conversion Funnels." <br><span class="text-ember-400">> Output Status:</span> 200 OK (Execution Time: 320ms)`;
+      }, 900);
     }
 
     // Initial render
