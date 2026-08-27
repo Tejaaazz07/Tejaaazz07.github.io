@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tejas | Commerce, AI Automation, Financial Analytics & ProtoSem</title>
-  <meta name="description" content="Official portfolio of Tejas - Commerce Scholar, AI Agent Builder, Financial Analyst, and PRICE ProtoSem Innovation Engineer Trainee.">
+  <title>Tejas | Commerce Scholar • AI Agent Developer • ProtoSem Fellow</title>
+  <meta name="description" content="Portfolio of Tejas - Commerce Scholar at Kumaraguru College, Autonomous AI Agent Builder (n8n), Financial Modeling Analyst, and PRICE ProtoSem Innovation Engineer Trainee.">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -14,45 +14,43 @@
       theme: {
         extend: {
           colors: {
-            brand: {
-              50: '#ecfeff',
-              100: '#cffafe',
-              200: '#a5f3fc',
-              300: '#67e8f9',
-              400: '#22d3ee',
-              500: '#06b6d4', // Cyber Cyan
-              600: '#0891b2',
-              700: '#0e7490',
-              800: '#155e75',
-              900: '#164e63',
-              950: '#083344',
+            obsidian: {
+              950: '#020204',
+              900: '#050508',
+              850: '#08080f',
+              800: '#0c0d16',
+              700: '#121422',
+              600: '#1a1d30',
             },
-            ocean: {
-              400: '#38bdf8',
-              500: '#0ea5e9',
-              600: '#0284c7',
-              700: '#0369a1',
-            },
-            dark: {
-              base: '#030712',
-              surface: '#0B1120',
-              card: '#0F172A',
-              border: '#1E293B'
+            neon: {
+              cyan: '#00f2fe',
+              blue: '#4facfe',
+              emerald: '#10b981',
+              violet: '#a855f7',
             }
           },
           fontFamily: {
-            sans: ['Outfit', 'Inter', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            display: ['Syne', 'Outfit', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace']
           },
           animation: {
-            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'glow-spin': 'spin 12s linear infinite',
-            'float': 'float 6s ease-in-out infinite',
+            'glow-pulse': 'glow 4s ease-in-out infinite alternate',
+            'shimmer': 'shimmer 2.5s linear infinite',
+            'float-slow': 'float 7s ease-in-out infinite',
           },
           keyframes: {
+            glow: {
+              '0%': { opacity: '0.4', transform: 'scale(0.98)' },
+              '100%': { opacity: '0.8', transform: 'scale(1.02)' }
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' }
+            },
             float: {
               '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' },
+              '50%': { transform: 'translateY(-8px)' }
             }
           }
         }
@@ -60,425 +58,476 @@
     }
   </script>
 
-  <!-- Google Fonts & Font Awesome Icons -->
+  <!-- Google Fonts: Plus Jakarta Sans, Syne, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- AOS CSS -->
+  
+  <!-- AOS Animation CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
+    :root {
+      color-scheme: dark;
+    }
+    
     body {
-      font-family: 'Outfit', sans-serif;
-      background-color: #030712;
-      color: #f3f4f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #030306;
+      color: #f1f5f9;
       overflow-x: hidden;
     }
+
+    h1, h2, h3, .font-display {
+      font-family: 'Syne', sans-serif;
+    }
+
+    /* Ambient Background Glows */
+    .aurora-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      background: 
+        radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 25%, rgba(168, 85, 247, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(79, 172, 254, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 90%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+    }
+
+    .dark-grid-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    /* Modern Glass Cards */
+    .glass-card {
+      background: rgba(12, 13, 22, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(0, 242, 254, 0.35);
+      background: rgba(18, 20, 34, 0.85);
+      transform: translateY(-3px);
+      box-shadow: 0 25px 50px -12px rgba(0, 242, 254, 0.12);
+    }
+
+    /* Cursor Spotlight Effect */
+    .spotlight-wrapper {
+      position: relative;
+    }
     
-    /* Cyber Grid & Hyperspeed Canvas Backing */
-    .bg-cyber-grid {
-      background-size: 50px 50px;
-      background-image: 
-        linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+    .spotlight-wrapper::before {
+      content: '';
+      position: absolute;
+      top: var(--mouse-y, -1000px);
+      left: var(--mouse-x, -1000px);
+      width: 450px;
+      height: 450px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s;
     }
 
-    .bg-mesh-glow {
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.18) 0px, transparent 50%),
-        radial-gradient(at 100% 10%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(56, 189, 248, 0.08) 0px, transparent 60%),
-        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.12) 0px, transparent 50%);
+    .spotlight-wrapper:hover::before {
+      opacity: 1;
     }
 
-    .bento-card {
-      background: rgba(11, 17, 32, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(34, 211, 238, 0.14);
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .bento-card:hover {
-      border-color: rgba(34, 211, 238, 0.5);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 35px -10px rgba(6, 182, 212, 0.25);
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #ffffff 0%, #67e8f9 50%, #06b6d4 100%);
+    /* Gradient Typography */
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 10%, #cffafe 60%, #00f2fe 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .gradient-cyan-blue {
-      background: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 100%);
+    .text-gradient-purple {
+      background: linear-gradient(135deg, #ffffff 0%, #e9d5ff 50%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .tilt-card-wrapper {
-      transform-style: preserve-3d;
-      perspective: 1000px;
-    }
-    
-    .tilt-content {
-      transform: translateZ(30px);
+    /* Shimmer Button */
+    .btn-shimmer {
+      background: linear-gradient(90deg, #00f2fe 0%, #4facfe 50%, #00f2fe 100%);
+      background-size: 200% 100%;
+      animation: shimmer 4s infinite linear;
     }
 
-    /* Terminal Scrollbar */
-    .custom-scroll::-webkit-scrollbar {
-      width: 6px;
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
     }
-    .custom-scroll::-webkit-scrollbar-track {
-      background: rgba(0,0,0,0.3);
+    ::-webkit-scrollbar-track {
+      background: #030306;
     }
-    .custom-scroll::-webkit-scrollbar-thumb {
-      background: rgba(6,182,212,0.4);
+    ::-webkit-scrollbar-thumb {
+      background: #1a1d30;
       border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00f2fe;
     }
   </style>
 </head>
-<body class="bg-cyber-grid bg-mesh-glow min-h-screen selection:bg-brand-500 selection:text-dark-base relative">
+<body class="dark-grid-pattern selection:bg-neon-cyan selection:text-black relative min-h-screen">
 
-  <!-- Interactive Canvas Background (Hyperspeed & Starfield) -->
-  <canvas id="hyperspeed-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+  <!-- Ambient Aurora Lighting -->
+  <div class="aurora-bg"></div>
 
-  <!-- Top Announcement Bar -->
-  <div class="relative z-50 bg-gradient-to-r from-brand-950 via-dark-surface to-dark-base border-b border-brand-500/20 py-1.5 px-4 text-center text-xs font-mono text-gray-300 flex items-center justify-center gap-3">
-    <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-brand-500/20 text-brand-300 font-semibold text-[11px] border border-brand-500/30">
-      <span class="w-2 h-2 rounded-full bg-brand-400 animate-ping"></span>
-      LIVE
-    </span>
-    <span>PRICE ProtoSem Innovation Fellow & B.Com Scholar • Open to AI & Growth Opportunities</span>
-  </div>
+  <!-- Interactive Dynamic Cursor Glow Orb -->
+  <div id="cursor-glow" class="fixed w-96 h-96 rounded-full pointer-events-none z-0 -translate-x-1/2 -translate-y-1/2 opacity-30 blur-3xl transition-opacity duration-500 bg-neon-cyan/20"></div>
 
-  <!-- Navigation Bar -->
-  <header class="fixed top-8 left-0 right-0 z-50 px-4 sm:px-6 transition-all duration-300">
-    <div class="max-w-6xl mx-auto flex items-center justify-between backdrop-blur-xl bg-dark-base/85 border border-brand-500/20 rounded-2xl px-5 py-3 shadow-2xl shadow-black/60">
+  <!-- TOP HEADER / FLOATING NAVIGATION -->
+  <header class="fixed top-5 left-0 right-0 z-50 px-4 sm:px-6">
+    <div class="max-w-5xl mx-auto flex items-center justify-between backdrop-blur-2xl bg-obsidian-900/85 border border-white/10 rounded-2xl px-5 py-3 shadow-2xl shadow-black/80">
       
+      <!-- Brand Logo -->
       <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-brand-500 to-ocean-400 flex items-center justify-center text-dark-base font-black text-xl shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-neon-cyan to-neon-blue flex items-center justify-center text-black font-black font-display text-lg shadow-lg shadow-neon-cyan/30 group-hover:scale-105 transition-transform">
           T
         </div>
-        <div class="flex flex-col text-left">
-          <span class="font-bold text-lg text-white tracking-wide leading-none">Tejas</span>
-          <span class="text-[11px] text-brand-400 font-mono font-medium">B.Com • AI & Finance</span>
+        <div class="text-left leading-tight">
+          <div class="font-bold text-sm tracking-wide text-white group-hover:text-neon-cyan transition-colors">Tejas</div>
+          <div class="text-[10px] text-gray-400 font-mono flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-neon-emerald animate-pulse"></span>
+            ProtoSem Fellow
+          </div>
         </div>
       </a>
 
-      <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-300">
-        <a href="#about" class="hover:text-brand-400 transition-colors">About</a>
-        <a href="#projects" class="hover:text-brand-400 transition-colors">Projects & AI</a>
-        <a href="#protosem" class="hover:text-brand-300 text-brand-400 transition-colors flex items-center gap-1.5 font-semibold bg-brand-500/10 px-3 py-1 rounded-lg border border-brand-500/25">
-          <i class="fa-solid fa-cube text-xs"></i>
+      <!-- Desktop Nav Items -->
+      <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-gray-300">
+        <a href="#about" class="hover:text-neon-cyan transition-colors">About</a>
+        <a href="#projects" class="hover:text-neon-cyan transition-colors">Projects & AI</a>
+        <a href="#protosem" class="hover:text-neon-cyan text-neon-cyan font-semibold flex items-center gap-1.5 bg-neon-cyan/10 px-3 py-1 rounded-lg border border-neon-cyan/20">
+          <i class="fa-solid fa-cube text-[11px]"></i>
           <span>ProtoSem 20W</span>
         </a>
-        <a href="#experience" class="hover:text-brand-400 transition-colors">Experience</a>
-        <a href="#skills" class="hover:text-brand-400 transition-colors">Skills</a>
-        <a href="#github-matrix" class="hover:text-brand-400 transition-colors">GitHub</a>
+        <a href="#experience" class="hover:text-neon-cyan transition-colors">Leadership</a>
+        <a href="#skills" class="hover:text-neon-cyan transition-colors">Skills</a>
+        <a href="#contact" class="hover:text-neon-cyan transition-colors">Contact</a>
       </nav>
 
-      <!-- Action Utilities & Socials -->
+      <!-- Right Utility Actions -->
       <div class="flex items-center gap-2">
-        <button onclick="toggleTerminalModal()" class="p-2 rounded-xl bg-dark-card hover:bg-gray-800 text-brand-400 border border-brand-500/30 hover:border-brand-400 transition-all text-xs font-mono flex items-center gap-1.5" title="Open Interactive Terminal">
-          <i class="fa-solid fa-terminal"></i>
+        <button onclick="toggleTerminalModal()" class="px-2.5 py-1.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 text-neon-cyan border border-white/10 hover:border-neon-cyan/40 text-xs font-mono transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-terminal text-[10px]"></i>
           <span class="hidden sm:inline">CLI</span>
         </button>
 
-        <button id="sound-toggle-btn" onclick="toggleAudioFx()" class="p-2 rounded-xl bg-dark-card hover:bg-gray-800 text-gray-300 hover:text-white border border-white/10 transition-colors" title="Toggle UI Sound Effects">
-          <i id="sound-icon" class="fa-solid fa-volume-high text-xs"></i>
-        </button>
-
-        <a href="resume.html" class="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-xl bg-brand-500/10 text-brand-300 border border-brand-500/30 hover:bg-brand-500 hover:text-dark-base transition-all duration-300 shadow-sm">
-          <i class="fa-regular fa-file-lines"></i>
+        <a href="resume.html" class="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-xl bg-gradient-to-r from-neon-cyan to-neon-blue text-black hover:opacity-90 transition-all duration-300 shadow-md shadow-neon-cyan/20">
+          <i class="fa-regular fa-file-lines text-xs"></i>
           <span>Resume</span>
         </a>
 
-        <div class="hidden sm:flex items-center gap-1.5 pl-1 border-l border-white/10">
-          <a href="https://www.linkedin.com/in/tejas-s-k-333a78359" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-gray-800/80 hover:bg-[#0A66C2] text-gray-300 hover:text-white border border-white/5 transition-all" title="LinkedIn Profile">
-            <i class="fa-brands fa-linkedin text-sm"></i>
+        <!-- Social Icons -->
+        <div class="hidden sm:flex items-center gap-1 pl-2 border-l border-white/10">
+          <a href="https://www.linkedin.com/in/tejas-s-k-333a78359" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-obsidian-800 hover:bg-[#0A66C2] text-gray-400 hover:text-white flex items-center justify-center transition-colors" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in text-xs"></i>
           </a>
-          <a href="https://www.instagram.com/tejas.archives_?igsi=MXU5cmRuaTltYnoyNQ==" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-gray-800/80 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 text-gray-300 hover:text-white border border-white/5 transition-all" title="Instagram Profile">
-            <i class="fa-brands fa-instagram text-sm"></i>
+          <a href="https://www.instagram.com/tejas.archives_?igsi=MXU5cmRuaTltYnoyNQ==" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-obsidian-800 hover:bg-pink-600 text-gray-400 hover:text-white flex items-center justify-center transition-colors" title="Instagram">
+            <i class="fa-brands fa-instagram text-xs"></i>
           </a>
-          <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-gray-800/80 hover:bg-gray-700 text-gray-300 hover:text-white border border-white/5 transition-colors" title="GitHub Profile">
-            <i class="fa-brands fa-github text-sm"></i>
+          <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-obsidian-800 hover:bg-gray-700 text-gray-400 hover:text-white flex items-center justify-center transition-colors" title="GitHub">
+            <i class="fa-brands fa-github text-xs"></i>
           </a>
         </div>
       </div>
+
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-36 pb-24 relative z-10">
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 pt-32 pb-24 relative z-10">
 
-    <!-- HERO SECTION (3D Floating Tilt Card with Dynamic Scramble) -->
-    <section id="hero" class="mb-20 pt-4 flex flex-col items-start justify-start w-full">
-      <div class="w-full" data-aos="fade-up" data-aos-duration="900">
+    <!-- HERO SECTION (High-Contrast Obsidian Style) -->
+    <section id="hero" class="mb-20 text-left" data-aos="fade-up" data-aos-duration="800">
+      
+      <!-- Top Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-obsidian-800/90 border border-white/10 text-gray-300 text-xs font-mono mb-6 backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-neon-cyan animate-ping"></span>
+        <span class="text-neon-cyan font-semibold">PRICE PROTOSEM</span>
+        <span class="text-gray-500">•</span>
+        <span>Innovation Engineer Trainee</span>
+      </div>
+
+      <!-- Hero Grid: Profile & Introduction -->
+      <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden spotlight-wrapper border border-white/10 bg-gradient-to-br from-obsidian-900/90 via-obsidian-850/80 to-obsidian-950/90">
         
-        <!-- 3D Card Element -->
-        <div class="tilt-card-wrapper w-full">
-          <div id="hero-tilt-card" class="bento-card rounded-3xl p-8 sm:p-10 md:p-12 relative overflow-hidden shadow-2xl border border-brand-500/25 bg-gradient-to-br from-dark-surface/95 via-dark-surface/80 to-brand-950/40 w-full">
-            
-            <!-- Ambient Card Backing Glow -->
-            <div class="absolute -right-20 -top-20 w-72 h-72 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -left-20 -bottom-20 w-72 h-72 bg-ocean-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- Ambient Corner Glows -->
+        <div class="absolute -right-24 -top-24 w-80 h-80 bg-neon-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-24 -bottom-24 w-80 h-80 bg-neon-violet/10 rounded-full blur-3xl pointer-events-none"></div>
 
-            <div class="tilt-content flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 relative z-10 text-left">
-              
-              <!-- Avatar with fallback & live status -->
-              <div class="relative group flex-shrink-0">
-                <div class="w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden border-2 border-brand-400/40 p-1.5 bg-gradient-to-tr from-brand-500/30 to-ocean-500/10 shadow-2xl shadow-brand-500/20">
-                  <img src="profile.jpeg?v=3" 
-                       alt="Tejas" 
-                       class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
-                       onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Tejas&background=06b6d4&color=030712&size=256&bold=true';">
-                </div>
-                <!-- Status Badge -->
-                <div class="absolute -bottom-2 -right-2 bg-dark-base border border-brand-500/50 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg">
-                  <span class="w-2.5 h-2.5 rounded-full bg-brand-400 animate-pulse"></span>
-                  <span class="text-[11px] font-mono font-semibold text-brand-300 uppercase tracking-wider">Active</span>
-                </div>
-              </div>
-
-              <!-- Main Hero Info -->
-              <div class="flex-1 text-left space-y-4">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/25 text-brand-300 text-xs font-mono font-medium">
-                  <i class="fa-solid fa-graduation-cap text-brand-400"></i>
-                  <span>Kumaraguru College of Liberal Arts and Sciences</span>
-                </div>
-
-                <div>
-                  <h1 class="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight text-white">
-                    Hi, I'm <span class="gradient-text">Tejas</span>
-                  </h1>
-                  <div class="text-lg md:text-xl font-medium text-gray-300 mt-2 h-8 flex items-center justify-start gap-1.5">
-                    <span class="text-gray-400">Specializing in</span>
-                    <span id="typed-roles" class="text-brand-400 font-semibold underline decoration-brand-500/40 decoration-2 font-mono"></span>
-                  </div>
-                </div>
-
-                <p class="text-gray-300 text-sm md:text-base leading-relaxed max-w-2xl">
-                  Second-year B.Com scholar bridging financial strategy, structured Microsoft Excel modeling, and autonomous AI agents. Innovation Engineer Trainee at PRICE ProtoSem, driving real-world commerce solutions and leading student initiatives.
-                </p>
-
-                <!-- Quick Stat Chips -->
-                <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs text-gray-300">
-                  <span class="px-3 py-1 rounded-xl bg-dark-base/80 border border-white/10 flex items-center gap-1.5">
-                    <i class="fa-solid fa-bolt text-brand-400"></i> n8n AI Automation
-                  </span>
-                  <span class="px-3 py-1 rounded-xl bg-dark-base/80 border border-white/10 flex items-center gap-1.5">
-                    <i class="fa-solid fa-cube text-ocean-400"></i> ProtoSem Fellow
-                  </span>
-                  <span class="px-3 py-1 rounded-xl bg-dark-base/80 border border-white/10 flex items-center gap-1.5">
-                    <i class="fa-solid fa-users text-indigo-400"></i> Rotaract Director
-                  </span>
-                </div>
-
-                <!-- Quick Action Buttons & Socials -->
-                <div class="flex flex-wrap items-center justify-start gap-3 pt-3">
-                  <a href="#contact" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-brand-500 via-cyan-400 to-ocean-500 hover:from-brand-400 hover:to-ocean-400 text-dark-base font-extrabold text-sm transition-all duration-300 shadow-lg shadow-brand-500/25 flex items-center gap-2">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    <span>Let's Connect</span>
-                  </a>
-                  <a href="resume.html" class="px-6 py-3 rounded-2xl bg-dark-card hover:bg-gray-800 text-gray-200 border border-brand-500/30 hover:border-brand-400 font-semibold text-sm transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-file-arrow-down text-brand-400"></i>
-                    <span>View ATS Resume</span>
-                  </a>
-                  <button onclick="toggleTerminalModal()" class="px-4 py-3 rounded-2xl bg-dark-base hover:bg-gray-900 border border-white/10 hover:border-brand-500/40 text-brand-300 font-mono text-xs transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-terminal"></i>
-                    <span>Open CLI</span>
-                  </button>
-                </div>
-              </div>
-
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 relative z-10">
+          
+          <!-- Avatar Card -->
+          <div class="relative flex-shrink-0 group">
+            <div class="w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden border border-neon-cyan/40 p-1 bg-obsidian-800/80 shadow-2xl shadow-neon-cyan/20">
+              <img src="profile.jpeg?v=4" 
+                   alt="Tejas" 
+                   class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+                   onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Tejas&background=00f2fe&color=050508&size=256&bold=true';">
             </div>
+            <!-- Live Status Indicator -->
+            <div class="absolute -bottom-2.5 -right-2.5 bg-obsidian-950 border border-neon-cyan/40 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg">
+              <span class="w-2 h-2 rounded-full bg-neon-emerald animate-pulse"></span>
+              <span class="text-[10px] font-mono font-bold text-gray-300 uppercase tracking-widest">Available</span>
+            </div>
+          </div>
+
+          <!-- Hero Narrative -->
+          <div class="flex-1 space-y-4 text-left">
+            <div class="space-y-1">
+              <div class="text-xs font-mono font-medium text-neon-cyan tracking-widest uppercase">Commerce Scholar & Builder</div>
+              <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-none">
+                I am <span class="text-gradient">Tejas</span>.
+              </h1>
+            </div>
+
+            <!-- Dynamic Typed Text -->
+            <div class="text-base sm:text-lg font-medium text-gray-300 flex items-center gap-2 h-7 font-mono">
+              <span class="text-neon-cyan">></span>
+              <span id="typed-roles" class="text-white font-semibold"></span>
+            </div>
+
+            <p class="text-gray-400 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
+              Second-year B.Com scholar at <strong class="text-gray-200">Kumaraguru College of Liberal Arts and Sciences</strong> bridging corporate financial modeling, investment analysis in Microsoft Excel, and autonomous AI agents in n8n. Club Service Director of Rotaract and ProtoSem Innovation Fellow.
+            </p>
+
+            <!-- Pill Badges -->
+            <div class="flex flex-wrap gap-2 pt-2 text-xs font-mono text-gray-300">
+              <span class="px-3 py-1 rounded-lg bg-obsidian-800/90 border border-white/5 flex items-center gap-1.5">
+                <i class="fa-solid fa-bolt text-neon-cyan"></i> n8n Automation
+              </span>
+              <span class="px-3 py-1 rounded-lg bg-obsidian-800/90 border border-white/5 flex items-center gap-1.5">
+                <i class="fa-solid fa-file-excel text-neon-emerald"></i> Excel Modeling
+              </span>
+              <span class="px-3 py-1 rounded-lg bg-obsidian-800/90 border border-white/5 flex items-center gap-1.5">
+                <i class="fa-solid fa-cube text-neon-blue"></i> ProtoSem 20W
+              </span>
+              <span class="px-3 py-1 rounded-lg bg-obsidian-800/90 border border-white/5 flex items-center gap-1.5">
+                <i class="fa-solid fa-users text-neon-violet"></i> Rotaract Leadership
+              </span>
+            </div>
+
+            <!-- Hero Action Buttons -->
+            <div class="flex flex-wrap items-center gap-3 pt-4">
+              <a href="#protosem" class="px-6 py-3 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-blue text-black font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all shadow-lg shadow-neon-cyan/20 flex items-center gap-2">
+                <i class="fa-solid fa-cube"></i>
+                <span>Explore ProtoSem</span>
+              </a>
+              <a href="resume.html" class="px-5 py-3 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 text-gray-200 border border-white/10 hover:border-neon-cyan/40 font-medium text-xs transition-all flex items-center gap-2">
+                <i class="fa-solid fa-file-pdf text-neon-cyan"></i>
+                <span>View ATS Resume</span>
+              </a>
+              <button onclick="toggleTerminalModal()" class="px-4 py-3 rounded-xl bg-obsidian-900 hover:bg-obsidian-800 text-neon-cyan border border-neon-cyan/30 text-xs font-mono transition-all flex items-center gap-1.5">
+                <i class="fa-solid fa-terminal"></i>
+                <span>CLI Terminal</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: BENTO GRID OF CORE PILLARS -->
+    <section id="projects" class="mb-20 scroll-mt-24" data-aos="fade-up">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 text-left">
+        <div>
+          <div class="text-xs font-mono font-semibold text-neon-cyan uppercase tracking-widest">Technical & Business Expertise</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Intelligence, Modeling & Growth</h2>
+        </div>
+        <p class="text-xs text-gray-400 max-w-sm mt-2 md:mt-0 font-mono">
+          Hands-on systems integrating AI pipelines, financial analytics, and leadership.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+        <!-- CARD 1: AI Agent Development (2 Columns) -->
+        <div class="glass-card rounded-3xl p-7 md:col-span-2 flex flex-col justify-between spotlight-wrapper text-left">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-11 h-11 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan text-lg">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full text-[11px] font-mono bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/30">AI Systems</span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white mb-2">Autonomous Ad Generation AI Agent</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-5">
+              Architected and deployed a multi-stage autonomous AI agent workflow in n8n. Automatically processes product inputs and persona parameters to generate high-converting advertisement copy, hooks, and creative concepts.
+            </p>
+
+            <!-- Interactive Live Simulator -->
+            <div class="p-4 rounded-2xl bg-obsidian-950/80 border border-white/10 font-mono text-xs space-y-2">
+              <div class="flex items-center justify-between border-b border-white/5 pb-2 text-gray-400">
+                <span class="text-neon-cyan font-bold flex items-center gap-1.5">
+                  <i class="fa-solid fa-bolt"></i> n8n Execution Pipeline
+                </span>
+                <button onclick="runAdSimulation()" class="px-3 py-1 rounded-lg bg-neon-cyan hover:bg-neon-blue text-black font-bold text-[10px] uppercase tracking-wider transition-colors">
+                  Run Agent
+                </button>
+              </div>
+              <div id="sim-log" class="text-gray-300 text-[11px] leading-relaxed pt-1">
+                <span class="text-neon-cyan">> Status:</span> Ready to execute prompt pipeline. Click "Run Agent" to simulate.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-white/5 font-mono text-xs text-gray-400">
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-800 border border-white/5">n8n Engine</span>
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-800 border border-white/5">Prompt Engineering</span>
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-800 border border-white/5">LLM Orchestration</span>
+          </div>
+        </div>
+
+        <!-- CARD 2: Financial Analytics & Excel Modeling -->
+        <div id="skills" class="glass-card rounded-3xl p-7 flex flex-col justify-between spotlight-wrapper text-left scroll-mt-24">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-11 h-11 rounded-2xl bg-neon-emerald/10 border border-neon-emerald/30 flex items-center justify-center text-neon-emerald text-lg">
+                <i class="fa-solid fa-file-excel"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full text-[11px] font-mono bg-neon-emerald/10 text-neon-emerald border border-neon-emerald/30">Analytics</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white mb-2">Financial Modeling & Market Analysis</h3>
+            <p class="text-gray-300 text-xs leading-relaxed mb-4">
+              Building dynamic spreadsheet models, valuation forecasts, and analyzing stock performance in Microsoft Excel.
+            </p>
+
+            <div class="space-y-2 text-xs font-mono text-gray-300">
+              <div class="p-2.5 rounded-xl bg-obsidian-950/70 border border-white/5 flex items-center gap-2">
+                <i class="fa-solid fa-check text-neon-emerald"></i>
+                <span>Advanced Excel Modeling & Formulas</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-obsidian-950/70 border border-white/5 flex items-center gap-2">
+                <i class="fa-solid fa-check text-neon-emerald"></i>
+                <span>Stock Market & Company Research</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-obsidian-950/70 border border-white/5 flex items-center gap-2">
+                <i class="fa-solid fa-check text-neon-emerald"></i>
+                <span>Investment & Capital Planning</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-white/5 font-mono text-xs text-gray-400">
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-800 border border-white/5">MS Excel</span>
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-800 border border-white/5">Valuation</span>
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-800 border border-white/5">Forecasting</span>
+          </div>
+        </div>
+
+        <!-- CARD 3: Digital Marketing & Brand Growth -->
+        <div class="glass-card rounded-3xl p-7 flex flex-col justify-between spotlight-wrapper text-left">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-11 h-11 rounded-2xl bg-neon-blue/10 border border-neon-blue/30 flex items-center justify-center text-neon-blue text-lg">
+                <i class="fa-solid fa-bullhorn"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full text-[11px] font-mono bg-neon-blue/10 text-neon-blue border border-neon-blue/30">Growth</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white mb-2">Digital Marketing & Growth</h3>
+            <p class="text-gray-300 text-xs leading-relaxed mb-4">
+              Designing customer acquisition funnels, digital campaign strategies, and data-backed content creation for e-commerce brands.
+            </p>
+
+            <div class="space-y-2 text-xs font-mono text-gray-300">
+              <div class="p-2.5 rounded-xl bg-obsidian-950/70 border border-white/5 flex items-center gap-2">
+                <i class="fa-solid fa-chart-line text-neon-blue"></i>
+                <span>Social Media Strategy & Outreach</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-obsidian-950/70 border border-white/5 flex items-center gap-2">
+                <i class="fa-solid fa-funnel-dollar text-neon-blue"></i>
+                <span>Conversion Funnel Optimization</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-white/5 font-mono text-xs text-gray-400">
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-800 border border-white/5">Marketing</span>
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-800 border border-white/5">E-Commerce</span>
+          </div>
+        </div>
+
+        <!-- CARD 4: Leadership & Rotaract (2 Columns) -->
+        <div id="experience" class="glass-card rounded-3xl p-7 md:col-span-2 flex flex-col justify-between spotlight-wrapper text-left scroll-mt-24">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-11 h-11 rounded-2xl bg-neon-violet/10 border border-neon-violet/30 flex items-center justify-center text-neon-violet text-lg">
+                <i class="fa-solid fa-users"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full text-[11px] font-mono bg-neon-violet/10 text-neon-violet border border-neon-violet/30">Leadership</span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white mb-2">Club Service Director — Rotaract Club</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+              Director of Club Service at the Rotaract Club of Kumaraguru Institutions. Leading campus initiatives, delivering engaging presentations, and coordinating high-impact cross-functional committees.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div class="p-3.5 rounded-xl bg-obsidian-950/70 border border-white/5">
+                <div class="font-bold text-white flex items-center gap-2">
+                  <i class="fa-solid fa-microphone-lines text-neon-cyan"></i> Public Speaking & Keynotes
+                </div>
+                <p class="text-gray-400 text-[11px] mt-1">Delivering persuasive, humorous, and recruit-driving club addresses.</p>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-obsidian-950/70 border border-white/5">
+                <div class="font-bold text-white flex items-center gap-2">
+                  <i class="fa-solid fa-handshake-angle text-neon-violet"></i> Team Administration
+                </div>
+                <p class="text-gray-400 text-[11px] mt-1">Aligning student bodies, orchestrating institutional events, and team building.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-white/5 font-mono text-xs text-gray-400">
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-800 border border-white/5">Rotaract</span>
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-800 border border-white/5">Public Speaking</span>
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-800 border border-white/5">Executive Presentations</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- SECTION TITLE: BENTO DASHBOARD -->
-    <div id="about" class="text-left mb-8 scroll-mt-28" data-aos="fade-up">
-      <span class="text-brand-400 font-mono text-xs uppercase tracking-widest bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20 inline-block">Interactive Bento Dashboard</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Projects, Intelligence & Leadership</h2>
-      <p class="text-gray-400 text-sm max-w-xl mt-2">A high-impact breakdown of my technical projects, financial modeling capabilities, and leadership experience.</p>
-    </div>
-
-    <!-- BENTO GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 auto-rows-[auto]">
-
-      <!-- BENTO CARD 1: AI Agent Development (Large 2 Cols with Live Simulator) -->
-      <div id="projects" class="bento-card rounded-3xl p-6 md:col-span-2 lg:col-span-2 relative flex flex-col justify-between overflow-hidden scroll-mt-28" data-aos="fade-up" data-aos-delay="100">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-400 text-xl">
-              <i class="fa-solid fa-robot"></i>
-            </div>
-            <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-500/20 text-brand-300 border border-brand-500/30">AI Systems</span>
-          </div>
-
-          <h3 class="text-xl font-bold text-white mb-2">Autonomous Ad Generation AI Agent</h3>
-          <p class="text-gray-300 text-sm leading-relaxed mb-4">
-            Architected and deployed a custom AI agent designed to generate high-converting advertisement copy, marketing headlines, and targeted visual concepts automatically.
-          </p>
-
-          <!-- Live Interactive n8n Agent Simulation Box -->
-          <div class="space-y-2.5 bg-dark-base/80 rounded-2xl p-4 border border-brand-500/20 font-mono text-xs">
-            <div class="flex items-center justify-between text-gray-400 pb-2 border-b border-white/5">
-              <span class="flex items-center gap-1.5 text-brand-400 font-semibold"><i class="fa-solid fa-bolt"></i> n8n Pipeline Core</span>
-              <button onclick="simulateAdGeneration()" class="px-2.5 py-1 rounded-lg bg-brand-500 hover:bg-brand-400 text-dark-base font-bold text-[10px] uppercase transition-colors">
-                Run Simulation
-              </button>
-            </div>
-            <div id="ad-simulation-output" class="text-gray-300 text-[11px] leading-relaxed pt-1">
-              <span class="text-brand-300">> System Ready:</span> Click "Run Simulation" to execute the n8n multi-variant ad prompt sequence.
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-2 mt-5">
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">n8n Engine</span>
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">AI Prompt Engineering</span>
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">LLM Workflows</span>
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">Ad Optimization</span>
-        </div>
-      </div>
-
-      <!-- BENTO CARD 2: Finance & Data Modeling (1 Col) -->
-      <div id="skills" class="bento-card rounded-3xl p-6 md:col-span-1 lg:col-span-2 flex flex-col justify-between scroll-mt-28" data-aos="fade-up" data-aos-delay="200">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl bg-ocean-500/10 border border-ocean-500/30 flex items-center justify-center text-ocean-400 text-xl">
-              <i class="fa-solid fa-chart-pie"></i>
-            </div>
-            <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-ocean-500/20 text-ocean-300 border border-ocean-500/30">Analytics & Finance</span>
-          </div>
-
-          <h3 class="text-xl font-bold text-white mb-2">Financial Analysis & Data Modeling</h3>
-          <p class="text-gray-300 text-sm leading-relaxed mb-4">
-            Transforming raw financial datasets into actionable investment insights and structured spreadsheet models.
-          </p>
-
-          <div class="grid grid-cols-2 gap-3 mb-2">
-            <div class="bg-dark-base/50 p-3.5 rounded-xl border border-white/5">
-              <div class="flex items-center gap-2 text-brand-400 mb-1">
-                <i class="fa-solid fa-file-excel"></i>
-                <span class="font-bold text-sm text-white">Microsoft Excel</span>
-              </div>
-              <p class="text-xs text-gray-400">Advanced formulas, financial modeling & data forecasting.</p>
-            </div>
-
-            <div class="bg-dark-base/50 p-3.5 rounded-xl border border-white/5">
-              <div class="flex items-center gap-2 text-brand-400 mb-1">
-                <i class="fa-solid fa-arrow-trend-up"></i>
-                <span class="font-bold text-sm text-white">Market Analysis</span>
-              </div>
-              <p class="text-xs text-gray-400">Stock research, valuation metrics & investment strategy.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-2 mt-4">
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">Investment Planning</span>
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">Stock Market Analysis</span>
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">Management Strategy</span>
-        </div>
-      </div>
-
-      <!-- BENTO CARD 3: Digital Marketing & Brand Growth (1 Col) -->
-      <div class="bento-card rounded-3xl p-6 md:col-span-1 lg:col-span-2 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-400 text-xl">
-              <i class="fa-solid fa-bullhorn"></i>
-            </div>
-            <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-500/20 text-brand-300 border border-brand-500/30">Growth</span>
-          </div>
-
-          <h3 class="text-xl font-bold text-white mb-2">Social Media Marketing & Brand Growth</h3>
-          <p class="text-gray-300 text-sm leading-relaxed mb-4">
-            Executed high-engagement social media campaigns, data-backed content strategies, and audience conversion funnels for digital brand growth.
-          </p>
-
-          <div class="bg-dark-base/50 p-4 rounded-2xl border border-white/5 space-y-2 text-xs text-gray-300">
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-circle-check text-brand-400"></i>
-              <span>Data-backed content scheduling & organic outreach</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-circle-check text-brand-400"></i>
-              <span>Customer journey mapping & conversion funnel optimization</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-circle-check text-brand-400"></i>
-              <span>AI-assisted copywriting for viral ad concepts</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-2 mt-4">
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">Digital Marketing</span>
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">E-Commerce</span>
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">Brand Strategy</span>
-        </div>
-      </div>
-
-      <!-- BENTO CARD 4: Leadership & Rotaract (Large 2 Cols) -->
-      <div id="experience" class="bento-card rounded-3xl p-6 md:col-span-2 lg:col-span-2 relative flex flex-col justify-between scroll-mt-28" data-aos="fade-up" data-aos-delay="400">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl bg-ocean-500/10 border border-ocean-500/30 flex items-center justify-center text-ocean-400 text-xl">
-              <i class="fa-solid fa-award"></i>
-            </div>
-            <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-ocean-500/20 text-ocean-300 border border-ocean-500/30">Leadership</span>
-          </div>
-
-          <h3 class="text-xl font-bold text-white mb-2">Club Service Director & Innovation Fellow</h3>
-          <p class="text-gray-300 text-sm leading-relaxed mb-4">
-            Proven leadership in organizing university-wide initiatives, delivering humorous & engaging keynotes, and driving collaborative team performance.
-          </p>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div class="p-3.5 rounded-xl bg-dark-base/60 border border-white/5">
-              <div class="font-semibold text-white text-sm flex items-center gap-2">
-                <i class="fa-solid fa-users-gear text-brand-400"></i> Rotaract Club Director
-              </div>
-              <p class="text-xs text-gray-400 mt-1">Leading community initiatives, team coordination, and event administration.</p>
-            </div>
-
-            <div class="p-3.5 rounded-xl bg-dark-base/60 border border-white/5">
-              <div class="font-semibold text-white text-sm flex items-center gap-2">
-                <i class="fa-solid fa-lightbulb text-brand-300"></i> Protosem Scholar
-              </div>
-              <p class="text-xs text-gray-400 mt-1">Powered by Forge Innovations & RAI, driving tech-enabled ventures.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-2 mt-4">
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">Public Speaking</span>
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">Team Leadership</span>
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">Event Coordination</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- PROTOSEM DEDICATED SECTION -->
-    <section id="protosem" class="mt-20 scroll-mt-28" data-aos="fade-up">
-      <div class="bento-card rounded-3xl p-6 sm:p-10 md:p-12 relative overflow-hidden border border-brand-500/25">
+    <!-- SECTION 3: PROTOSEM DEDICATED SECTION -->
+    <section id="protosem" class="mb-20 scroll-mt-24" data-aos="fade-up">
+      
+      <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-neon-cyan/30 spotlight-wrapper bg-gradient-to-b from-obsidian-900/90 via-obsidian-850/80 to-obsidian-950/95">
         
-        <!-- Ambient Backing Glow -->
-        <div class="absolute -right-32 -top-32 w-80 h-80 bg-brand-500/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -left-32 -bottom-32 w-80 h-80 bg-ocean-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- Background Ambient Glow -->
+        <div class="absolute -right-32 -top-32 w-96 h-96 bg-neon-cyan/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-32 -bottom-32 w-96 h-96 bg-neon-blue/15 rounded-full blur-3xl pointer-events-none"></div>
 
-        <!-- Header / Intro Area -->
-        <div class="relative z-10 space-y-4 max-w-4xl text-left">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs font-mono font-medium">
-            <i class="fa-solid fa-cube text-brand-400"></i>
+        <!-- Section Header -->
+        <div class="relative z-10 text-left space-y-4 max-w-4xl">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan text-xs font-mono font-semibold">
+            <i class="fa-solid fa-cube text-xs"></i>
             <span>PROTOSEM</span>
           </div>
 
@@ -486,107 +535,110 @@
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
               PRICE ProtoSem
             </h2>
-            <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-sm md:text-base font-semibold text-brand-400 mt-2">
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-sm md:text-base font-semibold text-neon-cyan mt-2 font-mono">
               <span>Role: Innovation Engineer Trainee</span>
-              <span class="text-gray-500 hidden sm:inline">•</span>
-              <span class="text-gray-300 font-normal">20-Week Industry-Integrated Innovation Programme</span>
+              <span class="text-gray-600 hidden sm:inline">•</span>
+              <span class="text-gray-300 font-sans font-normal">20-Week Industry-Integrated Innovation Programme</span>
             </div>
           </div>
 
-          <p class="text-gray-300 text-sm md:text-base leading-relaxed pt-1 text-justify sm:text-left">
+          <p class="text-gray-300 text-sm md:text-base leading-relaxed pt-1">
             Selected for a 20-week industry-integrated innovation programme focused on solving realworld retail and commerce challenges through AI, analytics, intelligent systems, IoT, prototyping, and entrepreneurship. Working with industry problem statements to explore, develop, and validate practical technology solutions beyond conventional classroom learning.
           </p>
 
-          <!-- Programme Focus / Domain Disciplines -->
-          <div class="pt-3">
-            <div class="text-xs font-mono font-semibold uppercase tracking-wider text-gray-400 mb-3">Programme Disciplines & Focus Areas</div>
+          <!-- 5 Focus Disciplines -->
+          <div class="pt-4">
+            <div class="text-xs font-mono font-bold uppercase tracking-wider text-gray-400 mb-3">Programme Disciplines & Focus Areas</div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              <div class="flex items-center gap-3 p-3 rounded-2xl bg-dark-base/70 border border-white/10 hover:border-brand-500/30 transition-all">
-                <div class="w-9 h-9 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 text-sm">
+              
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-obsidian-950/80 border border-white/10 hover:border-neon-cyan/40 transition-colors">
+                <div class="w-8 h-8 rounded-lg bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan text-xs">
                   <i class="fa-solid fa-store"></i>
                 </div>
                 <span class="text-xs font-semibold text-gray-200">Phygital Retail & Intelligent Commerce</span>
               </div>
 
-              <div class="flex items-center gap-3 p-3 rounded-2xl bg-dark-base/70 border border-white/10 hover:border-brand-500/30 transition-all">
-                <div class="w-9 h-9 rounded-xl bg-ocean-500/10 border border-ocean-500/20 flex items-center justify-center text-ocean-400 text-sm">
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-obsidian-950/80 border border-white/10 hover:border-neon-cyan/40 transition-colors">
+                <div class="w-8 h-8 rounded-lg bg-neon-blue/10 border border-neon-blue/30 flex items-center justify-center text-neon-blue text-xs">
                   <i class="fa-solid fa-brain"></i>
                 </div>
                 <span class="text-xs font-semibold text-gray-200">AI & Analytics</span>
               </div>
 
-              <div class="flex items-center gap-3 p-3 rounded-2xl bg-dark-base/70 border border-white/10 hover:border-brand-500/30 transition-all">
-                <div class="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-sm">
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-obsidian-950/80 border border-white/10 hover:border-neon-cyan/40 transition-colors">
+                <div class="w-8 h-8 rounded-lg bg-neon-violet/10 border border-neon-violet/30 flex items-center justify-center text-neon-violet text-xs">
                   <i class="fa-solid fa-network-wired"></i>
                 </div>
                 <span class="text-xs font-semibold text-gray-200">Intelligent Systems & IoT</span>
               </div>
 
-              <div class="flex items-center gap-3 p-3 rounded-2xl bg-dark-base/70 border border-white/10 hover:border-brand-500/30 transition-all">
-                <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-sm">
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-obsidian-950/80 border border-white/10 hover:border-neon-cyan/40 transition-colors">
+                <div class="w-8 h-8 rounded-lg bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 text-xs">
                   <i class="fa-solid fa-screwdriver-wrench"></i>
                 </div>
                 <span class="text-xs font-semibold text-gray-200">Prototyping</span>
               </div>
 
-              <div class="flex items-center gap-3 p-3 rounded-2xl bg-dark-base/70 border border-white/10 hover:border-brand-500/30 transition-all">
-                <div class="w-9 h-9 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 text-sm">
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-obsidian-950/80 border border-white/10 hover:border-neon-cyan/40 transition-colors">
+                <div class="w-8 h-8 rounded-lg bg-neon-emerald/10 border border-neon-emerald/30 flex items-center justify-center text-neon-emerald text-xs">
                   <i class="fa-solid fa-rocket"></i>
                 </div>
                 <span class="text-xs font-semibold text-gray-200">Entrepreneurship</span>
               </div>
+
             </div>
           </div>
+
         </div>
 
-        <!-- 20-Week Programme Progression Rail -->
-        <div class="relative z-10 mt-12 pt-8 border-t border-white/10">
+        <!-- 20-WEEK ARCHIVE RAIL & FILTER -->
+        <div class="relative z-10 mt-12 pt-8 border-t border-white/10 text-left">
           
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <div>
-              <h3 class="text-xl font-bold text-white flex items-center gap-2.5">
-                <i class="fa-solid fa-timeline text-brand-400"></i>
+              <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-timeline text-neon-cyan"></i>
                 <span>The 20-Week Innovation Journey</span>
               </h3>
-              <p class="text-xs text-gray-400 mt-1">Structured chronological archive across 4 major programme phases.</p>
+              <p class="text-xs text-gray-400 mt-1 font-mono">Chronological progress across 4 structured phases.</p>
             </div>
 
-            <!-- Visual Progress Milestone Rail -->
-            <div class="hidden lg:flex items-center gap-2 bg-dark-base/80 px-4 py-2 rounded-2xl border border-white/10 font-mono text-xs text-gray-300">
-              <span class="text-brand-400 font-bold">W01</span>
-              <span class="text-brand-500/50">━━━━</span>
+            <!-- Milestone Progress Indicator -->
+            <div class="hidden lg:flex items-center gap-2 bg-obsidian-950 px-4 py-2 rounded-xl border border-white/10 font-mono text-xs">
+              <span class="text-neon-cyan font-bold">W01</span>
+              <span class="text-gray-600">━━</span>
               <span class="text-gray-300 font-bold">W05</span>
-              <span class="text-brand-500/50">━━━━</span>
+              <span class="text-gray-600">━━</span>
               <span class="text-gray-300 font-bold">W10</span>
-              <span class="text-brand-500/50">━━━━</span>
+              <span class="text-gray-600">━━</span>
               <span class="text-gray-300 font-bold">W15</span>
-              <span class="text-brand-500/50">━━━━</span>
-              <span class="text-cyan-300 font-bold">W20</span>
+              <span class="text-gray-600">━━</span>
+              <span class="text-neon-cyan font-bold">W20</span>
             </div>
           </div>
 
-          <!-- Phase Filter Navigation Tabs -->
+          <!-- Phase Navigation Tabs -->
           <div class="flex flex-wrap items-center gap-2 mb-8" id="protosem-phase-tabs">
-            <button onclick="filterProtoSemPhase('all')" data-phase="all" class="phase-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-brand-500 text-dark-base shadow-md shadow-brand-500/20">
+            <button onclick="filterProtoSemPhase('all')" data-phase="all" class="phase-btn active px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all bg-neon-cyan text-black shadow-md shadow-neon-cyan/20">
               All 20 Weeks
             </button>
-            <button onclick="filterProtoSemPhase(1)" data-phase="1" class="phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-dark-base text-gray-300 border border-white/10 hover:border-brand-500/40">
-              Phase 01 <span class="text-gray-500 font-mono font-normal">(W01–05)</span>
+            <button onclick="filterProtoSemPhase(1)" data-phase="1" class="phase-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all bg-obsidian-950 text-gray-300 border border-white/10 hover:border-neon-cyan/40">
+              Phase 01 (W01–05)
             </button>
-            <button onclick="filterProtoSemPhase(2)" data-phase="2" class="phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-dark-base text-gray-300 border border-white/10 hover:border-brand-500/40">
-              Phase 02 <span class="text-gray-500 font-mono font-normal">(W06–10)</span>
+            <button onclick="filterProtoSemPhase(2)" data-phase="2" class="phase-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all bg-obsidian-950 text-gray-300 border border-white/10 hover:border-neon-cyan/40">
+              Phase 02 (W06–10)
             </button>
-            <button onclick="filterProtoSemPhase(3)" data-phase="3" class="phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-dark-base text-gray-300 border border-white/10 hover:border-brand-500/40">
-              Phase 03 <span class="text-gray-500 font-mono font-normal">(W11–15)</span>
+            <button onclick="filterProtoSemPhase(3)" data-phase="3" class="phase-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all bg-obsidian-950 text-gray-300 border border-white/10 hover:border-neon-cyan/40">
+              Phase 03 (W11–15)
             </button>
-            <button onclick="filterProtoSemPhase(4)" data-phase="4" class="phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-dark-base text-gray-300 border border-white/10 hover:border-brand-500/40">
-              Phase 04 <span class="text-gray-500 font-mono font-normal">(W16–20)</span>
+            <button onclick="filterProtoSemPhase(4)" data-phase="4" class="phase-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all bg-obsidian-950 text-gray-300 border border-white/10 hover:border-neon-cyan/40">
+              Phase 04 (W16–20)
             </button>
           </div>
 
-          <!-- 20-Week Cards Container (Data-Driven Dynamic Render) -->
+          <!-- 20-Week Cards Grid -->
           <div id="protosem-weeks-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3.5">
-            <!-- Rendered dynamically by JavaScript -->
+            <!-- Dynamically populated by JS -->
           </div>
 
         </div>
@@ -594,144 +646,104 @@
       </div>
     </section>
 
-    <!-- GITHUB ACTIVITY & MATRIX SECTION (Inspired by Retro Space Shooter) -->
-    <section id="github-matrix" class="mt-20 scroll-mt-28" data-aos="fade-up">
-      <div class="bento-card rounded-3xl p-6 sm:p-10 relative overflow-hidden">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 text-left">
+    <!-- SECTION 4: GITHUB ACTIVITY & REPOSITORY MATRIX -->
+    <section id="github-matrix" class="mb-20 scroll-mt-24" data-aos="fade-up">
+      <div class="glass-card rounded-3xl p-8 text-left">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 font-mono text-xs">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-obsidian-800 text-neon-cyan font-mono text-xs border border-white/10">
               <i class="fa-brands fa-github"></i>
-              <span>GITHUB SHOWCASE • @Tejaaazz07</span>
+              <span>GITHUB MATRIX • @Tejaaazz07</span>
             </div>
-            <h3 class="text-2xl font-bold text-white mt-2">Open Source & Repository Matrix</h3>
+            <h3 class="text-2xl font-bold text-white mt-2">Repository & Code Architecture</h3>
           </div>
-          <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-dark-base hover:bg-gray-800 text-brand-300 border border-brand-500/30 text-xs font-mono transition-colors inline-flex items-center gap-2 self-start md:self-auto">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-obsidian-950 hover:bg-obsidian-800 text-neon-cyan border border-white/10 text-xs font-mono transition-colors inline-flex items-center gap-2 self-start md:self-auto">
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
             <span>github.com/Tejaaazz07</span>
           </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left font-mono">
-          <div class="p-5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono">
+          <div class="p-5 rounded-2xl bg-obsidian-950/80 border border-white/10 hover:border-neon-cyan/40 transition-all flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
-                <span class="text-brand-300 font-bold flex items-center gap-2"><i class="fa-solid fa-book-bookmark"></i> Tejaaazz07.github.io</span>
-                <span class="px-2 py-0.5 rounded bg-brand-500/10 text-brand-300 text-[10px]">Public</span>
+                <span class="text-neon-cyan font-bold flex items-center gap-2"><i class="fa-solid fa-code-branch"></i> Tejaaazz07.github.io</span>
+                <span class="px-2 py-0.5 rounded bg-neon-cyan/10 text-neon-cyan text-[10px]">Public</span>
               </div>
               <p class="text-gray-300 text-xs font-sans leading-relaxed">
-                Official personal web portfolio & ATS resume application. Powered by modern Tailwind styling, 3D tilt interaction, and the PRICE ProtoSem innovation archive.
+                Official personal portfolio & ATS resume web application featuring modern obsidian styling and the PRICE ProtoSem innovation archive.
               </p>
             </div>
             <div class="flex items-center gap-4 text-xs text-gray-400 mt-4 pt-3 border-t border-white/5">
-              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span> HTML/JS</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-neon-cyan"></span> HTML/JS</span>
               <span class="flex items-center gap-1"><i class="fa-regular fa-star text-amber-400"></i> Main</span>
             </div>
           </div>
 
-          <div class="p-5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+          <div class="p-5 rounded-2xl bg-obsidian-950/80 border border-white/10 hover:border-neon-cyan/40 transition-all flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
-                <span class="text-brand-300 font-bold flex items-center gap-2"><i class="fa-solid fa-robot"></i> AI-AdGen-Agent</span>
-                <span class="px-2 py-0.5 rounded bg-ocean-500/10 text-ocean-300 text-[10px]">Workflows</span>
+                <span class="text-neon-cyan font-bold flex items-center gap-2"><i class="fa-solid fa-robot"></i> AI-AdGen-Agent</span>
+                <span class="px-2 py-0.5 rounded bg-neon-blue/10 text-neon-blue text-[10px]">Workflows</span>
               </div>
               <p class="text-gray-300 text-xs font-sans leading-relaxed">
                 Autonomous n8n agent workflow generating multi-variant advertising creatives, headlines, and conversion copy for digital brands.
               </p>
             </div>
             <div class="flex items-center gap-4 text-xs text-gray-400 mt-4 pt-3 border-t border-white/5">
-              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> n8n Workflows</span>
-              <span class="flex items-center gap-1"><i class="fa-solid fa-microchip text-indigo-400"></i> LLM APIs</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-neon-emerald"></span> n8n Workflows</span>
+              <span class="flex items-center gap-1"><i class="fa-solid fa-microchip text-neon-violet"></i> LLM APIs</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TECH STACK & TOOLS STRIP -->
-    <div class="mt-16 bento-card rounded-3xl p-8" data-aos="fade-up">
-      <h3 class="text-left font-bold text-lg text-white mb-6">Technologies, Tools & Core Competencies</h3>
-      
-      <div class="flex flex-wrap items-center justify-start gap-3 md:gap-4">
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-diagram-project text-brand-400"></i>
-          <span class="text-sm font-semibold text-gray-200">n8n Automation</span>
-        </div>
-
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-chart-line text-cyan-400"></i>
-          <span class="text-sm font-semibold text-gray-200">Market Research</span>
-        </div>
-
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-table text-ocean-400"></i>
-          <span class="text-sm font-semibold text-gray-200">Microsoft Excel</span>
-        </div>
-
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-microchip text-indigo-400"></i>
-          <span class="text-sm font-semibold text-gray-200">AI Prompting & LLMs</span>
-        </div>
-
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-coins text-amber-400"></i>
-          <span class="text-sm font-semibold text-gray-200">Financial Planning</span>
-        </div>
-
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-bullseye text-cyan-400"></i>
-          <span class="text-sm font-semibold text-gray-200">Digital Marketing</span>
-        </div>
-
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-microphone-lines text-rose-400"></i>
-          <span class="text-sm font-semibold text-gray-200">Public Speaking</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- CONTACT & FOOTER SECTION -->
-    <section id="contact" class="mt-16" data-aos="fade-up">
-      <div class="bento-card rounded-3xl p-8 md:p-12 relative overflow-hidden text-left">
-        <div class="max-w-3xl space-y-6">
-          <span class="text-brand-400 font-mono text-xs uppercase tracking-widest bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20 inline-block">Get In Touch</span>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-white">Let's Collaborate on Something Great</h2>
-          <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-            Whether you're interested in autonomous AI agent development, financial analytics, marketing collaboration, or speaking engagements, I'd love to connect!
+    <!-- SECTION 5: CONTACT & ATS RESUME CTA -->
+    <section id="contact" class="scroll-mt-24" data-aos="fade-up">
+      <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden text-left border border-white/10">
+        
+        <div class="max-w-2xl space-y-5 relative z-10">
+          <div class="text-xs font-mono font-semibold text-neon-cyan uppercase tracking-widest">Connect & Collaborate</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Let's Build Something High-Impact</h2>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Available for autonomous AI agent development, financial modeling, marketing growth strategy, and speaking opportunities.
           </p>
 
-          <div class="flex flex-wrap items-center justify-start gap-3 pt-2">
-            <a href="https://www.linkedin.com/in/tejas-s-k-333a78359" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl bg-dark-base hover:bg-[#0A66C2] border border-white/10 hover:border-[#0A66C2] text-white font-semibold text-sm transition-all flex items-center gap-2.5 shadow-lg">
-              <i class="fa-brands fa-linkedin text-[#0A66C2] group-hover:text-white text-lg"></i>
+          <div class="flex flex-wrap items-center gap-3 pt-3">
+            <a href="https://www.linkedin.com/in/tejas-s-k-333a78359" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-obsidian-950 hover:bg-[#0A66C2] border border-white/10 hover:border-[#0A66C2] text-white font-semibold text-xs transition-all flex items-center gap-2">
+              <i class="fa-brands fa-linkedin-in text-neon-cyan text-sm"></i>
               <span>LinkedIn</span>
             </a>
-            <a href="https://www.instagram.com/tejas.archives_?igsi=MXU5cmRuaTltYnoyNQ==" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl bg-dark-base hover:bg-pink-600 border border-white/10 hover:border-pink-500 text-white font-semibold text-sm transition-all flex items-center gap-2.5 shadow-lg">
-              <i class="fa-brands fa-instagram text-pink-400 text-lg"></i>
+            <a href="https://www.instagram.com/tejas.archives_?igsi=MXU5cmRuaTltYnoyNQ==" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-obsidian-950 hover:bg-pink-600 border border-white/10 hover:border-pink-500 text-white font-semibold text-xs transition-all flex items-center gap-2">
+              <i class="fa-brands fa-instagram text-pink-400 text-sm"></i>
               <span>Instagram</span>
             </a>
-            <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl bg-dark-base hover:bg-gray-800 border border-white/10 hover:border-brand-500/40 text-white font-semibold text-sm transition-all flex items-center gap-2.5 shadow-lg">
-              <i class="fa-brands fa-github text-brand-400 text-lg"></i>
+            <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-obsidian-950 hover:bg-gray-800 border border-white/10 hover:border-neon-cyan/40 text-white font-semibold text-xs transition-all flex items-center gap-2">
+              <i class="fa-brands fa-github text-gray-300 text-sm"></i>
               <span>GitHub</span>
             </a>
-            <a href="resume.html" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-brand-500 to-ocean-500 hover:from-brand-400 hover:to-ocean-400 text-dark-base font-bold text-sm transition-all shadow-lg shadow-brand-500/25 flex items-center gap-2">
+            <a href="resume.html" class="px-6 py-3 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-blue text-black font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all shadow-lg shadow-neon-cyan/20 flex items-center gap-2">
               <i class="fa-regular fa-file-pdf"></i>
               <span>ATS Resume</span>
             </a>
           </div>
         </div>
+
       </div>
 
-      <footer class="mt-12 text-center text-xs text-gray-500 font-mono space-y-2">
-        <p>© 2026 Tejas. Inspired by Modern Next.js Architecture. Built with Tailwind CSS & Vanilla Tilt.</p>
-        <p class="text-gray-600">Hosted with GitHub Pages • <a href="https://github.com/Tejaaazz07/Tejaaazz07.github.io" target="_blank" class="hover:underline">Repository</a></p>
+      <footer class="mt-12 text-center text-xs text-gray-500 font-mono space-y-1">
+        <p>© 2026 Tejas. Dark Obsidian Edition. Designed for high performance.</p>
+        <p class="text-gray-600">Hosted on GitHub Pages • <a href="https://github.com/Tejaaazz07/Tejaaazz07.github.io" target="_blank" class="text-gray-500 hover:text-neon-cyan underline">Repository</a></p>
       </footer>
     </section>
 
   </main>
 
-  <!-- Interactive Terminal CLI Modal -->
-  <div id="terminal-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="w-full max-w-2xl bg-dark-surface border border-brand-500/40 rounded-2xl shadow-2xl overflow-hidden font-mono text-xs flex flex-col h-[450px]">
-      <div class="bg-dark-base px-4 py-3 border-b border-white/10 flex items-center justify-between">
+  <!-- INTERACTIVE TERMINAL CLI MODAL -->
+  <div id="terminal-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-obsidian-900 border border-neon-cyan/40 rounded-2xl shadow-2xl overflow-hidden font-mono text-xs flex flex-col h-[450px]">
+      <div class="bg-obsidian-950 px-4 py-3 border-b border-white/10 flex items-center justify-between">
         <div class="flex items-center gap-2">
           <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
           <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
@@ -741,40 +753,39 @@
         <button onclick="toggleTerminalModal()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
       </div>
 
-      <div id="terminal-body" class="p-4 flex-1 overflow-y-auto custom-scroll space-y-2 text-gray-300 text-left">
-        <div><span class="text-brand-400 font-bold">Welcome to Tejas Terminal [Version 2.4.0]</span></div>
-        <div>Type <span class="text-cyan-300 font-bold">'help'</span> to view available commands.</div>
-        <div class="text-gray-500">--------------------------------------------------</div>
+      <div id="terminal-body" class="p-4 flex-1 overflow-y-auto space-y-2 text-gray-300 text-left">
+        <div><span class="text-neon-cyan font-bold">Tejas Terminal [Version 3.0.0 Obsidian Dark]</span></div>
+        <div>Type <span class="text-neon-cyan font-bold">'help'</span> to view available commands.</div>
+        <div class="text-gray-600">--------------------------------------------------</div>
       </div>
 
-      <div class="p-3 bg-dark-base border-t border-white/10 flex items-center gap-2">
-        <span class="text-brand-400 font-bold">tejas:~$</span>
-        <input type="text" id="terminal-input" onkeydown="handleTerminalCommand(event)" class="flex-1 bg-transparent border-none outline-none text-white font-mono text-xs" placeholder="Type a command (e.g. whoami, protosem, skills)..." autofocus>
+      <div class="p-3 bg-obsidian-950 border-t border-white/10 flex items-center gap-2">
+        <span class="text-neon-cyan font-bold">tejas:~$</span>
+        <input type="text" id="terminal-input" onkeydown="handleTerminalCommand(event)" class="flex-1 bg-transparent border-none outline-none text-white font-mono text-xs" placeholder="Type command (whoami, protosem, skills, contact)..." autofocus>
       </div>
     </div>
   </div>
 
-  <!-- Scripts: AOS, Typed.js, Vanilla Tilt & Interactive Canvas -->
+  <!-- SCRIPTS: AOS, Typed.js, Dynamic Interactions -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 
   <script>
-    // Initialize AOS Animations
+    // Initialize AOS
     AOS.init({
       once: true,
-      duration: 800,
-      offset: 50,
+      duration: 700,
+      offset: 40,
     });
 
     // Initialize Typed.js
     new Typed('#typed-roles', {
       strings: [
         'AI Agent Building (n8n & LLMs)',
-        'Financial & Excel Modeling',
+        'Financial Modeling & MS Excel Analytics',
         'PRICE ProtoSem Innovation Engineering',
-        'Growth & Digital Marketing',
-        'Rotaract Club Leadership'
+        'Growth & Social Media Strategy',
+        'Rotaract Club Service Leadership'
       ],
       typeSpeed: 40,
       backSpeed: 25,
@@ -782,107 +793,23 @@
       loop: true
     });
 
-    // Initialize 3D Floating Tilt Card
-    const heroCard = document.getElementById('hero-tilt-card');
-    if (heroCard && typeof VanillaTilt !== 'undefined') {
-      VanillaTilt.init(heroCard, {
-        max: 8,
-        speed: 400,
-        glare: true,
-        'max-glare': 0.15,
-        scale: 1.01
+    // Cursor Glow Orb & Spotlight Tracking
+    const glowOrb = document.getElementById('cursor-glow');
+    document.addEventListener('mousemove', (e) => {
+      if (glowOrb) {
+        glowOrb.style.left = e.clientX + 'px';
+        glowOrb.style.top = e.clientY + 'px';
+      }
+      document.querySelectorAll('.spotlight-wrapper').forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
       });
-    }
+    });
 
-    // Audio SFX Synthesis via Web Audio API
-    let audioEnabled = false;
-    let audioCtx = null;
-
-    function toggleAudioFx() {
-      audioEnabled = !audioEnabled;
-      const icon = document.getElementById('sound-icon');
-      if (audioEnabled) {
-        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        playBeep(880, 0.08);
-        icon.className = "fa-solid fa-volume-high text-brand-400";
-      } else {
-        icon.className = "fa-solid fa-volume-xmark text-gray-500";
-      }
-    }
-
-    function playBeep(freq = 600, duration = 0.05) {
-      if (!audioEnabled || !audioCtx) return;
-      try {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.frequency.value = freq;
-        osc.type = 'sine';
-        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start();
-        osc.stop(audioCtx.currentTime + duration);
-      } catch (e) {}
-    }
-
-    // Hyperspeed Background Canvas Starfield
-    const canvas = document.getElementById('hyperspeed-canvas');
-    if (canvas) {
-      const ctx = canvas.getContext('2d');
-      let stars = [];
-      let width, height;
-
-      function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-        stars = [];
-        for (let i = 0; i < 120; i++) {
-          stars.push({
-            x: Math.random() * width - width / 2,
-            y: Math.random() * height - height / 2,
-            z: Math.random() * width,
-            size: Math.random() * 1.5 + 0.5
-          });
-        }
-      }
-      window.addEventListener('resize', resize);
-      resize();
-
-      function animateStars() {
-        ctx.fillStyle = '#030712';
-        ctx.clearRect(0, 0, width, height);
-
-        const cx = width / 2;
-        const cy = height / 2;
-
-        for (let i = 0; i < stars.length; i++) {
-          const s = stars[i];
-          s.z -= 1.2;
-          if (s.z <= 0) {
-            s.z = width;
-            s.x = Math.random() * width - width / 2;
-            s.y = Math.random() * height - height / 2;
-          }
-
-          const k = 180 / s.z;
-          const px = s.x * k + cx;
-          const py = s.y * k + cy;
-
-          if (px >= 0 && px <= width && py >= 0 && py <= height) {
-            const alpha = (1 - s.z / width);
-            ctx.beginPath();
-            ctx.fillStyle = `rgba(6, 182, 212, ${alpha * 0.7})`;
-            ctx.arc(px, py, s.size * (1 - s.z / width) * 1.5, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
-        requestAnimationFrame(animateStars);
-      }
-      animateStars();
-    }
-
-    // PROTOSEM 20-WEEK ARCHITECTURE & DATA SYSTEM
+    // PROTOSEM 20-WEEK ARCHITECTURE
     const protoSemWeeks = [
       { week: 1, phase: 1, label: "WEEK 01", status: "FIELD NOTES IN PROGRESS", slug: "week-01" },
       { week: 2, phase: 1, label: "WEEK 02", status: "FIELD NOTES IN PROGRESS", slug: "week-02" },
@@ -918,75 +845,69 @@
         : protoSemWeeks.filter(w => w.phase === parseInt(filterPhase));
 
       container.innerHTML = filtered.map(w => `
-        <a href="#protosem-${w.slug}" 
-           onclick="handleWeekCardClick(event, ${w.week})" 
-           class="week-card group relative p-4 rounded-2xl bg-dark-base/90 border border-white/10 hover:border-brand-400/60 hover:bg-dark-surface transition-all duration-300 flex flex-col justify-between h-36 overflow-hidden cursor-pointer hover:-translate-y-1.5 hover:shadow-lg hover:shadow-brand-500/15">
-          
-          <div class="absolute -right-8 -top-8 w-20 h-20 bg-brand-500/5 group-hover:bg-brand-500/20 rounded-full blur-xl transition-all"></div>
+        <div onclick="handleWeekClick(${w.week})" 
+             class="group relative p-4 rounded-2xl bg-obsidian-950/80 border border-white/10 hover:border-neon-cyan/50 transition-all duration-300 flex flex-col justify-between h-36 overflow-hidden cursor-pointer hover:-translate-y-1 hover:shadow-lg hover:shadow-neon-cyan/10">
           
           <div class="flex items-center justify-between relative z-10">
-            <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-md bg-white/5 text-gray-400 border border-white/5 group-hover:border-brand-500/30 group-hover:text-brand-300 transition-colors">
+            <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-obsidian-800 text-gray-400 border border-white/5 group-hover:text-neon-cyan group-hover:border-neon-cyan/30 transition-colors">
               PHASE 0${w.phase}
             </span>
-            <div class="w-6 h-6 rounded-lg bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-brand-400 group-hover:bg-brand-500/10 transition-all">
-              <i class="fa-solid fa-arrow-up-right text-[11px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+            <div class="w-6 h-6 rounded-lg bg-obsidian-800 flex items-center justify-center text-gray-400 group-hover:text-neon-cyan group-hover:bg-neon-cyan/10 transition-all">
+              <i class="fa-solid fa-arrow-up-right text-[10px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
             </div>
           </div>
 
           <div class="relative z-10 mt-2">
-            <div class="text-base font-extrabold text-white font-mono tracking-tight group-hover:text-brand-300 transition-colors flex items-center gap-2">
-              <span>${w.label}</span>
+            <div class="text-base font-extrabold text-white font-mono tracking-tight group-hover:text-neon-cyan transition-colors">
+              ${w.label}
             </div>
-            <div class="text-[11px] font-mono font-medium text-gray-400 mt-1 group-hover:text-brand-400/90 transition-colors flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-brand-400/60 animate-pulse"></span>
+            <div class="text-[11px] font-mono text-gray-400 mt-1 flex items-center gap-1.5 group-hover:text-neon-cyan/80">
+              <span class="w-1.5 h-1.5 rounded-full bg-neon-cyan/60 animate-pulse"></span>
               <span>${w.status}</span>
             </div>
           </div>
 
           <div class="w-full bg-white/5 h-1 rounded-full overflow-hidden mt-2 relative z-10">
-            <div class="bg-gradient-to-r from-brand-500 to-ocean-400 h-full w-0 group-hover:w-full transition-all duration-500"></div>
+            <div class="bg-gradient-to-r from-neon-cyan to-neon-blue h-full w-0 group-hover:w-full transition-all duration-500"></div>
           </div>
-        </a>
+        </div>
       `).join('');
     }
 
     function filterProtoSemPhase(phase) {
-      playBeep(700, 0.04);
-      document.querySelectorAll('.phase-tab-btn').forEach(btn => {
+      document.querySelectorAll('.phase-btn').forEach(btn => {
         if (btn.getAttribute('data-phase') == phase) {
-          btn.className = "phase-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-brand-500 text-dark-base shadow-md shadow-brand-500/20";
+          btn.className = "phase-btn active px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all bg-neon-cyan text-black shadow-md shadow-neon-cyan/20";
         } else {
-          btn.className = "phase-tab-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-dark-base text-gray-300 border border-white/10 hover:border-brand-500/40";
+          btn.className = "phase-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono transition-all bg-obsidian-950 text-gray-300 border border-white/10 hover:border-neon-cyan/40";
         }
       });
       renderProtoSemWeeks(phase);
     }
 
-    function handleWeekCardClick(e, weekNum) {
-      e.preventDefault();
-      playBeep(900, 0.06);
+    function handleWeekClick(weekNum) {
       const padded = weekNum < 10 ? '0' + weekNum : weekNum;
-      showProtoSemToast(`WEEK ${padded} — Field Note Archive`, `The detailed weekly case study and blog story for Week ${padded} is currently in progress.`);
+      showToast(`WEEK ${padded} — Archive Notes`, `Field notes and innovation case documentation for Week ${padded} are currently in progress.`);
     }
 
-    function showProtoSemToast(title, msg) {
+    function showToast(title, msg) {
       let toast = document.getElementById('protosem-toast');
       if (!toast) {
         toast = document.createElement('div');
         toast.id = 'protosem-toast';
-        toast.className = 'fixed bottom-6 right-6 z-50 max-w-sm bg-dark-surface border border-brand-500/40 p-4 rounded-2xl shadow-2xl backdrop-blur-xl flex items-start gap-3 transform translate-y-20 opacity-0 transition-all duration-300';
+        toast.className = 'fixed bottom-6 right-6 z-50 max-w-sm bg-obsidian-900 border border-neon-cyan/40 p-4 rounded-2xl shadow-2xl backdrop-blur-xl flex items-start gap-3 transform translate-y-20 opacity-0 transition-all duration-300';
         document.body.appendChild(toast);
       }
       toast.innerHTML = `
-        <div class="w-9 h-9 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-400 text-sm flex-shrink-0 mt-0.5">
-          <i class="fa-solid fa-book-bookmark"></i>
+        <div class="w-8 h-8 rounded-xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan text-xs flex-shrink-0 mt-0.5">
+          <i class="fa-solid fa-cube"></i>
         </div>
         <div class="flex-1 text-left">
-          <div class="text-sm font-bold text-white flex items-center justify-between">
+          <div class="text-xs font-bold text-white flex items-center justify-between">
             <span>${title}</span>
-            <span class="text-[10px] font-mono bg-brand-500/20 text-brand-300 px-2 py-0.5 rounded-full">Archive</span>
+            <span class="text-[9px] font-mono bg-neon-cyan/20 text-neon-cyan px-2 py-0.5 rounded-full">Archive</span>
           </div>
-          <p class="text-xs text-gray-300 mt-1 leading-relaxed">${msg}</p>
+          <p class="text-[11px] text-gray-300 mt-1 leading-relaxed">${msg}</p>
         </div>
       `;
       toast.classList.remove('translate-y-20', 'opacity-0');
@@ -995,22 +916,20 @@
       setTimeout(() => {
         toast.classList.remove('translate-y-0', 'opacity-100');
         toast.classList.add('translate-y-20', 'opacity-0');
-      }, 4000);
+      }, 3500);
     }
 
-    // AI Ad Simulation Demonstration
-    function simulateAdGeneration() {
-      playBeep(800, 0.05);
-      const out = document.getElementById('ad-simulation-output');
-      out.innerHTML = `<span class="text-cyan-400 animate-pulse">> Initializing n8n webhook → Parsing LLM persona prompt...</span>`;
+    // AI Simulation
+    function runAdSimulation() {
+      const log = document.getElementById('sim-log');
+      log.innerHTML = `<span class="text-neon-cyan animate-pulse">> Triggering n8n webhook → Parsing LLM prompt...</span>`;
       setTimeout(() => {
-        out.innerHTML = `<span class="text-emerald-400">> Generated Variant A:</span> "Scale Your E-Commerce Brand with AI-Powered Audience Funnels." <br><span class="text-ocean-400">> Output Status:</span> 200 OK (Execution Time: 420ms)`;
-      }, 1200);
+        log.innerHTML = `<span class="text-neon-emerald">> Variant Generated:</span> "Scale Your E-Commerce Brand with AI-Powered Audience Funnels." <br><span class="text-neon-blue">> Status:</span> 200 OK (Execution Time: 380ms)`;
+      }, 1000);
     }
 
     // Terminal Modal CLI Controller
     function toggleTerminalModal() {
-      playBeep(650, 0.04);
       const modal = document.getElementById('terminal-modal');
       modal.classList.toggle('hidden');
       modal.classList.toggle('flex');
@@ -1024,23 +943,22 @@
         const input = document.getElementById('terminal-input');
         const cmd = input.value.trim().toLowerCase();
         const body = document.getElementById('terminal-body');
-        playBeep(750, 0.03);
 
         const cmdLine = document.createElement('div');
-        cmdLine.innerHTML = `<span class="text-brand-400 font-bold">tejas:~$</span> <span class="text-white">${input.value}</span>`;
+        cmdLine.innerHTML = `<span class="text-neon-cyan font-bold">tejas:~$</span> <span class="text-white">${input.value}</span>`;
         body.appendChild(cmdLine);
 
         const resp = document.createElement('div');
         resp.className = "text-gray-300 mb-2";
 
         if (cmd === 'help') {
-          resp.innerHTML = `Available commands: <br>• <span class="text-cyan-300">whoami</span> - Identity summary<br>• <span class="text-cyan-300">protosem</span> - ProtoSem programme status<br>• <span class="text-cyan-300">skills</span> - Technical & business stack<br>• <span class="text-cyan-300">contact</span> - Social profiles<br>• <span class="text-cyan-300">clear</span> - Clear terminal`;
+          resp.innerHTML = `Commands: <br>• <span class="text-neon-cyan">whoami</span> - Profile info<br>• <span class="text-neon-cyan">protosem</span> - ProtoSem programme summary<br>• <span class="text-neon-cyan">skills</span> - Skillset & tools<br>• <span class="text-neon-cyan">contact</span> - Socials & links<br>• <span class="text-neon-cyan">clear</span> - Clear screen`;
         } else if (cmd === 'whoami') {
-          resp.innerHTML = `Tejas | 2nd-Year B.Com Scholar at Kumaraguru College & PRICE ProtoSem Innovation Engineer Trainee.`;
+          resp.innerHTML = `Tejas | Commerce Scholar at Kumaraguru College & PRICE ProtoSem Innovation Engineer Trainee.`;
         } else if (cmd === 'protosem') {
-          resp.innerHTML = `PRICE ProtoSem: 20-Week Industry-Integrated Innovation Programme across 4 phases (Discovery, Prototyping, Integration, Validation).`;
+          resp.innerHTML = `PRICE ProtoSem: 20-Week Innovation Programme solving retail & commerce challenges through AI, IoT & Prototyping.`;
         } else if (cmd === 'skills') {
-          resp.innerHTML = `Skills: n8n Automation, Microsoft Excel Modeling, AI Prompting, Stock Market Analysis, Digital Marketing.`;
+          resp.innerHTML = `n8n AI Automation, Microsoft Excel Financial Modeling, AI Prompting, Stock Research, Digital Marketing.`;
         } else if (cmd === 'contact') {
           resp.innerHTML = `LinkedIn: linkedin.com/in/tejas-s-k-333a78359 | GitHub: @Tejaaazz07 | Instagram: @tejas.archives_`;
         } else if (cmd === 'clear') {
@@ -1050,7 +968,7 @@
         } else if (cmd === '') {
           resp.innerHTML = '';
         } else {
-          resp.innerHTML = `Command not recognized: '${cmd}'. Type 'help' for available commands.`;
+          resp.innerHTML = `Unknown command: '${cmd}'. Type 'help' for options.`;
         }
 
         body.appendChild(resp);
