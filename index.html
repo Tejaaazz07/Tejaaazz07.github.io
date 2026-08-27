@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tejas | Commerce, AI Automation, Analytics & ProtoSem</title>
-  <meta name="description" content="Portfolio of Tejas - Commerce Student, AI Agent Builder, Financial & Data Analyst, and ProtoSem Innovation Engineer Trainee.">
+  <title>Tejas | Commerce, AI Automation, Financial Analytics & ProtoSem</title>
+  <meta name="description" content="Official portfolio of Tejas - Commerce Scholar, AI Agent Builder, Financial Analyst, and PRICE ProtoSem Innovation Engineer Trainee.">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,7 +20,7 @@
               200: '#a5f3fc',
               300: '#67e8f9',
               400: '#22d3ee',
-              500: '#06b6d4', // Cyber Cyan primary
+              500: '#06b6d4', // Cyber Cyan
               600: '#0891b2',
               700: '#0e7490',
               800: '#155e75',
@@ -34,15 +34,26 @@
               700: '#0369a1',
             },
             dark: {
-              base: '#070B14',
-              surface: '#0C1322',
-              card: '#111D33',
-              border: '#1E2F4D'
+              base: '#030712',
+              surface: '#0B1120',
+              card: '#0F172A',
+              border: '#1E293B'
             }
           },
           fontFamily: {
             sans: ['Outfit', 'Inter', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace']
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'glow-spin': 'spin 12s linear infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
           }
         }
       }
@@ -52,7 +63,7 @@
   <!-- Google Fonts & Font Awesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- AOS CSS -->
@@ -61,38 +72,49 @@
   <style>
     body {
       font-family: 'Outfit', sans-serif;
-      background-color: #070B14;
+      background-color: #030712;
       color: #f3f4f6;
       overflow-x: hidden;
     }
     
-    /* Background Glow Effects: Cyber Cyan & Oceanic Blue */
-    .bg-mesh {
+    /* Cyber Grid & Hyperspeed Canvas Backing */
+    .bg-cyber-grid {
+      background-size: 50px 50px;
+      background-image: 
+        linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+    }
+
+    .bg-mesh-glow {
       background-image: 
         radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.18) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(14, 165, 233, 0.14) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(2, 132, 199, 0.1) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
+        radial-gradient(at 100% 10%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(56, 189, 248, 0.08) 0px, transparent 60%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.12) 0px, transparent 50%);
     }
 
     .bento-card {
-      background: rgba(12, 19, 34, 0.8);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(34, 211, 238, 0.12);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(11, 17, 32, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(34, 211, 238, 0.14);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .bento-card:hover {
-      border-color: rgba(34, 211, 238, 0.45);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.25);
+      border-color: rgba(34, 211, 238, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 35px -10px rgba(6, 182, 212, 0.25);
     }
 
     .gradient-text {
-      background: linear-gradient(135deg, #cffafe 0%, #38bdf8 50%, #06b6d4 100%);
+      background: linear-gradient(135deg, #ffffff 0%, #67e8f9 50%, #06b6d4 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-cyan-blue {
+      background: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 100%);
     }
 
     .tilt-card-wrapper {
@@ -103,78 +125,118 @@
     .tilt-content {
       transform: translateZ(30px);
     }
+
+    /* Terminal Scrollbar */
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.3);
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(6,182,212,0.4);
+      border-radius: 4px;
+    }
   </style>
 </head>
-<body class="bg-mesh min-h-screen selection:bg-brand-500 selection:text-dark-base">
+<body class="bg-cyber-grid bg-mesh-glow min-h-screen selection:bg-brand-500 selection:text-dark-base relative">
+
+  <!-- Interactive Canvas Background (Hyperspeed & Starfield) -->
+  <canvas id="hyperspeed-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+  <!-- Top Announcement Bar -->
+  <div class="relative z-50 bg-gradient-to-r from-brand-950 via-dark-surface to-dark-base border-b border-brand-500/20 py-1.5 px-4 text-center text-xs font-mono text-gray-300 flex items-center justify-center gap-3">
+    <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-brand-500/20 text-brand-300 font-semibold text-[11px] border border-brand-500/30">
+      <span class="w-2 h-2 rounded-full bg-brand-400 animate-ping"></span>
+      LIVE
+    </span>
+    <span>PRICE ProtoSem Innovation Fellow & B.Com Scholar • Open to AI & Growth Opportunities</span>
+  </div>
 
   <!-- Navigation Bar -->
-  <header class="fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300">
-    <div class="max-w-6xl mx-auto flex items-center justify-between backdrop-blur-md bg-dark-base/80 border border-white/10 rounded-2xl px-6 py-3 shadow-xl shadow-black/30">
+  <header class="fixed top-8 left-0 right-0 z-50 px-4 sm:px-6 transition-all duration-300">
+    <div class="max-w-6xl mx-auto flex items-center justify-between backdrop-blur-xl bg-dark-base/85 border border-brand-500/20 rounded-2xl px-5 py-3 shadow-2xl shadow-black/60">
+      
       <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-brand-500 to-ocean-400 flex items-center justify-center text-dark-base font-black text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-brand-500 to-ocean-400 flex items-center justify-center text-dark-base font-black text-xl shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
           T
         </div>
-        <div class="flex flex-col">
+        <div class="flex flex-col text-left">
           <span class="font-bold text-lg text-white tracking-wide leading-none">Tejas</span>
-          <span class="text-xs text-brand-400 font-mono font-medium">B.Com • AI & Finance</span>
+          <span class="text-[11px] text-brand-400 font-mono font-medium">B.Com • AI & Finance</span>
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-gray-300">
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-300">
         <a href="#about" class="hover:text-brand-400 transition-colors">About</a>
-        <a href="#projects" class="hover:text-brand-400 transition-colors">AI & Projects</a>
-        <a href="#skills" class="hover:text-brand-400 transition-colors">Skills</a>
-        <a href="#leadership" class="hover:text-brand-400 transition-colors">Leadership</a>
-        <a href="#protosem" class="hover:text-brand-300 text-brand-400 transition-colors flex items-center gap-1.5 font-semibold bg-brand-500/10 px-2.5 py-1 rounded-lg border border-brand-500/20">
-          <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span>
-          <span>ProtoSem</span>
+        <a href="#projects" class="hover:text-brand-400 transition-colors">Projects & AI</a>
+        <a href="#protosem" class="hover:text-brand-300 text-brand-400 transition-colors flex items-center gap-1.5 font-semibold bg-brand-500/10 px-3 py-1 rounded-lg border border-brand-500/25">
+          <i class="fa-solid fa-cube text-xs"></i>
+          <span>ProtoSem 20W</span>
         </a>
+        <a href="#experience" class="hover:text-brand-400 transition-colors">Experience</a>
+        <a href="#skills" class="hover:text-brand-400 transition-colors">Skills</a>
+        <a href="#github-matrix" class="hover:text-brand-400 transition-colors">GitHub</a>
       </nav>
 
+      <!-- Action Utilities & Socials -->
       <div class="flex items-center gap-2">
-        <a href="resume.html" class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs md:text-sm font-semibold rounded-xl bg-brand-500/10 text-brand-300 border border-brand-500/30 hover:bg-brand-500 hover:text-dark-base transition-all duration-300 shadow-sm">
+        <button onclick="toggleTerminalModal()" class="p-2 rounded-xl bg-dark-card hover:bg-gray-800 text-brand-400 border border-brand-500/30 hover:border-brand-400 transition-all text-xs font-mono flex items-center gap-1.5" title="Open Interactive Terminal">
+          <i class="fa-solid fa-terminal"></i>
+          <span class="hidden sm:inline">CLI</span>
+        </button>
+
+        <button id="sound-toggle-btn" onclick="toggleAudioFx()" class="p-2 rounded-xl bg-dark-card hover:bg-gray-800 text-gray-300 hover:text-white border border-white/10 transition-colors" title="Toggle UI Sound Effects">
+          <i id="sound-icon" class="fa-solid fa-volume-high text-xs"></i>
+        </button>
+
+        <a href="resume.html" class="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-xl bg-brand-500/10 text-brand-300 border border-brand-500/30 hover:bg-brand-500 hover:text-dark-base transition-all duration-300 shadow-sm">
           <i class="fa-regular fa-file-lines"></i>
-          <span>ATS Resume</span>
+          <span>Resume</span>
         </a>
-        <a href="https://www.linkedin.com/in/tejas-s-k-333a78359" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-gray-800/80 hover:bg-[#0A66C2] text-gray-300 hover:text-white border border-white/5 transition-all" title="LinkedIn Profile">
-          <i class="fa-brands fa-linkedin text-base"></i>
-        </a>
-        <a href="https://www.instagram.com/tejas.archives_?igsi=MXU5cmRuaTltYnoyNQ==" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-gray-800/80 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 text-gray-300 hover:text-white border border-white/5 transition-all" title="Instagram Profile">
-          <i class="fa-brands fa-instagram text-base"></i>
-        </a>
-        <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-gray-800/80 hover:bg-gray-700 text-gray-300 hover:text-white border border-white/5 transition-colors" title="GitHub Profile">
-          <i class="fa-brands fa-github text-base"></i>
-        </a>
+
+        <div class="hidden sm:flex items-center gap-1.5 pl-1 border-l border-white/10">
+          <a href="https://www.linkedin.com/in/tejas-s-k-333a78359" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-gray-800/80 hover:bg-[#0A66C2] text-gray-300 hover:text-white border border-white/5 transition-all" title="LinkedIn Profile">
+            <i class="fa-brands fa-linkedin text-sm"></i>
+          </a>
+          <a href="https://www.instagram.com/tejas.archives_?igsi=MXU5cmRuaTltYnoyNQ==" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-gray-800/80 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 text-gray-300 hover:text-white border border-white/5 transition-all" title="Instagram Profile">
+            <i class="fa-brands fa-instagram text-sm"></i>
+          </a>
+          <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-gray-800/80 hover:bg-gray-700 text-gray-300 hover:text-white border border-white/5 transition-colors" title="GitHub Profile">
+            <i class="fa-brands fa-github text-sm"></i>
+          </a>
+        </div>
       </div>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-32 pb-20">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-36 pb-24 relative z-10">
 
-    <!-- HERO SECTION (3D Floating Tilt Card) -->
-    <section id="hero" class="mb-16 pt-4 flex flex-col items-start justify-start w-full">
-      <div class="w-full" data-aos="fade-up" data-aos-duration="1000">
+    <!-- HERO SECTION (3D Floating Tilt Card with Dynamic Scramble) -->
+    <section id="hero" class="mb-20 pt-4 flex flex-col items-start justify-start w-full">
+      <div class="w-full" data-aos="fade-up" data-aos-duration="900">
         
         <!-- 3D Card Element -->
         <div class="tilt-card-wrapper w-full">
-          <div id="hero-tilt-card" class="bento-card rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-2xl border border-brand-500/20 bg-gradient-to-br from-dark-surface/90 via-dark-surface/70 to-brand-950/40 w-full">
+          <div id="hero-tilt-card" class="bento-card rounded-3xl p-8 sm:p-10 md:p-12 relative overflow-hidden shadow-2xl border border-brand-500/25 bg-gradient-to-br from-dark-surface/95 via-dark-surface/80 to-brand-950/40 w-full">
             
             <!-- Ambient Card Backing Glow -->
-            <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-ocean-500/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -right-20 -top-20 w-72 h-72 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-20 -bottom-20 w-72 h-72 bg-ocean-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
             <div class="tilt-content flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 relative z-10 text-left">
               
               <!-- Avatar with fallback & live status -->
-              <div class="relative group">
-                <div class="w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden border-2 border-brand-400/40 p-1.5 bg-gradient-to-tr from-brand-500/20 to-transparent shadow-xl shadow-brand-500/10">
-                  <img src="profile.jpeg?v=2" 
+              <div class="relative group flex-shrink-0">
+                <div class="w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden border-2 border-brand-400/40 p-1.5 bg-gradient-to-tr from-brand-500/30 to-ocean-500/10 shadow-2xl shadow-brand-500/20">
+                  <img src="profile.jpeg?v=3" 
                        alt="Tejas" 
                        class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
-                       onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Tejas&background=06b6d4&color=070b14&size=256&bold=true';">
+                       onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Tejas&background=06b6d4&color=030712&size=256&bold=true';">
                 </div>
                 <!-- Status Badge -->
-                <div class="absolute -bottom-2 -right-2 bg-dark-base border border-brand-500/40 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg">
+                <div class="absolute -bottom-2 -right-2 bg-dark-base border border-brand-500/50 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg">
                   <span class="w-2.5 h-2.5 rounded-full bg-brand-400 animate-pulse"></span>
                   <span class="text-[11px] font-mono font-semibold text-brand-300 uppercase tracking-wider">Active</span>
                 </div>
@@ -182,46 +244,52 @@
 
               <!-- Main Hero Info -->
               <div class="flex-1 text-left space-y-4">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs font-mono font-medium">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/25 text-brand-300 text-xs font-mono font-medium">
                   <i class="fa-solid fa-graduation-cap text-brand-400"></i>
                   <span>Kumaraguru College of Liberal Arts and Sciences</span>
                 </div>
 
                 <div>
-                  <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+                  <h1 class="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight text-white">
                     Hi, I'm <span class="gradient-text">Tejas</span>
                   </h1>
-                  <div class="text-lg md:text-xl font-medium text-gray-300 mt-2 h-8 flex items-center justify-start gap-1">
-                    <span>Passionate about</span>
-                    <span id="typed-roles" class="text-brand-400 font-semibold underline decoration-brand-500/40 decoration-2"></span>
+                  <div class="text-lg md:text-xl font-medium text-gray-300 mt-2 h-8 flex items-center justify-start gap-1.5">
+                    <span class="text-gray-400">Specializing in</span>
+                    <span id="typed-roles" class="text-brand-400 font-semibold underline decoration-brand-500/40 decoration-2 font-mono"></span>
                   </div>
                 </div>
 
-                <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl">
-                  Second-year B.Com scholar bridging financial strategy, advanced Excel modeling, and autonomous AI agents. Passionate about scaling marketing workflows and leading impactful teams.
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed max-w-2xl">
+                  Second-year B.Com scholar bridging financial strategy, structured Microsoft Excel modeling, and autonomous AI agents. Innovation Engineer Trainee at PRICE ProtoSem, driving real-world commerce solutions and leading student initiatives.
                 </p>
 
+                <!-- Quick Stat Chips -->
+                <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs text-gray-300">
+                  <span class="px-3 py-1 rounded-xl bg-dark-base/80 border border-white/10 flex items-center gap-1.5">
+                    <i class="fa-solid fa-bolt text-brand-400"></i> n8n AI Automation
+                  </span>
+                  <span class="px-3 py-1 rounded-xl bg-dark-base/80 border border-white/10 flex items-center gap-1.5">
+                    <i class="fa-solid fa-cube text-ocean-400"></i> ProtoSem Fellow
+                  </span>
+                  <span class="px-3 py-1 rounded-xl bg-dark-base/80 border border-white/10 flex items-center gap-1.5">
+                    <i class="fa-solid fa-users text-indigo-400"></i> Rotaract Director
+                  </span>
+                </div>
+
                 <!-- Quick Action Buttons & Socials -->
-                <div class="flex flex-wrap items-center justify-start gap-3 pt-2">
-                  <a href="#contact" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-500 to-ocean-500 hover:from-brand-400 hover:to-ocean-400 text-dark-base font-bold text-sm transition-all duration-300 shadow-lg shadow-brand-500/25 flex items-center gap-2">
+                <div class="flex flex-wrap items-center justify-start gap-3 pt-3">
+                  <a href="#contact" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-brand-500 via-cyan-400 to-ocean-500 hover:from-brand-400 hover:to-ocean-400 text-dark-base font-extrabold text-sm transition-all duration-300 shadow-lg shadow-brand-500/25 flex items-center gap-2">
                     <i class="fa-solid fa-paper-plane"></i>
                     <span>Let's Connect</span>
                   </a>
-                  <a href="resume.html" class="px-5 py-2.5 rounded-xl bg-dark-card hover:bg-gray-800 text-gray-200 border border-white/10 hover:border-brand-500/40 font-semibold text-sm transition-all flex items-center gap-2">
+                  <a href="resume.html" class="px-6 py-3 rounded-2xl bg-dark-card hover:bg-gray-800 text-gray-200 border border-brand-500/30 hover:border-brand-400 font-semibold text-sm transition-all flex items-center gap-2">
                     <i class="fa-solid fa-file-arrow-down text-brand-400"></i>
                     <span>View ATS Resume</span>
                   </a>
-                  <div class="flex items-center gap-2">
-                    <a href="https://www.linkedin.com/in/tejas-s-k-333a78359" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-dark-card hover:bg-[#0A66C2] text-gray-300 hover:text-white border border-white/10 transition-colors" title="LinkedIn Profile">
-                      <i class="fa-brands fa-linkedin text-base"></i>
-                    </a>
-                    <a href="https://www.instagram.com/tejas.archives_?igsi=MXU5cmRuaTltYnoyNQ==" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-dark-card hover:bg-pink-600 text-gray-300 hover:text-white border border-white/10 transition-colors" title="Instagram Profile">
-                      <i class="fa-brands fa-instagram text-base"></i>
-                    </a>
-                    <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-dark-card hover:bg-gray-700 text-gray-300 hover:text-white border border-white/10 transition-colors" title="GitHub Profile">
-                      <i class="fa-brands fa-github text-base"></i>
-                    </a>
-                  </div>
+                  <button onclick="toggleTerminalModal()" class="px-4 py-3 rounded-2xl bg-dark-base hover:bg-gray-900 border border-white/10 hover:border-brand-500/40 text-brand-300 font-mono text-xs transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-terminal"></i>
+                    <span>Open CLI</span>
+                  </button>
                 </div>
               </div>
 
@@ -232,18 +300,18 @@
       </div>
     </section>
 
-    <!-- SECTION TITLE -->
-    <div id="about" class="text-left mb-10" data-aos="fade-up">
+    <!-- SECTION TITLE: BENTO DASHBOARD -->
+    <div id="about" class="text-left mb-8 scroll-mt-28" data-aos="fade-up">
       <span class="text-brand-400 font-mono text-xs uppercase tracking-widest bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20 inline-block">Interactive Bento Dashboard</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Skills, Projects & Impact</h2>
-      <p class="text-gray-400 text-sm max-w-xl mt-2">A high-impact breakdown of my technical projects, financial capabilities, and leadership experience.</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Projects, Intelligence & Leadership</h2>
+      <p class="text-gray-400 text-sm max-w-xl mt-2">A high-impact breakdown of my technical projects, financial modeling capabilities, and leadership experience.</p>
     </div>
 
     <!-- BENTO GRID -->
     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 auto-rows-[auto]">
 
-      <!-- BENTO CARD 1: AI Agent Development (Large 2 Cols) -->
-      <div id="projects" class="bento-card rounded-3xl p-6 md:col-span-2 lg:col-span-2 relative flex flex-col justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+      <!-- BENTO CARD 1: AI Agent Development (Large 2 Cols with Live Simulator) -->
+      <div id="projects" class="bento-card rounded-3xl p-6 md:col-span-2 lg:col-span-2 relative flex flex-col justify-between overflow-hidden scroll-mt-28" data-aos="fade-up" data-aos-delay="100">
         <div>
           <div class="flex items-center justify-between mb-4">
             <div class="w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-400 text-xl">
@@ -257,32 +325,30 @@
             Architected and deployed a custom AI agent designed to generate high-converting advertisement copy, marketing headlines, and targeted visual concepts automatically.
           </p>
 
-          <div class="space-y-2 bg-dark-base/60 rounded-2xl p-4 border border-white/5 font-mono text-xs">
-            <div class="flex items-center justify-between text-gray-400">
-              <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-brand-400"></i> Platform</span>
-              <span class="text-brand-300 font-semibold">n8n Automation Engine</span>
+          <!-- Live Interactive n8n Agent Simulation Box -->
+          <div class="space-y-2.5 bg-dark-base/80 rounded-2xl p-4 border border-brand-500/20 font-mono text-xs">
+            <div class="flex items-center justify-between text-gray-400 pb-2 border-b border-white/5">
+              <span class="flex items-center gap-1.5 text-brand-400 font-semibold"><i class="fa-solid fa-bolt"></i> n8n Pipeline Core</span>
+              <button onclick="simulateAdGeneration()" class="px-2.5 py-1 rounded-lg bg-brand-500 hover:bg-brand-400 text-dark-base font-bold text-[10px] uppercase transition-colors">
+                Run Simulation
+              </button>
             </div>
-            <div class="flex items-center justify-between text-gray-400">
-              <span class="flex items-center gap-2"><i class="fa-solid fa-brain text-brand-400"></i> AI Core</span>
-              <span class="text-gray-200">Advanced Prompting & LLM orchestration</span>
-            </div>
-            <div class="flex items-center justify-between text-gray-400">
-              <span class="flex items-center gap-2"><i class="fa-solid fa-chart-line text-brand-400"></i> Output</span>
-              <span class="text-cyan-300">Multi-variant Ad Creatives</span>
+            <div id="ad-simulation-output" class="text-gray-300 text-[11px] leading-relaxed pt-1">
+              <span class="text-brand-300">> System Ready:</span> Click "Run Simulation" to execute the n8n multi-variant ad prompt sequence.
             </div>
           </div>
         </div>
 
         <div class="flex flex-wrap gap-2 mt-5">
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">n8n</span>
+          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">n8n Engine</span>
           <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">AI Prompt Engineering</span>
-          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">Agent Workflows</span>
+          <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">LLM Workflows</span>
           <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-gray-300 font-medium">Ad Optimization</span>
         </div>
       </div>
 
-      <!-- BENTO CARD 2: Finance & Data Analytics (1 Col) -->
-      <div id="skills" class="bento-card rounded-3xl p-6 md:col-span-1 lg:col-span-2 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+      <!-- BENTO CARD 2: Finance & Data Modeling (1 Col) -->
+      <div id="skills" class="bento-card rounded-3xl p-6 md:col-span-1 lg:col-span-2 flex flex-col justify-between scroll-mt-28" data-aos="fade-up" data-aos-delay="200">
         <div>
           <div class="flex items-center justify-between mb-4">
             <div class="w-12 h-12 rounded-2xl bg-ocean-500/10 border border-ocean-500/30 flex items-center justify-center text-ocean-400 text-xl">
@@ -322,7 +388,7 @@
         </div>
       </div>
 
-      <!-- BENTO CARD 3: Digital Marketing & E-Commerce (1 Col) -->
+      <!-- BENTO CARD 3: Digital Marketing & Brand Growth (1 Col) -->
       <div class="bento-card rounded-3xl p-6 md:col-span-1 lg:col-span-2 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -361,7 +427,7 @@
       </div>
 
       <!-- BENTO CARD 4: Leadership & Rotaract (Large 2 Cols) -->
-      <div id="leadership" class="bento-card rounded-3xl p-6 md:col-span-2 lg:col-span-2 relative flex flex-col justify-between" data-aos="fade-up" data-aos-delay="400">
+      <div id="experience" class="bento-card rounded-3xl p-6 md:col-span-2 lg:col-span-2 relative flex flex-col justify-between scroll-mt-28" data-aos="fade-up" data-aos-delay="400">
         <div>
           <div class="flex items-center justify-between mb-4">
             <div class="w-12 h-12 rounded-2xl bg-ocean-500/10 border border-ocean-500/30 flex items-center justify-center text-ocean-400 text-xl">
@@ -401,51 +467,9 @@
 
     </div>
 
-    <!-- TECH STACK & TOOLS STRIP -->
-    <div class="mt-16 bento-card rounded-3xl p-8" data-aos="fade-up">
-      <h3 class="text-left font-bold text-lg text-white mb-6">Technologies, Tools & Core Competencies</h3>
-      
-      <div class="flex flex-wrap items-center justify-start gap-3 md:gap-4">
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-diagram-project text-brand-400"></i>
-          <span class="text-sm font-semibold text-gray-200">n8n Automation</span>
-        </div>
-
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-chart-line text-cyan-400"></i>
-          <span class="text-sm font-semibold text-gray-200">Market Research</span>
-        </div>
-
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-table text-ocean-400"></i>
-          <span class="text-sm font-semibold text-gray-200">Microsoft Excel</span>
-        </div>
-
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-microchip text-indigo-400"></i>
-          <span class="text-sm font-semibold text-gray-200">AI Prompting & LLMs</span>
-        </div>
-
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-coins text-amber-400"></i>
-          <span class="text-sm font-semibold text-gray-200">Financial Planning</span>
-        </div>
-
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-bullseye text-cyan-400"></i>
-          <span class="text-sm font-semibold text-gray-200">Digital Marketing</span>
-        </div>
-
-        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
-          <i class="fa-solid fa-microphone-lines text-rose-400"></i>
-          <span class="text-sm font-semibold text-gray-200">Public Speaking</span>
-        </div>
-      </div>
-    </div>
-
     <!-- PROTOSEM DEDICATED SECTION -->
     <section id="protosem" class="mt-20 scroll-mt-28" data-aos="fade-up">
-      <div class="bento-card rounded-3xl p-6 sm:p-10 md:p-12 relative overflow-hidden border border-brand-500/20">
+      <div class="bento-card rounded-3xl p-6 sm:p-10 md:p-12 relative overflow-hidden border border-brand-500/25">
         
         <!-- Ambient Backing Glow -->
         <div class="absolute -right-32 -top-32 w-80 h-80 bg-brand-500/15 rounded-full blur-3xl pointer-events-none"></div>
@@ -570,14 +594,109 @@
       </div>
     </section>
 
+    <!-- GITHUB ACTIVITY & MATRIX SECTION (Inspired by Retro Space Shooter) -->
+    <section id="github-matrix" class="mt-20 scroll-mt-28" data-aos="fade-up">
+      <div class="bento-card rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 text-left">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 font-mono text-xs">
+              <i class="fa-brands fa-github"></i>
+              <span>GITHUB SHOWCASE • @Tejaaazz07</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mt-2">Open Source & Repository Matrix</h3>
+          </div>
+          <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-dark-base hover:bg-gray-800 text-brand-300 border border-brand-500/30 text-xs font-mono transition-colors inline-flex items-center gap-2 self-start md:self-auto">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span>github.com/Tejaaazz07</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left font-mono">
+          <div class="p-5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                <span class="text-brand-300 font-bold flex items-center gap-2"><i class="fa-solid fa-book-bookmark"></i> Tejaaazz07.github.io</span>
+                <span class="px-2 py-0.5 rounded bg-brand-500/10 text-brand-300 text-[10px]">Public</span>
+              </div>
+              <p class="text-gray-300 text-xs font-sans leading-relaxed">
+                Official personal web portfolio & ATS resume application. Powered by modern Tailwind styling, 3D tilt interaction, and the PRICE ProtoSem innovation archive.
+              </p>
+            </div>
+            <div class="flex items-center gap-4 text-xs text-gray-400 mt-4 pt-3 border-t border-white/5">
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span> HTML/JS</span>
+              <span class="flex items-center gap-1"><i class="fa-regular fa-star text-amber-400"></i> Main</span>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                <span class="text-brand-300 font-bold flex items-center gap-2"><i class="fa-solid fa-robot"></i> AI-AdGen-Agent</span>
+                <span class="px-2 py-0.5 rounded bg-ocean-500/10 text-ocean-300 text-[10px]">Workflows</span>
+              </div>
+              <p class="text-gray-300 text-xs font-sans leading-relaxed">
+                Autonomous n8n agent workflow generating multi-variant advertising creatives, headlines, and conversion copy for digital brands.
+              </p>
+            </div>
+            <div class="flex items-center gap-4 text-xs text-gray-400 mt-4 pt-3 border-t border-white/5">
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> n8n Workflows</span>
+              <span class="flex items-center gap-1"><i class="fa-solid fa-microchip text-indigo-400"></i> LLM APIs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH STACK & TOOLS STRIP -->
+    <div class="mt-16 bento-card rounded-3xl p-8" data-aos="fade-up">
+      <h3 class="text-left font-bold text-lg text-white mb-6">Technologies, Tools & Core Competencies</h3>
+      
+      <div class="flex flex-wrap items-center justify-start gap-3 md:gap-4">
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
+          <i class="fa-solid fa-diagram-project text-brand-400"></i>
+          <span class="text-sm font-semibold text-gray-200">n8n Automation</span>
+        </div>
+
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
+          <i class="fa-solid fa-chart-line text-cyan-400"></i>
+          <span class="text-sm font-semibold text-gray-200">Market Research</span>
+        </div>
+
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
+          <i class="fa-solid fa-table text-ocean-400"></i>
+          <span class="text-sm font-semibold text-gray-200">Microsoft Excel</span>
+        </div>
+
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
+          <i class="fa-solid fa-microchip text-indigo-400"></i>
+          <span class="text-sm font-semibold text-gray-200">AI Prompting & LLMs</span>
+        </div>
+
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
+          <i class="fa-solid fa-coins text-amber-400"></i>
+          <span class="text-sm font-semibold text-gray-200">Financial Planning</span>
+        </div>
+
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
+          <i class="fa-solid fa-bullseye text-cyan-400"></i>
+          <span class="text-sm font-semibold text-gray-200">Digital Marketing</span>
+        </div>
+
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-500/40 transition-colors">
+          <i class="fa-solid fa-microphone-lines text-rose-400"></i>
+          <span class="text-sm font-semibold text-gray-200">Public Speaking</span>
+        </div>
+      </div>
+    </div>
+
     <!-- CONTACT & FOOTER SECTION -->
     <section id="contact" class="mt-16" data-aos="fade-up">
       <div class="bento-card rounded-3xl p-8 md:p-12 relative overflow-hidden text-left">
         <div class="max-w-3xl space-y-6">
           <span class="text-brand-400 font-mono text-xs uppercase tracking-widest bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20 inline-block">Get In Touch</span>
           <h2 class="text-3xl md:text-4xl font-extrabold text-white">Let's Collaborate on Something Great</h2>
-          <p class="text-gray-400 text-sm md:text-base leading-relaxed">
-            Whether you're interested in AI agent development, financial analytics, marketing collaboration, or speaking engagements, I'd love to connect!
+          <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+            Whether you're interested in autonomous AI agent development, financial analytics, marketing collaboration, or speaking engagements, I'd love to connect!
           </p>
 
           <div class="flex flex-wrap items-center justify-start gap-3 pt-2">
@@ -602,14 +721,40 @@
       </div>
 
       <footer class="mt-12 text-center text-xs text-gray-500 font-mono space-y-2">
-        <p>© 2026 Tejas. Built with Tailwind CSS, Typed.js & Vanilla Tilt.</p>
-        <p class="text-gray-600">Hosted with GitHub Pages</p>
+        <p>© 2026 Tejas. Inspired by Modern Next.js Architecture. Built with Tailwind CSS & Vanilla Tilt.</p>
+        <p class="text-gray-600">Hosted with GitHub Pages • <a href="https://github.com/Tejaaazz07/Tejaaazz07.github.io" target="_blank" class="hover:underline">Repository</a></p>
       </footer>
     </section>
 
   </main>
 
-  <!-- Scripts: AOS, Typed.js, Vanilla Tilt & ProtoSem Architecture -->
+  <!-- Interactive Terminal CLI Modal -->
+  <div id="terminal-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-dark-surface border border-brand-500/40 rounded-2xl shadow-2xl overflow-hidden font-mono text-xs flex flex-col h-[450px]">
+      <div class="bg-dark-base px-4 py-3 border-b border-white/10 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+          <span class="text-gray-400 pl-2 text-[11px]">tejas@kumaraguru:~</span>
+        </div>
+        <button onclick="toggleTerminalModal()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
+      </div>
+
+      <div id="terminal-body" class="p-4 flex-1 overflow-y-auto custom-scroll space-y-2 text-gray-300 text-left">
+        <div><span class="text-brand-400 font-bold">Welcome to Tejas Terminal [Version 2.4.0]</span></div>
+        <div>Type <span class="text-cyan-300 font-bold">'help'</span> to view available commands.</div>
+        <div class="text-gray-500">--------------------------------------------------</div>
+      </div>
+
+      <div class="p-3 bg-dark-base border-t border-white/10 flex items-center gap-2">
+        <span class="text-brand-400 font-bold">tejas:~$</span>
+        <input type="text" id="terminal-input" onkeydown="handleTerminalCommand(event)" class="flex-1 bg-transparent border-none outline-none text-white font-mono text-xs" placeholder="Type a command (e.g. whoami, protosem, skills)..." autofocus>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts: AOS, Typed.js, Vanilla Tilt & Interactive Canvas -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
@@ -625,16 +770,15 @@
     // Initialize Typed.js
     new Typed('#typed-roles', {
       strings: [
-        'AI Agent Building',
-        'Financial Analytics',
-        'Excel Financial Modeling',
+        'AI Agent Building (n8n & LLMs)',
+        'Financial & Excel Modeling',
+        'PRICE ProtoSem Innovation Engineering',
         'Growth & Digital Marketing',
-        'ProtoSem Innovation Engineering',
-        'Leadership & Rotaract Service'
+        'Rotaract Club Leadership'
       ],
-      typeSpeed: 45,
-      backSpeed: 30,
-      backDelay: 1800,
+      typeSpeed: 40,
+      backSpeed: 25,
+      backDelay: 1600,
       loop: true
     });
 
@@ -642,12 +786,100 @@
     const heroCard = document.getElementById('hero-tilt-card');
     if (heroCard && typeof VanillaTilt !== 'undefined') {
       VanillaTilt.init(heroCard, {
-        max: 10,
+        max: 8,
         speed: 400,
         glare: true,
         'max-glare': 0.15,
-        scale: 1.02
+        scale: 1.01
       });
+    }
+
+    // Audio SFX Synthesis via Web Audio API
+    let audioEnabled = false;
+    let audioCtx = null;
+
+    function toggleAudioFx() {
+      audioEnabled = !audioEnabled;
+      const icon = document.getElementById('sound-icon');
+      if (audioEnabled) {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        playBeep(880, 0.08);
+        icon.className = "fa-solid fa-volume-high text-brand-400";
+      } else {
+        icon.className = "fa-solid fa-volume-xmark text-gray-500";
+      }
+    }
+
+    function playBeep(freq = 600, duration = 0.05) {
+      if (!audioEnabled || !audioCtx) return;
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.frequency.value = freq;
+        osc.type = 'sine';
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    // Hyperspeed Background Canvas Starfield
+    const canvas = document.getElementById('hyperspeed-canvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let stars = [];
+      let width, height;
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        stars = [];
+        for (let i = 0; i < 120; i++) {
+          stars.push({
+            x: Math.random() * width - width / 2,
+            y: Math.random() * height - height / 2,
+            z: Math.random() * width,
+            size: Math.random() * 1.5 + 0.5
+          });
+        }
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      function animateStars() {
+        ctx.fillStyle = '#030712';
+        ctx.clearRect(0, 0, width, height);
+
+        const cx = width / 2;
+        const cy = height / 2;
+
+        for (let i = 0; i < stars.length; i++) {
+          const s = stars[i];
+          s.z -= 1.2;
+          if (s.z <= 0) {
+            s.z = width;
+            s.x = Math.random() * width - width / 2;
+            s.y = Math.random() * height - height / 2;
+          }
+
+          const k = 180 / s.z;
+          const px = s.x * k + cx;
+          const py = s.y * k + cy;
+
+          if (px >= 0 && px <= width && py >= 0 && py <= height) {
+            const alpha = (1 - s.z / width);
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(6, 182, 212, ${alpha * 0.7})`;
+            ctx.arc(px, py, s.size * (1 - s.z / width) * 1.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+        requestAnimationFrame(animateStars);
+      }
+      animateStars();
     }
 
     // PROTOSEM 20-WEEK ARCHITECTURE & DATA SYSTEM
@@ -688,9 +920,9 @@
       container.innerHTML = filtered.map(w => `
         <a href="#protosem-${w.slug}" 
            onclick="handleWeekCardClick(event, ${w.week})" 
-           class="week-card group relative p-4 rounded-2xl bg-dark-base/80 border border-white/10 hover:border-brand-400/50 hover:bg-dark-surface transition-all duration-300 flex flex-col justify-between h-36 overflow-hidden cursor-pointer hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-500/10">
+           class="week-card group relative p-4 rounded-2xl bg-dark-base/90 border border-white/10 hover:border-brand-400/60 hover:bg-dark-surface transition-all duration-300 flex flex-col justify-between h-36 overflow-hidden cursor-pointer hover:-translate-y-1.5 hover:shadow-lg hover:shadow-brand-500/15">
           
-          <div class="absolute -right-8 -top-8 w-20 h-20 bg-brand-500/5 group-hover:bg-brand-500/15 rounded-full blur-xl transition-all"></div>
+          <div class="absolute -right-8 -top-8 w-20 h-20 bg-brand-500/5 group-hover:bg-brand-500/20 rounded-full blur-xl transition-all"></div>
           
           <div class="flex items-center justify-between relative z-10">
             <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-md bg-white/5 text-gray-400 border border-white/5 group-hover:border-brand-500/30 group-hover:text-brand-300 transition-colors">
@@ -705,8 +937,8 @@
             <div class="text-base font-extrabold text-white font-mono tracking-tight group-hover:text-brand-300 transition-colors flex items-center gap-2">
               <span>${w.label}</span>
             </div>
-            <div class="text-[11px] font-mono font-medium text-gray-500 mt-1 group-hover:text-brand-400/80 transition-colors flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-brand-400/50 animate-pulse"></span>
+            <div class="text-[11px] font-mono font-medium text-gray-400 mt-1 group-hover:text-brand-400/90 transition-colors flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-400/60 animate-pulse"></span>
               <span>${w.status}</span>
             </div>
           </div>
@@ -719,6 +951,7 @@
     }
 
     function filterProtoSemPhase(phase) {
+      playBeep(700, 0.04);
       document.querySelectorAll('.phase-tab-btn').forEach(btn => {
         if (btn.getAttribute('data-phase') == phase) {
           btn.className = "phase-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-brand-500 text-dark-base shadow-md shadow-brand-500/20";
@@ -731,6 +964,7 @@
 
     function handleWeekCardClick(e, weekNum) {
       e.preventDefault();
+      playBeep(900, 0.06);
       const padded = weekNum < 10 ? '0' + weekNum : weekNum;
       showProtoSemToast(`WEEK ${padded} — Field Note Archive`, `The detailed weekly case study and blog story for Week ${padded} is currently in progress.`);
     }
@@ -762,6 +996,67 @@
         toast.classList.remove('translate-y-0', 'opacity-100');
         toast.classList.add('translate-y-20', 'opacity-0');
       }, 4000);
+    }
+
+    // AI Ad Simulation Demonstration
+    function simulateAdGeneration() {
+      playBeep(800, 0.05);
+      const out = document.getElementById('ad-simulation-output');
+      out.innerHTML = `<span class="text-cyan-400 animate-pulse">> Initializing n8n webhook → Parsing LLM persona prompt...</span>`;
+      setTimeout(() => {
+        out.innerHTML = `<span class="text-emerald-400">> Generated Variant A:</span> "Scale Your E-Commerce Brand with AI-Powered Audience Funnels." <br><span class="text-ocean-400">> Output Status:</span> 200 OK (Execution Time: 420ms)`;
+      }, 1200);
+    }
+
+    // Terminal Modal CLI Controller
+    function toggleTerminalModal() {
+      playBeep(650, 0.04);
+      const modal = document.getElementById('terminal-modal');
+      modal.classList.toggle('hidden');
+      modal.classList.toggle('flex');
+      if (!modal.classList.contains('hidden')) {
+        document.getElementById('terminal-input').focus();
+      }
+    }
+
+    function handleTerminalCommand(e) {
+      if (e.key === 'Enter') {
+        const input = document.getElementById('terminal-input');
+        const cmd = input.value.trim().toLowerCase();
+        const body = document.getElementById('terminal-body');
+        playBeep(750, 0.03);
+
+        const cmdLine = document.createElement('div');
+        cmdLine.innerHTML = `<span class="text-brand-400 font-bold">tejas:~$</span> <span class="text-white">${input.value}</span>`;
+        body.appendChild(cmdLine);
+
+        const resp = document.createElement('div');
+        resp.className = "text-gray-300 mb-2";
+
+        if (cmd === 'help') {
+          resp.innerHTML = `Available commands: <br>• <span class="text-cyan-300">whoami</span> - Identity summary<br>• <span class="text-cyan-300">protosem</span> - ProtoSem programme status<br>• <span class="text-cyan-300">skills</span> - Technical & business stack<br>• <span class="text-cyan-300">contact</span> - Social profiles<br>• <span class="text-cyan-300">clear</span> - Clear terminal`;
+        } else if (cmd === 'whoami') {
+          resp.innerHTML = `Tejas | 2nd-Year B.Com Scholar at Kumaraguru College & PRICE ProtoSem Innovation Engineer Trainee.`;
+        } else if (cmd === 'protosem') {
+          resp.innerHTML = `PRICE ProtoSem: 20-Week Industry-Integrated Innovation Programme across 4 phases (Discovery, Prototyping, Integration, Validation).`;
+        } else if (cmd === 'skills') {
+          resp.innerHTML = `Skills: n8n Automation, Microsoft Excel Modeling, AI Prompting, Stock Market Analysis, Digital Marketing.`;
+        } else if (cmd === 'contact') {
+          resp.innerHTML = `LinkedIn: linkedin.com/in/tejas-s-k-333a78359 | GitHub: @Tejaaazz07 | Instagram: @tejas.archives_`;
+        } else if (cmd === 'clear') {
+          body.innerHTML = '';
+          input.value = '';
+          return;
+        } else if (cmd === '') {
+          resp.innerHTML = '';
+        } else {
+          resp.innerHTML = `Command not recognized: '${cmd}'. Type 'help' for available commands.`;
+        }
+
+        body.appendChild(resp);
+        input.value = '';
+        body.scrollTop = body.scrollHeight;
+      }
     }
 
     // Initial render
