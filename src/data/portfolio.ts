@@ -3,9 +3,9 @@ import { PortfolioData } from '@/types';
 export const portfolioData: PortfolioData = {
     personal: {
         name: 'Tejas',
-        title: 'Commerce Scholar | AI Automation & Financial Analytics',
+        title: 'Commerce Student | AI Automation & Financial Analytics',
         subtitle: 'AI Agent Builder • Financial Data Modeling • Rotaract Club Service Director • ProtoSem Innovation Trainee',
-        bio: 'A second-year Bachelor of Commerce (B.Com) scholar at Kumaraguru College of Liberal Arts and Sciences with a distinctive focus that bridges financial strategy, investment planning, and autonomous AI systems. Experienced in architecting AI agent workflows using n8n and advanced prompt engineering, alongside structured financial modeling and analytics in Microsoft Excel. Active student leader serving as the Club Service Director of the Rotaract Club and selected for PRICE ProtoSem (powered by Forge Innovations & RAI), driving practical technology solutions and scalable venture prototyping.',
+        bio: 'A second-year Bachelor of Commerce (B.Com) student at Kumaraguru College of Liberal Arts and Sciences with a distinctive focus that bridges financial strategy, investment planning, and autonomous AI systems. Experienced in architecting AI agent workflows using n8n and advanced prompt engineering, alongside structured financial modeling and analytics in Microsoft Excel. Active student leader serving as the Club Service Director of the Rotaract Club and selected for PRICE ProtoSem (powered by Forge Innovations & RAI), driving practical technology solutions and scalable venture prototyping.',
         avatar: '/profile.jpeg',
         location: 'Coimbatore, Tamil Nadu, India',
         email: 'tejas@example.com',
@@ -260,7 +260,7 @@ export const portfolioData: PortfolioData = {
     faqs: [
         {
             question: "What is your primary area of focus and expertise?",
-            answer: "I am a Commerce scholar at Kumaraguru College specializing in the intersection of financial modeling, digital marketing, and autonomous AI automation (n8n & LLMs)."
+            answer: "I am a Commerce student at Kumaraguru College specializing in the intersection of financial modeling, digital marketing, and autonomous AI automation (n8n & LLMs)."
         },
         {
             question: "What is PRICE ProtoSem?",
@@ -322,7 +322,7 @@ export const portfolioData: PortfolioData = {
             title: 'Tejas Profile',
             imageUrl: '/profile.jpeg',
             category: 'Personal',
-            description: 'Tejas - Commerce Scholar & AI Automation Enthusiast',
+            description: 'Tejas - Commerce Student & AI Automation Enthusiast',
             date: '2026'
         }
     ]
