@@ -1,0 +1,585 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRICE ProtoSem - Week 03 | Tejas Innovation Journal</title>
+  <meta name="description" content="Week 03 of Tejas's 20-Week PRICE ProtoSem Innovation Fellowship: Market Research, Competitor Benchmarking & Opportunity Framing">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            black: {
+              950: '#030304',
+              900: '#070709',
+              850: '#0b0b0e',
+              800: '#101014',
+            },
+            ember: {
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+            },
+            amber: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            display: ['Syne', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #040405;
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, .font-display { font-family: 'Syne', sans-serif; }
+    
+    .ember-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 {
+      top: -10%; right: -5%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.20) 0%, transparent 70%);
+    }
+    .orb-2 {
+      bottom: -10%; left: -5%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(251, 146, 60, 0.15) 0%, transparent 70%);
+    }
+
+    .dark-grid-bg {
+      background-image: 
+        radial-gradient(rgba(249, 115, 22, 0.08) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px, 64px 64px, 64px 64px;
+    }
+
+    .glass-card-orange {
+      background: rgba(11, 11, 14, 0.75);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(249, 115, 22, 0.18);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .pill-orange {
+      background: rgba(249, 115, 22, 0.12);
+      border: 1px solid rgba(249, 115, 22, 0.35);
+      color: #fdba74;
+    }
+    .pill-dark {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .gradient-orange-text {
+      background: linear-gradient(135deg, #ffffff 10%, #fed7aa 50%, #f97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .btn-gradient-orange {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #f59e0b 100%);
+      transition: all 0.3s ease;
+    }
+    .btn-gradient-orange:hover {
+      box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.45);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="dark-grid-bg relative min-h-screen selection:bg-ember-500 selection:text-black">
+
+  <div class="ember-orb orb-1"></div>
+  <div class="ember-orb orb-2"></div>
+
+  <!-- STICKY TOP NAV BAR -->
+  <header class="fixed top-5 left-0 right-0 z-50 px-4 sm:px-6" data-aos="fade-down">
+    <div class="max-w-4xl mx-auto flex items-center justify-between glass-card-orange rounded-2xl px-5 py-3 shadow-2xl">
+      
+      <!-- Back to Portfolio -->
+      <a href="../index.html#protosem" class="flex items-center gap-2.5 text-xs font-mono text-slate-300 hover:text-ember-400 transition-colors group">
+        <div class="w-8 h-8 rounded-xl pill-dark flex items-center justify-center group-hover:border-ember-500/40">
+          <i class="fa-solid fa-arrow-left text-xs group-hover:-translate-x-0.5 transition-transform"></i>
+        </div>
+        <span class="hidden sm:inline">Back to Portfolio</span>
+      </a>
+
+      <!-- Current Week Pill -->
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-mono font-bold text-ember-400 pill-orange px-3 py-1 rounded-xl">
+          PROTOSEM WEEK 03
+        </span>
+        <span class="text-xs font-mono text-slate-400 hidden md:inline">Phase 01</span>
+      </div>
+
+      <!-- Quick Action: Toggle Status / Edit -->
+      <div class="flex items-center gap-2">
+        <button onclick="toggleWeekCompletion(3)" id="status-toggle-btn" class="px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold transition-all pill-dark hover:border-ember-500/40 flex items-center gap-1.5">
+          <i class="fa-solid fa-check text-ember-400"></i>
+          <span id="status-toggle-text">Mark Complete</span>
+        </button>
+        <button onclick="toggleEditMode()" class="px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold btn-gradient-orange text-black flex items-center gap-1.5 shadow-md">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <span id="edit-mode-text">Edit Blog</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN BLOG CONTENT -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-32 pb-24 relative z-10 space-y-10 text-left">
+
+    <!-- 1. WEEK HERO BANNER -->
+    <section class="glass-card-orange rounded-3xl p-8 sm:p-12 space-y-6 relative overflow-hidden" data-aos="fade-up">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 rounded-lg text-xs font-mono font-bold pill-orange">PHASE 01</span>
+          <span class="text-xs font-mono text-slate-400">Problem Discovery & Foundation</span>
+        </div>
+        
+        <!-- Live Status Pill -->
+        <div id="status-display-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold pill-orange">
+          <span class="w-2 h-2 rounded-full bg-ember-500 animate-pulse"></span>
+          <span id="status-display-text">IN PROGRESS</span>
+        </div>
+      </div>
+
+      <div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
+          Market Research, Competitor Benchmarking & Opportunity Framing
+        </h1>
+        <p class="text-slate-400 text-sm font-mono mt-3 flex items-center gap-2">
+          <i class="fa-regular fa-calendar text-ember-400"></i>
+          <span>PRICE ProtoSem â€¢ 20-Week Innovation Programme â€¢ Week 03</span>
+        </p>
+      </div>
+
+      <!-- Author Card & Focus Areas -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl overflow-hidden pill-dark border border-ember-500/40 p-0.5">
+            <img src="../profile.jpeg?v=7" alt="Tejas" class="w-full h-full object-cover rounded-lg" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Tejas&background=f97316&color=000000';">
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">Tejas</div>
+            <div class="text-xs text-ember-400 font-mono font-medium">Innovation Engineer Trainee</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <span class='px-3 py-1 rounded-xl pill-orange text-xs font-mono font-medium'>AI & Analytics</span>
+<span class='px-3 py-1 rounded-xl pill-orange text-xs font-mono font-medium'>Entrepreneurship</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. WEEKLY OBJECTIVES & EXECUTIVE SUMMARY -->
+    <section class="glass-card-orange rounded-3xl p-8 sm:p-10 space-y-6" data-aos="fade-up">
+      <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-ember-400">
+        <i class="fa-solid fa-bullseye"></i>
+        <span>Weekly Objectives & Overview</span>
+      </div>
+
+      <div id="blog-summary-content" class="text-slate-200 text-sm sm:text-base leading-relaxed font-light space-y-4">
+        <p>Conducted competitive intelligence across retail automation platforms, evaluating unit economics and untapped niche market opportunities.</p>
+      </div>
+
+      <!-- Editable Summary Input (Hidden by default) -->
+      <div id="blog-summary-editor" class="hidden space-y-2">
+        <label class="text-xs font-mono text-slate-400">Edit Weekly Executive Summary:</label>
+        <textarea id="input-summary" rows="3" class="w-full bg-[#111116] border border-ember-500/30 rounded-2xl p-4 text-slate-200 text-sm font-light focus:outline-none focus:border-ember-500">Conducted competitive intelligence across retail automation platforms, evaluating unit economics and untapped niche market opportunities.</textarea>
+      </div>
+    </section>
+
+    <!-- 3. DETAILED EXPERIENCE BLOG & FIELD NOTES -->
+    <section class="glass-card-orange rounded-3xl p-8 sm:p-10 space-y-6" data-aos="fade-up">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-ember-400">
+          <i class="fa-solid fa-feather-pointed"></i>
+          <span>Field Notes & Weekly Experience</span>
+        </div>
+        <span class="text-xs font-mono text-slate-500">Documented by Tejas</span>
+      </div>
+
+      <!-- Live Rendered Blog Body -->
+      <div id="blog-body-content" class="prose prose-invert max-w-none text-slate-300 text-sm sm:text-base leading-relaxed font-light space-y-4">
+        <p>
+          During <strong class="text-white font-medium">Week 03</strong> of the PRICE ProtoSem programme, our team focused heavily on understanding the core parameters of the retail challenge statement. Through guided mentoring sessions with Forge Innovations and RAI mentors, we engaged in problem scoping and customer empathy mapping.
+        </p>
+        <div class="p-4 rounded-2xl pill-dark border-l-4 border-ember-500 my-4 text-slate-200 italic font-mono text-xs sm:text-sm">
+          "Innovation isn't just about building systemsâ€”it's about validating whether the underlying retail problem genuinely matters to the business and consumer."
+        </div>
+        <p>
+          We analyzed data flow bottlenecks and mapped the initial requirements for our technical prototype. By applying systematic problem validation frameworks, we filtered out non-critical assumptions and structured our milestones for the upcoming sprint.
+        </p>
+      </div>
+
+      <!-- Editable Blog Body (Hidden by default) -->
+      <div id="blog-body-editor" class="hidden space-y-2">
+        <label class="text-xs font-mono text-slate-400">Write Your Full Blog & Experience (Markdown / Plain Text supported):</label>
+        <textarea id="input-body" rows="10" class="w-full bg-[#111116] border border-ember-500/30 rounded-2xl p-4 text-slate-200 text-sm font-light focus:outline-none focus:border-ember-500 leading-relaxed font-mono">During Week 03 of the PRICE ProtoSem programme, our team focused heavily on understanding the core parameters of the retail challenge statement. Through guided mentoring sessions with Forge Innovations and RAI mentors, we engaged in problem scoping and customer empathy mapping.
+
+"Innovation isn't just about building systemsâ€”it's about validating whether the underlying retail problem genuinely matters to the business and consumer."
+
+We analyzed data flow bottlenecks and mapped the initial requirements for our technical prototype. By applying systematic problem validation frameworks, we filtered out non-critical assumptions and structured our milestones for the upcoming sprint.</textarea>
+      </div>
+    </section>
+
+    <!-- 4. MEDIA & PICTURE GALLERY -->
+    <section class="glass-card-orange rounded-3xl p-8 sm:p-10 space-y-6" data-aos="fade-up">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-ember-400">
+          <i class="fa-solid fa-camera"></i>
+          <span>Photo Gallery & Visual Evidence</span>
+        </div>
+        <button onclick="document.getElementById('image-upload-input').click()" class="text-xs font-mono text-ember-400 hover:text-ember-300 flex items-center gap-1.5 pill-orange px-3 py-1 rounded-xl">
+          <i class="fa-solid fa-plus"></i> Add Picture
+        </button>
+        <input type="file" id="image-upload-input" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
+      </div>
+
+      <!-- Images Container -->
+      <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <div class="group relative rounded-2xl overflow-hidden pill-dark border border-white/10 h-56 flex flex-col justify-end p-4">
+          <img src="../profile.jpeg?v=7" alt="ProtoSem Week 03 Session" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80';">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+          <div class="relative z-10">
+            <span class="text-[10px] font-mono pill-orange px-2 py-0.5 rounded-md">Field Session</span>
+            <p class="text-xs text-slate-200 mt-1 font-medium">Sprint Collaboration & Mentorship Review</p>
+          </div>
+        </div>
+
+        <div class="group relative rounded-2xl overflow-hidden pill-dark border border-white/10 h-56 flex flex-col justify-end p-4">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team Discussion" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+          <div class="relative z-10">
+            <span class="text-[10px] font-mono pill-orange px-2 py-0.5 rounded-md">Ideation Board</span>
+            <p class="text-xs text-slate-200 mt-1 font-medium">Architecture Mapping & Strategy Sprint</p>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="text-xs text-slate-500 font-mono">You can click "Add Picture" above to upload weekly lab photos, presentation decks, or prototype screenshots.</p>
+    </section>
+
+    <!-- 5. KEY LEARNINGS & DELIVERABLES CHECKLIST -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-up">
+      
+      <div class="glass-card-orange rounded-3xl p-7 space-y-4">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold text-ember-400 uppercase tracking-wider border-b border-white/10 pb-3">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Key Deliverables</span>
+        </div>
+        <ul class="space-y-2.5 text-xs text-slate-300 font-light">
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-ember-400"></i>
+            <span>Stakeholder problem statement synthesis</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-ember-400"></i>
+            <span>Team role definition and resource mapping</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-ember-400"></i>
+            <span>Sprint retrospective and mentor alignment</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="glass-card-orange rounded-3xl p-7 space-y-4">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold text-amber-400 uppercase tracking-wider border-b border-white/10 pb-3">
+          <i class="fa-solid fa-lightbulb"></i>
+          <span>Core Takeaways</span>
+        </div>
+        <ul class="space-y-2.5 text-xs text-slate-300 font-light">
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-star text-amber-400"></i>
+            <span>Clear problem framing prevents costly late-stage redesigns</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-star text-amber-400"></i>
+            <span>Aligning financial viability early accelerates adoption</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-star text-amber-400"></i>
+            <span>Continuous customer feedback loops guide iteration</span>
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- 6. OPTIONAL BLOGGER / EXTERNAL POST LINK -->
+    <section class="glass-card-orange rounded-3xl p-6 sm:p-8 space-y-4" data-aos="fade-up">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold text-orange-400 uppercase tracking-wider">
+          <i class="fa-brands fa-blogger text-sm"></i>
+          <span>External Blog / Blogger Sync (Optional)</span>
+        </div>
+        <button onclick="saveBloggerUrl()" class="px-3 py-1 rounded-xl btn-gradient-orange text-black font-bold text-xs">Save URL</button>
+      </div>
+      <p class="text-xs text-slate-400 font-light">Have an existing Blogger, Medium, or Substack post for this week? Paste the link below to link it directly.</p>
+      <input type="url" id="blogger-url-input" placeholder="https://yourblog.blogspot.com/2026/08/week-03.html" class="w-full bg-[#111116] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-slate-200 font-mono focus:outline-none focus:border-ember-500">
+      <div id="blogger-link-container" class="hidden pt-1">
+        <a id="blogger-link-anchor" href="#" target="_blank" class="text-xs font-mono text-ember-400 hover:text-amber-300 flex items-center gap-1.5 underline">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <span>View on Blogger / External Site</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 7. BOTTOM PAGINATION & WEEK SWITCHER -->
+    <nav class="flex items-center justify-between gap-4 pt-6 border-t border-white/10 font-mono text-xs">
+      
+      <div>        <a href="week-02.html" class="px-4 py-2.5 rounded-2xl glass-card-orange text-slate-300 hover:text-ember-400 flex items-center gap-2 transition-all hover:scale-105">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Week 02</span>
+        </a>      </div>
+
+      <a href="../index.html#protosem" class="px-5 py-2.5 rounded-2xl pill-dark hover:border-ember-500/40 text-slate-300 hover:text-ember-400 transition-colors text-center hidden sm:inline">
+        <i class="fa-solid fa-table-cells mr-1.5"></i>
+        <span>All 20 Weeks</span>
+      </a>
+
+      <div>        <a href="week-04.html" class="px-4 py-2.5 rounded-2xl btn-gradient-orange text-black font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-md">
+          <span>Week 04</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>      </div>
+
+    </nav>
+
+  </main>
+
+  <footer class="text-center text-xs text-slate-500 font-mono pb-12 space-y-2">
+    <p>PRICE ProtoSem â€¢ 20-Week Innovation Engineering Fellowship</p>
+    <p class="text-slate-600">Documented by Tejas â€¢ Kumaraguru College of Liberal Arts and Sciences</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700 });
+
+    const currentWeek = 3;
+    const storageKey = 'protosem_week_' + currentWeek;
+
+    // Load saved data from localStorage if exists
+    window.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem(storageKey);
+      if (saved) {
+        try {
+          const data = JSON.parse(saved);
+          if (data.summary) {
+            document.getElementById('blog-summary-content').innerHTML = '<p>' + data.summary + '</p>';
+            document.getElementById('input-summary').value = data.summary;
+          }
+          if (data.body) {
+            document.getElementById('blog-body-content').innerHTML = '<p class=\"whitespace-pre-line\">' + data.body + '</p>';
+            document.getElementById('input-body').value = data.body;
+          }
+          if (data.status) {
+            updateStatusUI(data.status);
+          }
+          if (data.bloggerUrl) {
+            document.getElementById('blogger-url-input').value = data.bloggerUrl;
+            showBloggerLink(data.bloggerUrl);
+          }
+          if (data.images && data.images.length > 0) {
+            renderCustomImages(data.images);
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      } else {
+        // Default week 1 to completed
+        if (currentWeek === 1) {
+          updateStatusUI('COMPLETED');
+        }
+      }
+    });
+
+    let isEditing = false;
+    function toggleEditMode() {
+      isEditing = !isEditing;
+      const summaryContent = document.getElementById('blog-summary-content');
+      const summaryEditor = document.getElementById('blog-summary-editor');
+      const bodyContent = document.getElementById('blog-body-content');
+      const bodyEditor = document.getElementById('blog-body-editor');
+      const btnText = document.getElementById('edit-mode-text');
+
+      if (isEditing) {
+        summaryContent.classList.add('hidden');
+        summaryEditor.classList.remove('hidden');
+        bodyContent.classList.add('hidden');
+        bodyEditor.classList.remove('hidden');
+        btnText.innerText = 'Save Changes';
+      } else {
+        // Save
+        const newSummary = document.getElementById('input-summary').value;
+        const newBody = document.getElementById('input-body').value;
+        
+        summaryContent.innerHTML = '<p>' + newSummary + '</p>';
+        summaryContent.classList.remove('hidden');
+        summaryEditor.classList.add('hidden');
+
+        bodyContent.innerHTML = '<p class=\"whitespace-pre-line\">' + newBody + '</p>';
+        bodyContent.classList.remove('hidden');
+        bodyEditor.classList.add('hidden');
+
+        btnText.innerText = 'Edit Blog';
+
+        saveToLocalStorage({ summary: newSummary, body: newBody, status: 'COMPLETED' });
+        updateStatusUI('COMPLETED');
+        showToast('Blog Saved!', 'Your changes for Week 03 have been saved successfully.');
+      }
+    }
+
+    function toggleWeekCompletion(week) {
+      const current = localStorage.getItem(storageKey);
+      let status = 'COMPLETED';
+      if (current) {
+        const parsed = JSON.parse(current);
+        status = parsed.status === 'COMPLETED' ? 'IN PROGRESS' : 'COMPLETED';
+      }
+      saveToLocalStorage({ status: status });
+      updateStatusUI(status);
+      showToast('Status Updated', 'Week 03 marked as ' + status);
+    }
+
+    function updateStatusUI(status) {
+      const badge = document.getElementById('status-display-badge');
+      const text = document.getElementById('status-display-text');
+      const toggleText = document.getElementById('status-toggle-text');
+
+      text.innerText = status;
+      if (status === 'COMPLETED') {
+        badge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-ember-500 text-black shadow-lg shadow-ember-500/30';
+        toggleText.innerText = 'Completed âœ“';
+      } else {
+        badge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold pill-orange';
+        toggleText.innerText = 'Mark Complete';
+      }
+
+      // Also sync to global protosem completion registry in localStorage
+      let completedWeeks = JSON.parse(localStorage.getItem('protosem_completed_weeks') || '[]');
+      if (status === 'COMPLETED' && !completedWeeks.includes(currentWeek)) {
+        completedWeeks.push(currentWeek);
+      } else if (status !== 'COMPLETED') {
+        completedWeeks = completedWeeks.filter(w => w !== currentWeek);
+      }
+      localStorage.setItem('protosem_completed_weeks', JSON.stringify(completedWeeks));
+    }
+
+    function saveBloggerUrl() {
+      const url = document.getElementById('blogger-url-input').value.trim();
+      saveToLocalStorage({ bloggerUrl: url });
+      showBloggerLink(url);
+      showToast('Blogger Link Saved', 'Connected your external post successfully!');
+    }
+
+    function showBloggerLink(url) {
+      const container = document.getElementById('blogger-link-container');
+      const anchor = document.getElementById('blogger-link-anchor');
+      if (url) {
+        anchor.href = url;
+        container.classList.remove('hidden');
+      } else {
+        container.classList.add('hidden');
+      }
+    }
+
+    function handleImageUpload(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          const imgData = evt.target.result;
+          let saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+          saved.images = saved.images || [];
+          saved.images.push(imgData);
+          localStorage.setItem(storageKey, JSON.stringify(saved));
+          renderCustomImages(saved.images);
+          showToast('Image Added', 'Your photo has been added to Week 03 gallery.');
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function renderCustomImages(images) {
+      const container = document.getElementById('gallery-container');
+      container.innerHTML = images.map((src, i) => 
+        <div class="group relative rounded-2xl overflow-hidden pill-dark border border-white/10 h-56 flex flex-col justify-end p-4">
+          <img src="\" alt="Week 03 Photo \" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+          <div class="relative z-10">
+            <span class="text-[10px] font-mono pill-orange px-2 py-0.5 rounded-md">Uploaded Photo \</span>
+            <p class="text-xs text-slate-200 mt-1 font-medium">Field Experience Evidence</p>
+          </div>
+        </div>
+      ).join('');
+    }
+
+    function saveToLocalStorage(newFields) {
+      let current = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      const updated = Object.assign(current, newFields);
+      localStorage.setItem(storageKey, JSON.stringify(updated));
+    }
+
+    function showToast(title, msg) {
+      let toast = document.getElementById('protosem-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'protosem-toast';
+        toast.className = 'fixed bottom-6 right-6 z-50 max-w-sm glass-card-orange border border-ember-500/50 p-4 rounded-2xl shadow-2xl backdrop-blur-2xl flex items-start gap-3 transform translate-y-20 opacity-0 transition-all duration-300';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = 
+        <div class="w-9 h-9 rounded-xl pill-orange flex items-center justify-center text-ember-400 text-sm flex-shrink-0 mt-0.5">
+          <i class="fa-solid fa-check-circle"></i>
+        </div>
+        <div class="flex-1 text-left">
+          <div class="text-sm font-bold text-white flex items-center justify-between">
+            <span>\</span>
+            <span class="text-[10px] font-mono pill-orange px-2 py-0.5 rounded-full">Saved</span>
+          </div>
+          <p class="text-xs text-slate-300 mt-1 leading-relaxed font-light">\</p>
+        </div>
+      ;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
