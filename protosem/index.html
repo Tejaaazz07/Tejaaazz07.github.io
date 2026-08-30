@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRICE ProtoSem 20-Week Innovation Archive | Tejas</title>
+  <meta name="description" content="Chronological 20-week journal archive of Tejas's PRICE ProtoSem innovation fellowship.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            black: {
+              950: '#030304',
+              900: '#070709',
+              850: '#0b0b0e',
+              800: '#101014',
+            },
+            ember: {
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+            },
+            amber: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            display: ['Syne', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #040405;
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, .font-display { font-family: 'Syne', sans-serif; }
+    
+    .ember-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 {
+      top: -10%; right: -5%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.20) 0%, transparent 70%);
+    }
+
+    .dark-grid-bg {
+      background-image: 
+        radial-gradient(rgba(249, 115, 22, 0.08) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px, 64px 64px, 64px 64px;
+    }
+
+    .glass-card-orange {
+      background: rgba(11, 11, 14, 0.75);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(249, 115, 22, 0.18);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .pill-orange {
+      background: rgba(249, 115, 22, 0.12);
+      border: 1px solid rgba(249, 115, 22, 0.35);
+      color: #fdba74;
+    }
+    .pill-dark {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .gradient-orange-text {
+      background: linear-gradient(135deg, #ffffff 10%, #fed7aa 50%, #f97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .btn-gradient-orange {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #f59e0b 100%);
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body class="dark-grid-bg relative min-h-screen selection:bg-ember-500 selection:text-black">
+
+  <div class="ember-orb orb-1"></div>
+
+  <!-- TOP NAV BAR -->
+  <header class="fixed top-5 left-0 right-0 z-50 px-4 sm:px-6" data-aos="fade-down">
+    <div class="max-w-5xl mx-auto flex items-center justify-between glass-card-orange rounded-2xl px-5 py-3 shadow-2xl">
+      <a href="../index.html" class="flex items-center gap-2.5 text-xs font-mono text-slate-300 hover:text-ember-400 transition-colors">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back to Home</span>
+      </a>
+      <div class="font-bold text-white text-sm font-mono">PRICE ProtoSem • 20-Week Directory</div>
+      <a href="../resume.html" class="px-3.5 py-1.5 rounded-xl btn-gradient-orange text-black font-bold text-xs">Resume</a>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 pt-32 pb-24 relative z-10 space-y-8 text-left">
+    
+    <div class="glass-card-orange rounded-3xl p-8 sm:p-12 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full pill-orange text-xs font-mono font-semibold">
+        <i class="fa-solid fa-cube text-ember-400"></i>
+        <span>20-WEEK PROGRAMME ARCHIVE</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white">PRICE ProtoSem Journal</h1>
+      <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-light max-w-2xl">
+        A structured, chronological record of the 20-week innovation fellowship. Click any week to read field notes, review technical prototypes, view uploaded photos, or edit weekly reflections.
+      </p>
+    </div>
+
+    <!-- 20-WEEK GRID -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="all-weeks-grid">
+      <!-- Injected via JS with dynamic completion -->
+    </div>
+
+  </main>
+
+  <footer class="text-center text-xs text-slate-500 font-mono pb-12">
+    <p>Designed & Developed by Tejas • PRICE ProtoSem 20-Week Journal</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+
+    const weeks = [
+      { w: 1, p: 1, title: "Orientation & Team Alignment" },
+      { w: 2, p: 1, title: "Phygital Commerce Mapping" },
+      { w: 3, p: 1, title: "Market & Competitor Research" },
+      { w: 4, p: 1, title: "Problem Statement Validation" },
+      { w: 5, p: 1, title: "Phase 01 Concept Synthesis" },
+
+      { w: 6, p: 2, title: "Solution Brainstorming & Ideation" },
+      { w: 7, p: 2, title: "System Architecture Design" },
+      { w: 8, p: 2, title: "Low-Fidelity Prototyping" },
+      { w: 9, p: 2, title: "n8n AI Workflow Orchestration" },
+      { w: 10, p: 2, title: "Phase 02 Mid-Term Demo" },
+
+      { w: 11, p: 3, title: "High-Fidelity Integration" },
+      { w: 12, p: 3, title: "Retail IoT Sensor Testing" },
+      { w: 13, p: 3, title: "AI Agent Optimization" },
+      { w: 14, p: 3, title: "User Feedback & Simulation" },
+      { w: 15, p: 3, title: "Phase 03 Validation Review" },
+
+      { w: 16, p: 4, title: "Controlled Pilot Deployment" },
+      { w: 17, p: 4, title: "Analytics & UI Instrumentation" },
+      { w: 18, p: 4, title: "Financial Modeling & SaaS Pricing" },
+      { w: 19, p: 4, title: "Demo Day Pitch Preparation" },
+      { w: 20, p: 4, title: "Final Venture Pitch & Graduation" }
+    ];
+
+    function isCompleted(wNum) {
+      if (wNum === 1) return true;
+      const saved = localStorage.getItem('protosem_week_' + wNum);
+      if (saved) {
+        try {
+          if (JSON.parse(saved).status === 'COMPLETED') return true;
+        } catch(e) {}
+      }
+      const list = JSON.parse(localStorage.getItem('protosem_completed_weeks') || '[]');
+      return list.includes(wNum);
+    }
+
+    const grid = document.getElementById('all-weeks-grid');
+    grid.innerHTML = weeks.map(item => {
+      const comp = isCompleted(item.w);
+      const pad = item.w < 10 ? '0' + item.w : item.w;
+      const statusText = comp ? 'COMPLETED ✓' : 'IN PROGRESS';
+      const badge = comp ? 'bg-ember-500 text-black font-bold' : 'pill-dark text-slate-400';
+      const bar = comp ? 'w-full' : 'w-0';
+
+      return `
+        <a href="week-${pad}.html" class="glass-card-orange rounded-2xl p-5 hover:border-ember-500 flex flex-col justify-between h-44 hover:-translate-y-1.5 transition-all block group">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-lg ${badge}">PHASE 0${item.p}</span>
+            <i class="fa-solid fa-arrow-up-right text-xs text-slate-500 group-hover:text-ember-400"></i>
+          </div>
+          <div class="mt-2">
+            <div class="text-sm font-extrabold text-white font-mono group-hover:text-ember-300">WEEK ${pad}</div>
+            <p class="text-xs text-slate-300 mt-1 line-clamp-2 font-light">${item.title}</p>
+          </div>
+          <div>
+            <div class="text-[10px] font-mono ${comp ? 'text-ember-400 font-semibold' : 'text-slate-500'} mb-1">${statusText}</div>
+            <div class="w-full bg-white/5 h-1 rounded-full overflow-hidden">
+              <div class="bg-gradient-to-r from-ember-500 to-amber-400 h-full ${bar} group-hover:w-full transition-all duration-500"></div>
+            </div>
+          </div>
+        </a>
+      `;
+    }).join('');
+  </script>
+</body>
+</html>
