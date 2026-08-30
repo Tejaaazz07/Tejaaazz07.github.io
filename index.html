@@ -930,6 +930,19 @@
       { week: 20, phase: 4, label: "WEEK 20", status: "FIELD NOTES IN PROGRESS", slug: "week-20" },
     ];
 
+    function isWeekCompleted(weekNum) {
+      if (weekNum === 1) return true; // Week 01 is authored & completed
+      const saved = localStorage.getItem('protosem_week_' + weekNum);
+      if (saved) {
+        try {
+          const data = JSON.parse(saved);
+          if (data.status === 'COMPLETED') return true;
+        } catch(e) {}
+      }
+      const completedList = JSON.parse(localStorage.getItem('protosem_completed_weeks') || '[]');
+      return completedList.includes(weekNum);
+    }
+
     function renderProtoSemWeeks(filterPhase = 'all') {
       const container = document.getElementById('protosem-weeks-container');
       if (!container) return;
@@ -938,14 +951,21 @@
         ? protoSemWeeks 
         : protoSemWeeks.filter(w => w.phase === parseInt(filterPhase));
 
-      container.innerHTML = filtered.map((w, idx) => `
-        <div onclick="handleWeekClick(${w.week})" 
+      container.innerHTML = filtered.map((w, idx) => {
+        const completed = isWeekCompleted(w.week);
+        const statusText = completed ? 'COMPLETED ✓' : 'IN PROGRESS';
+        const progressWidth = completed ? 'w-full' : 'w-0';
+        const badgeClass = completed ? 'bg-ember-500 text-black font-bold' : 'pill-dark text-slate-400';
+        const padded = w.week < 10 ? '0' + w.week : w.week;
+
+        return `
+        <a href="protosem/week-${padded}.html" 
              data-aos="fade-up"
              data-aos-delay="${(idx % 5) * 60}"
-             class="group relative p-4 rounded-2xl glass-card-orange hover:border-ember-500/70 transition-all duration-300 flex flex-col justify-between h-36 overflow-hidden cursor-pointer hover:-translate-y-1.5 hover:shadow-lg hover:shadow-ember-500/20">
+             class="group relative p-4 rounded-2xl glass-card-orange hover:border-ember-500/70 transition-all duration-300 flex flex-col justify-between h-36 overflow-hidden cursor-pointer hover:-translate-y-1.5 hover:shadow-lg hover:shadow-ember-500/20 block text-left">
           
           <div class="flex items-center justify-between relative z-10">
-            <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-lg pill-dark text-slate-400 group-hover:text-ember-300 group-hover:border-ember-500/40 transition-colors">
+            <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-lg ${badgeClass} transition-colors">
               PHASE 0${w.phase}
             </span>
             <div class="w-6 h-6 rounded-lg pill-dark flex items-center justify-center text-slate-400 group-hover:text-ember-400 transition-all">
@@ -954,20 +974,22 @@
           </div>
 
           <div class="relative z-10 mt-2">
-            <div class="text-base font-extrabold text-white font-mono tracking-tight group-hover:text-ember-300 transition-colors">
-              ${w.label}
+            <div class="text-base font-extrabold text-white font-mono tracking-tight group-hover:text-ember-300 transition-colors flex items-center justify-between">
+              <span>${w.label}</span>
+              ${completed ? '<span class="text-[10px] text-ember-400 font-mono">100%</span>' : ''}
             </div>
             <div class="text-[11px] font-mono text-slate-400 mt-1 flex items-center gap-1.5 group-hover:text-ember-400/90">
-              <span class="w-1.5 h-1.5 rounded-full bg-ember-500/70 animate-pulse"></span>
-              <span>${w.status}</span>
+              <span class="w-1.5 h-1.5 rounded-full ${completed ? 'bg-ember-400' : 'bg-ember-500/70 animate-pulse'}"></span>
+              <span class="${completed ? 'text-ember-300 font-semibold' : ''}">${statusText}</span>
             </div>
           </div>
 
-          <div class="w-full bg-white/5 h-1 rounded-full overflow-hidden mt-2 relative z-10">
-            <div class="bg-gradient-to-r from-ember-500 to-amber-400 h-full w-0 group-hover:w-full transition-all duration-500"></div>
+          <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden mt-2 relative z-10">
+            <div class="bg-gradient-to-r from-ember-500 to-amber-400 h-full ${progressWidth} group-hover:w-full transition-all duration-500 shadow-sm shadow-ember-500/50"></div>
           </div>
-        </div>
-      `).join('');
+        </a>
+        `;
+      }).join('');
     }
 
     function filterProtoSemPhase(phase) {
