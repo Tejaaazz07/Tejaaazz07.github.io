@@ -289,54 +289,73 @@
 
 
     <!-- ========================================================= -->
-    <!-- INTRODUCTION SECTION (EDITORIAL SPLIT: WHITE CARDS)       -->
+    <!-- INTRODUCTION SECTION (SEAMLESS TEXT & WHITE PROFILE BLOCK)-->
     <!-- ========================================================= -->
     <section id="intro" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 pb-20 md:pb-28">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
         
-        <!-- Left Editorial Card: Deep Black Introduction Card -->
-        <div class="lg:col-span-7 bg-[#0A0A0E] text-white border border-white/10 rounded-xl p-8 sm:p-10 flex flex-col justify-between shadow-2xl" data-aos="fade-right" data-aos-duration="900">
-          <div>
-            <!-- Status Badge -->
-            <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-md bg-white/10 border border-white/15 text-zinc-200 text-xs font-bold uppercase tracking-wider mb-6">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>Available for High-Impact Projects</span>
-            </div>
-
-            <!-- Main Title -->
-            <h1 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-[1.1] mb-5">
-              Crafting <span class="underline decoration-zinc-500 underline-offset-6">Apple-Grade</span> Digital Experiences &amp; Growth Engines.
-            </h1>
-
-            <!-- Dynamic Typed Subtitle -->
-            <div class="text-base sm:text-lg text-zinc-400 font-bold mb-5 flex items-center min-h-[32px]">
-              <span class="text-zinc-500 mr-2 font-mono font-bold">&gt;</span>
-              <span id="typed-output" class="text-white font-extrabold"></span>
-            </div>
-
-            <!-- Bio Paragraph -->
-            <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6 font-normal">
-              I leverage state-of-the-art <strong class="text-white font-semibold">AI tools</strong> to build high-value, Apple-grade websites, paired with strategic <strong class="text-white font-semibold">SEO &amp; GEO optimization</strong>, <strong class="text-white font-semibold">Meta ads management</strong>, and deep <strong class="text-white font-semibold">consumer UX psychology</strong>. Currently pursuing <strong class="text-white font-semibold">B.Com (ACCA)</strong> at Kumaraguru College of Arts and Sciences.
-            </p>
+        <!-- Intro Left Column: Seamless Text on Black Canvas -->
+        <div class="lg:col-span-7 flex flex-col items-start" data-aos="fade-right" data-aos-duration="900">
+          
+          <!-- Availability Badge -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-md bg-white/10 border border-white/15 mb-6 shadow-sm">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="text-xs font-semibold text-zinc-200 tracking-wide">Available for High-Impact Projects &amp; Collaborations</span>
           </div>
 
-          <!-- Bottom Action Buttons & Socials -->
-          <div>
-            <div class="flex flex-wrap items-center gap-3 pt-6 border-t border-white/10">
-              <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 btn-hero-white font-bold text-xs uppercase tracking-wider">
-                <span>Explore Projects</span>
-                <i class="fa-solid fa-arrow-down text-xs"></i>
-              </a>
-              <a href="resume.html" class="inline-flex items-center gap-2 px-6 py-3 btn-hero-tint font-bold text-xs uppercase tracking-wider">
-                <i class="fa-solid fa-file-arrow-down text-xs"></i>
-                <span>ATS Resume</span>
-              </a>
-              <a href="https://www.linkedin.com/in/tejas-s-k-333a78359/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-3 btn-hero-tint font-bold text-xs uppercase tracking-wider">
-                <i class="fa-brands fa-linkedin text-sm"></i>
-                <span>LinkedIn</span>
-              </a>
-            </div>
+          <!-- Main Heading -->
+          <h1 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] mb-6 text-white">
+            Crafting <span class="text-white underline decoration-zinc-500 underline-offset-8">Apple-Grade</span> Digital Experiences &amp; <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-white bg-clip-text text-transparent">Growth Engines</span>
+          </h1>
+
+          <!-- Typed.js Dynamic Subtitle -->
+          <div class="text-lg sm:text-xl text-zinc-300 font-medium mb-6 min-h-[36px] flex items-center">
+            <span class="text-white mr-2 font-mono font-bold">&gt;</span>
+            <span id="typed-output" class="text-white font-bold"></span>
           </div>
+
+          <!-- Bio Paragraph -->
+          <p class="text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed mb-8 font-normal">
+            I leverage state-of-the-art <strong>AI tools</strong> to build high-value, Apple-grade websites, paired with strategic <strong>SEO &amp; GEO optimization</strong>, <strong>Meta ads management</strong>, and deep <strong>consumer UX psychology</strong>. Currently pursuing <strong>B.Com (ACCA)</strong> at Kumaraguru College of Arts and Sciences.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+            <a href="#projects" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 btn-hero-white font-semibold text-base">
+              <span>Explore Projects</span>
+              <i class="fa-solid fa-arrow-down text-sm"></i>
+            </a>
+            <a href="resume.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 btn-hero-tint font-semibold text-base">
+              <i class="fa-solid fa-file-arrow-down text-sm"></i>
+              <span>ATS Resume</span>
+            </a>
+          </div>
+
+          <!-- Social Links as Crisp Buttons -->
+          <div class="flex flex-wrap items-center gap-3 mt-8 pt-6 border-t border-white/10 w-full">
+            <span class="text-xs uppercase tracking-widest text-zinc-400 font-bold mr-2">Socials:</span>
+            
+            <a href="https://www.linkedin.com/in/tejas-s-k-333a78359/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-1.5 btn-hero-tint text-xs font-semibold">
+              <i class="fa-brands fa-linkedin text-sm"></i>
+              <span>LinkedIn Profile</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
+            </a>
+
+            <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-1.5 btn-hero-tint text-xs font-semibold">
+              <i class="fa-brands fa-github text-sm"></i>
+              <span>GitHub</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
+            </a>
+
+            <a href="mailto:tejasbusinessenquiries@gmail.com" class="inline-flex items-center gap-2 px-3.5 py-1.5 btn-hero-tint text-xs font-semibold">
+              <i class="fa-solid fa-envelope text-sm"></i>
+              <span>Email</span>
+            </a>
+          </div>
+
         </div>
 
         <!-- Right Editorial Card: Photo & Matrix -->
