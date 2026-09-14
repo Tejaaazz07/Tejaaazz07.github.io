@@ -12,7 +12,7 @@
   <meta property="og:title" content="Tejas S K — Apple-Grade Web Creator &amp; Growth Strategist" />
   <meta property="og:description" content="Crafting Apple-grade digital experiences with AI tools, high-conversion growth marketing, and consumer UX psychology." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="profile.jpg" />
+  <meta property="og:image" content="hero-banner.png" />
 
   <!-- Google Fonts: Inter & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -63,6 +63,15 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Hero Banner Frame */
+    .hero-banner-container {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8), 0 0 40px -10px rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      background-color: #000000;
     }
 
     /* Crisp White Blocks with Solid Black Text */
@@ -186,14 +195,14 @@
 
   <!-- Ambient Dark Background Light Orbs -->
   <div class="spatial-orb w-[500px] h-[500px] bg-blue-600/25 -top-32 -right-10"></div>
-  <div class="spatial-orb w-[450px] h-[450px] bg-purple-600/20 top-[400px] -left-20"></div>
+  <div class="spatial-orb w-[450px] h-[450px] bg-purple-600/20 top-[600px] -left-20"></div>
 
-  <!-- Navigation Bar (Dark Glass Bar) -->
+  <!-- Navigation Bar -->
   <header class="fixed top-0 left-0 right-0 z-50 dark-nav">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Logo -->
-      <a href="#hero" class="flex items-center gap-3 group">
+      <a href="#hero-banner" class="flex items-center gap-3 group">
         <div class="w-10 h-10 rounded-lg bg-white text-black flex items-center justify-center font-display font-black text-lg shadow-sm transition-transform group-hover:scale-105">
           T
         </div>
@@ -205,6 +214,7 @@
 
       <!-- Desktop Navigation Links -->
       <nav class="hidden md:flex items-center gap-8">
+        <a href="#intro" class="text-sm font-semibold text-zinc-300 hover:text-white transition-colors">Introduction</a>
         <a href="#skills" class="text-sm font-semibold text-zinc-300 hover:text-white transition-colors">Skills</a>
         <a href="#projects" class="text-sm font-semibold text-zinc-300 hover:text-white transition-colors">Projects</a>
         <a href="#leadership" class="text-sm font-semibold text-zinc-300 hover:text-white transition-colors">Leadership</a>
@@ -232,6 +242,7 @@
     <!-- Mobile Dropdown Menu -->
     <div id="mobileMenu" class="hidden md:hidden px-6 pt-2 pb-6 border-t border-white/10 bg-[#0A0A0E]/95 backdrop-blur-2xl">
       <div class="flex flex-col gap-4">
+        <a href="#intro" class="text-base font-semibold text-zinc-200 hover:text-white mobile-link">Introduction</a>
         <a href="#skills" class="text-base font-semibold text-zinc-200 hover:text-white mobile-link">Skills</a>
         <a href="#projects" class="text-base font-semibold text-zinc-200 hover:text-white mobile-link">Projects</a>
         <a href="#leadership" class="text-base font-semibold text-zinc-200 hover:text-white mobile-link">Leadership</a>
@@ -250,13 +261,31 @@
   </header>
 
 
-  <main class="relative z-10 pt-28 sm:pt-36">
+  <main class="relative z-10 pt-24 sm:pt-28">
 
-    <!-- HERO SECTION (Black Canvas with Crisp White Profile Card) -->
-    <section id="hero" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-20 md:pt-12 md:pb-28">
+    <!-- ========================================================= -->
+    <!-- NEW HERO BANNER SECTION (CINEMATIC OPENING ABOVE INTRO)   -->
+    <!-- ========================================================= -->
+    <section id="hero-banner" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8 sm:pb-12" data-aos="fade-down" data-aos-duration="1000">
+      <div class="hero-banner-container relative group">
+        <img 
+          src="hero-banner.png" 
+          alt="TEJAS - DESIGN. WORKFLOWS. FINANCE." 
+          class="w-full h-auto object-cover block select-none"
+        />
+        <!-- Subtle Interactive Highlight Glow Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- INTRODUCTION SECTION (TEXT, BIO & WHITE PROFILE CARD)     -->
+    <!-- ========================================================= -->
+    <section id="intro" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 pb-20 md:pb-28">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
         
-        <!-- Hero Left Column: Text and CTAs on Black Canvas -->
+        <!-- Intro Left Column: Text and CTAs on Black Canvas -->
         <div class="lg:col-span-7 flex flex-col items-start" data-aos="fade-right" data-aos-duration="900">
           
           <!-- Availability Badge -->
@@ -320,7 +349,7 @@
 
         </div>
 
-        <!-- Hero Right Column: Crisp White Showcase Card (Solid Black Text) -->
+        <!-- Intro Right Column: Crisp White Showcase Card (Solid Black Text) -->
         <div class="lg:col-span-5" data-aos="fade-left" data-aos-duration="900">
           <div class="white-card p-6 sm:p-7 relative overflow-hidden">
             
@@ -714,7 +743,7 @@
 
 
   <!-- ========================================================= -->
-  <!-- CONTACT SECTION: BLACK CANVAS WITH WHITE BLOCK (BLACK FONT) -->
+  <!-- CONTACT SECTION: BLACK CANVAS WITH WHITE BLOCK            -->
   <!-- ========================================================= -->
   <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
     <div class="max-w-4xl mx-auto text-center mb-12" data-aos="fade-up">
@@ -791,7 +820,7 @@
       </div>
 
       <div class="flex items-center gap-6">
-        <a href="#hero" class="text-xs text-zinc-400 hover:text-white transition-colors">Back to Top</a>
+        <a href="#hero-banner" class="text-xs text-zinc-400 hover:text-white transition-colors">Back to Top</a>
         <a href="resume.html" class="text-xs text-white hover:underline font-bold">ATS Resume</a>
         <a href="https://github.com/Tejaaazz07/Tejaaazz07.github.io" target="_blank" rel="noopener noreferrer" class="text-xs text-zinc-400 hover:text-white transition-colors">Source Code</a>
       </div>
