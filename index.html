@@ -34,12 +34,10 @@
         extend: {
           colors: {
             deepBlack: '#0A0A0E',
-            appleTextDark: '#1D1D1F',
-            appleTextMuted: '#6E6E73',
-            appleTextLight: '#86868B',
+            darkCard: '#141418',
+            darkCardHover: '#1B1B22',
+            darkBorder: 'rgba(255, 255, 255, 0.1)',
             whiteBlock: '#FFFFFF',
-            whiteBlockOff: '#F5F5F7',
-            systemBlue: '#0071E3',
           },
           fontFamily: {
             sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
@@ -67,10 +65,10 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    /* Crisp White Blocks with Reduced Curved Edges */
+    /* Crisp White Blocks with Black Text */
     .white-card {
       background-color: #FFFFFF;
-      color: #1D1D1F;
+      color: #000000;
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 12px;
       box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4), 0 2px 8px -2px rgba(0, 0, 0, 0.2);
@@ -82,35 +80,79 @@
       box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.6), 0 4px 12px -2px rgba(0, 0, 0, 0.3);
     }
 
-    /* Black Tint Buttons on White Cards */
+    /* Dark Theme Panels (For Projects & Leadership) */
+    .dark-panel {
+      background: #141418;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .dark-panel:hover {
+      background: #1B1B22;
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Black Tint Button Utilities */
     .btn-black-solid {
-      background-color: #1D1D1F;
+      background-color: #000000;
       color: #FFFFFF;
-      border: 1px solid rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(0, 0, 0, 0.9);
       border-radius: 8px;
       box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2);
       transition: all 0.2s ease;
     }
     .btn-black-solid:hover {
-      background-color: #000000;
+      background-color: #1f1f23;
       transform: translateY(-1px);
       box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.3);
       color: #FFFFFF;
     }
 
     .btn-black-tint {
-      background-color: rgba(29, 29, 31, 0.06);
-      color: #1D1D1F;
-      border: 1px solid rgba(0, 0, 0, 0.12);
+      background-color: rgba(0, 0, 0, 0.07);
+      color: #000000;
+      border: 1px solid rgba(0, 0, 0, 0.15);
       border-radius: 8px;
       transition: all 0.2s ease;
     }
     .btn-black-tint:hover {
-      background-color: #1D1D1F;
+      background-color: #000000;
       color: #FFFFFF;
-      border-color: #1D1D1F;
+      border-color: #000000;
       transform: translateY(-1px);
       box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    /* Dark Panel Action Buttons */
+    .btn-dark-cta {
+      background-color: #FFFFFF;
+      color: #0A0A0E;
+      border: 1px solid #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
+      transition: all 0.2s ease;
+    }
+    .btn-dark-cta:hover {
+      background-color: #E4E4E7;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-dark-outline {
+      background-color: rgba(255, 255, 255, 0.06);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-dark-outline:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
     }
 
     /* Hero Buttons on Dark Canvas */
@@ -146,7 +188,7 @@
       position: absolute;
       border-radius: 50%;
       filter: blur(120px);
-      opacity: 0.25;
+      opacity: 0.22;
       pointer-events: none;
       z-index: 0;
     }
@@ -170,10 +212,10 @@
 <body class="relative min-h-screen selection:bg-white selection:text-black bg-[#0A0A0E]">
 
   <!-- Ambient Dark Background Light Orbs -->
-  <div class="spatial-orb w-[500px] h-[500px] bg-blue-600/30 -top-32 -right-10"></div>
-  <div class="spatial-orb w-[450px] h-[450px] bg-purple-600/25 top-[400px] -left-20"></div>
+  <div class="spatial-orb w-[500px] h-[500px] bg-blue-600/25 -top-32 -right-10"></div>
+  <div class="spatial-orb w-[450px] h-[450px] bg-purple-600/20 top-[400px] -left-20"></div>
 
-  <!-- Navigation Bar (Dark Glass Bar with Crisp Contrast) -->
+  <!-- Navigation Bar (Dark Glass Bar) -->
   <header class="fixed top-0 left-0 right-0 z-50 dark-nav">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
@@ -188,9 +230,8 @@
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
+      <!-- Desktop Navigation Links (Vision section removed) -->
       <nav class="hidden md:flex items-center gap-8">
-        <a href="#about" class="text-sm font-semibold text-zinc-300 hover:text-white transition-colors">About</a>
         <a href="#skills" class="text-sm font-semibold text-zinc-300 hover:text-white transition-colors">Skills</a>
         <a href="#projects" class="text-sm font-semibold text-zinc-300 hover:text-white transition-colors">Projects</a>
         <a href="#leadership" class="text-sm font-semibold text-zinc-300 hover:text-white transition-colors">Leadership</a>
@@ -218,7 +259,6 @@
     <!-- Mobile Dropdown Menu -->
     <div id="mobileMenu" class="hidden md:hidden px-6 pt-2 pb-6 border-t border-white/10 bg-[#0A0A0E]/95 backdrop-blur-2xl">
       <div class="flex flex-col gap-4">
-        <a href="#about" class="text-base font-semibold text-zinc-200 hover:text-white mobile-link">About</a>
         <a href="#skills" class="text-base font-semibold text-zinc-200 hover:text-white mobile-link">Skills</a>
         <a href="#projects" class="text-base font-semibold text-zinc-200 hover:text-white mobile-link">Projects</a>
         <a href="#leadership" class="text-base font-semibold text-zinc-200 hover:text-white mobile-link">Leadership</a>
@@ -307,7 +347,7 @@
 
         </div>
 
-        <!-- Hero Right Column: Crisp White Showcase Card (Reduced Curves) -->
+        <!-- Hero Right Column: Crisp White Showcase Card (Black Font for Text & Small Writings) -->
         <div class="lg:col-span-5" data-aos="fade-left" data-aos-duration="900">
           <div class="white-card p-6 sm:p-7 relative overflow-hidden">
             
@@ -327,8 +367,8 @@
                 <!-- Floating Label inside Photo Frame -->
                 <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
                   <div>
-                    <h2 class="font-display font-bold text-lg drop-shadow-md">Tejas S K</h2>
-                    <p class="text-xs text-zinc-300 font-semibold drop-shadow">Apple-Grade Web Creator</p>
+                    <h2 class="font-display font-bold text-lg drop-shadow-md text-white">Tejas S K</h2>
+                    <p class="text-xs text-zinc-200 font-semibold drop-shadow">Apple-Grade Web Creator</p>
                   </div>
                   <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/50 backdrop-blur-md border border-white/20 text-[11px] font-medium text-emerald-300">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -338,31 +378,31 @@
               </div>
             </div>
 
-            <!-- Highlights Matrix Grid (Clean Light Style on White Card) -->
+            <!-- Highlights Matrix Grid (Solid Black Text & Labels) -->
             <div class="grid grid-cols-2 gap-2.5 mb-4">
-              <div class="p-3 rounded-lg bg-black/[0.03] border border-black/5 hover:border-black/20 transition-colors">
-                <div class="text-base font-display font-extrabold text-[#1D1D1F]">Apple Grade</div>
-                <div class="text-[11px] text-appleTextMuted font-medium mt-0.5">High-Value AI Websites</div>
+              <div class="p-3 rounded-lg bg-zinc-50 border border-black/10 hover:border-black/30 transition-colors">
+                <div class="text-base font-display font-black text-black">Apple Grade</div>
+                <div class="text-[11px] text-black font-semibold mt-0.5">High-Value AI Websites</div>
               </div>
-              <div class="p-3 rounded-lg bg-black/[0.03] border border-black/5 hover:border-black/20 transition-colors">
-                <div class="text-base font-display font-extrabold text-[#1D1D1F]">SEO &amp; GEO</div>
-                <div class="text-[11px] text-appleTextMuted font-medium mt-0.5">Core Growth Strategy</div>
+              <div class="p-3 rounded-lg bg-zinc-50 border border-black/10 hover:border-black/30 transition-colors">
+                <div class="text-base font-display font-black text-black">SEO &amp; GEO</div>
+                <div class="text-[11px] text-black font-semibold mt-0.5">Core Growth Strategy</div>
               </div>
-              <div class="p-3 rounded-lg bg-black/[0.03] border border-black/5 hover:border-black/20 transition-colors">
-                <div class="text-base font-display font-extrabold text-[#1D1D1F]">ACCA</div>
-                <div class="text-[11px] text-appleTextMuted font-medium mt-0.5">B.Com Finance Scholar</div>
+              <div class="p-3 rounded-lg bg-zinc-50 border border-black/10 hover:border-black/30 transition-colors">
+                <div class="text-base font-display font-black text-black">ACCA</div>
+                <div class="text-[11px] text-black font-semibold mt-0.5">B.Com Finance Scholar</div>
               </div>
-              <div class="p-3 rounded-lg bg-black/[0.03] border border-black/5 hover:border-black/20 transition-colors">
-                <div class="text-base font-display font-extrabold text-[#1D1D1F]">Director</div>
-                <div class="text-[11px] text-appleTextMuted font-medium mt-0.5">Rotaract Club Service</div>
+              <div class="p-3 rounded-lg bg-zinc-50 border border-black/10 hover:border-black/30 transition-colors">
+                <div class="text-base font-display font-black text-black">Director</div>
+                <div class="text-[11px] text-black font-semibold mt-0.5">Rotaract Club Service</div>
               </div>
             </div>
 
-            <!-- Badges Strip -->
-            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-black/5">
-              <span class="px-2.5 py-1 text-[11px] rounded-md bg-black/5 text-[#1D1D1F] border border-black/10 font-semibold">✨ AI Website Tools</span>
-              <span class="px-2.5 py-1 text-[11px] rounded-md bg-black/5 text-[#1D1D1F] border border-black/10 font-semibold">🎯 Meta Ads</span>
-              <span class="px-2.5 py-1 text-[11px] rounded-md bg-black/5 text-[#1D1D1F] border border-black/10 font-semibold">🧠 Consumer Psychology</span>
+            <!-- Badges Strip (Solid Black Font) -->
+            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-black/10">
+              <span class="px-2.5 py-1 text-[11px] rounded-md bg-zinc-100 text-black border border-black/15 font-bold">✨ AI Website Tools</span>
+              <span class="px-2.5 py-1 text-[11px] rounded-md bg-zinc-100 text-black border border-black/15 font-bold">🎯 Meta Ads</span>
+              <span class="px-2.5 py-1 text-[11px] rounded-md bg-zinc-100 text-black border border-black/15 font-bold">🧠 Consumer Psychology</span>
             </div>
 
           </div>
@@ -372,72 +412,7 @@
     </section>
 
 
-    <!-- ABOUT / BACKGROUND SECTION (Black Canvas, White Blocks) -->
-    <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/10">
-      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-        <span class="text-xs font-bold uppercase tracking-widest text-zinc-300 px-3 py-1 rounded-md bg-white/10 border border-white/15">The Vision</span>
-        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-4 mb-4">Where High-Value Design Meets Strategic Growth</h2>
-        <p class="text-zinc-400 text-base sm:text-lg">Combining AI-powered creation, consumer thinking psychology, and commercial strategy.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- White Card 1 -->
-        <div class="white-card p-7 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
-          <div>
-            <div class="w-11 h-11 rounded-lg bg-[#1D1D1F] text-white flex items-center justify-center text-lg mb-5 shadow-sm">
-              <i class="fa-solid fa-wand-magic-sparkles"></i>
-            </div>
-            <h3 class="font-display font-bold text-xl text-[#1D1D1F] mb-3">High-Value AI Websites</h3>
-            <p class="text-sm text-[#6E6E73] leading-relaxed">
-              I build Apple-grade websites using advanced AI tools, producing stunning visual polish, flawless responsiveness, and premium user experience for brands.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-black/5 text-xs font-bold text-[#1D1D1F] flex items-center gap-1">
-            <span>Apple-Grade Polish</span>
-            <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </div>
-        </div>
-
-        <!-- White Card 2 -->
-        <div class="white-card p-7 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
-          <div>
-            <div class="w-11 h-11 rounded-lg bg-[#1D1D1F] text-white flex items-center justify-center text-lg mb-5 shadow-sm">
-              <i class="fa-solid fa-chart-line"></i>
-            </div>
-            <h3 class="font-display font-bold text-xl text-[#1D1D1F] mb-3">SEO, GEO &amp; Meta Ads</h3>
-            <p class="text-sm text-[#6E6E73] leading-relaxed">
-              Search Engine Optimization (SEO) and Generative Engine Optimization (GEO) are central to my strategy, paired with high-converting Meta ads and consumer feedback psychology.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-black/5 text-xs font-bold text-[#1D1D1F] flex items-center gap-1">
-            <span>Multi-Channel Growth</span>
-            <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </div>
-        </div>
-
-        <!-- White Card 3 -->
-        <div class="white-card p-7 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
-          <div>
-            <div class="w-11 h-11 rounded-lg bg-[#1D1D1F] text-white flex items-center justify-center text-lg mb-5 shadow-sm">
-              <i class="fa-solid fa-graduation-cap"></i>
-            </div>
-            <h3 class="font-display font-bold text-xl text-[#1D1D1F] mb-3">Academic &amp; Leadership</h3>
-            <p class="text-sm text-[#6E6E73] leading-relaxed">
-              Studying <strong>B.Com (ACCA)</strong> at Kumaraguru College of Arts and Sciences, with schooling from Yuvabharathi Public School. Serving as <strong>Club Service Director</strong> at Rotaract Club.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-black/5 text-xs font-bold text-[#1D1D1F] flex items-center gap-1">
-            <span>Leadership &amp; Global Commerce</span>
-            <i class="fa-solid fa-chevron-right text-[10px]"></i>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- CORE SKILLS SECTION (Black Canvas, White Blocks) -->
+    <!-- CORE SKILLS SECTION (Black Canvas, White Blocks with Solid Black Font) -->
     <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/10">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16" data-aos="fade-up">
         <div>
@@ -454,108 +429,108 @@
         <!-- Skill 1 -->
         <div class="white-card p-6" data-aos="fade-up" data-aos-delay="100">
           <div class="flex items-center gap-3.5 mb-3.5">
-            <div class="w-9 h-9 rounded-lg bg-black/5 border border-black/10 flex items-center justify-center text-[#1D1D1F]">
+            <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center">
               <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
             </div>
-            <h3 class="font-display font-bold text-base text-[#1D1D1F]">Apple-Grade AI Websites</h3>
+            <h3 class="font-display font-bold text-base text-black">Apple-Grade AI Websites</h3>
           </div>
-          <p class="text-xs sm:text-sm text-[#6E6E73] mb-4 leading-relaxed">
+          <p class="text-xs sm:text-sm text-black mb-4 leading-relaxed font-medium">
             Building high-value, aesthetically elevated websites using modern AI tools, focused on premium visual hierarchy and responsiveness.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">AI Web Tools</span>
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Apple Aesthetic</span>
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">UI Design</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">AI Web Tools</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Apple Aesthetic</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">UI Design</span>
           </div>
         </div>
 
         <!-- Skill 2 -->
         <div class="white-card p-6" data-aos="fade-up" data-aos-delay="150">
           <div class="flex items-center gap-3.5 mb-3.5">
-            <div class="w-9 h-9 rounded-lg bg-black/5 border border-black/10 flex items-center justify-center text-[#1D1D1F]">
+            <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center">
               <i class="fa-solid fa-magnifying-glass-chart text-sm"></i>
             </div>
-            <h3 class="font-display font-bold text-base text-[#1D1D1F]">SEO &amp; GEO Strategy</h3>
+            <h3 class="font-display font-bold text-base text-black">SEO &amp; GEO Strategy</h3>
           </div>
-          <p class="text-xs sm:text-sm text-[#6E6E73] mb-4 leading-relaxed">
+          <p class="text-xs sm:text-sm text-black mb-4 leading-relaxed font-medium">
             Search Engine Optimization (SEO) &amp; Generative Engine Optimization (GEO) to optimize visibility across traditional search and AI search engines.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Organic SEO</span>
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">GEO (AI Search)</span>
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Keywords</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Organic SEO</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">GEO (AI Search)</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Keywords</span>
           </div>
         </div>
 
         <!-- Skill 3 -->
         <div class="white-card p-6" data-aos="fade-up" data-aos-delay="200">
           <div class="flex items-center gap-3.5 mb-3.5">
-            <div class="w-9 h-9 rounded-lg bg-black/5 border border-black/10 flex items-center justify-center text-[#1D1D1F]">
+            <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center">
               <i class="fa-solid fa-bullhorn text-sm"></i>
             </div>
-            <h3 class="font-display font-bold text-base text-[#1D1D1F]">Meta Ads &amp; Marketing</h3>
+            <h3 class="font-display font-bold text-base text-black">Meta Ads &amp; Marketing</h3>
           </div>
-          <p class="text-xs sm:text-sm text-[#6E6E73] mb-4 leading-relaxed">
+          <p class="text-xs sm:text-sm text-black mb-4 leading-relaxed font-medium">
             Meta ads campaign setup, audience segmentation, ad creative generation, and high-impact social media marketing.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Meta Ads</span>
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Social Content</span>
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Campaigns</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Meta Ads</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Social Content</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Campaigns</span>
           </div>
         </div>
 
         <!-- Skill 4 -->
         <div class="white-card p-6" data-aos="fade-up" data-aos-delay="250">
           <div class="flex items-center gap-3.5 mb-3.5">
-            <div class="w-9 h-9 rounded-lg bg-black/5 border border-black/10 flex items-center justify-center text-[#1D1D1F]">
+            <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center">
               <i class="fa-solid fa-brain text-sm"></i>
             </div>
-            <h3 class="font-display font-bold text-base text-[#1D1D1F]">Consumer UX &amp; Feedback</h3>
+            <h3 class="font-display font-bold text-base text-black">Consumer UX &amp; Feedback</h3>
           </div>
-          <p class="text-xs sm:text-sm text-[#6E6E73] mb-4 leading-relaxed">
+          <p class="text-xs sm:text-sm text-black mb-4 leading-relaxed font-medium">
             Analyzing customer feedback and decoding the consumer thinking process to craft websites and funnels that convert visitors into buyers.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Consumer UX</span>
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Feedback Loops</span>
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Conversion</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Consumer UX</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Feedback Loops</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Conversion</span>
           </div>
         </div>
 
         <!-- Skill 5 -->
         <div class="white-card p-6" data-aos="fade-up" data-aos-delay="300">
           <div class="flex items-center gap-3.5 mb-3.5">
-            <div class="w-9 h-9 rounded-lg bg-black/5 border border-black/10 flex items-center justify-center text-[#1D1D1F]">
+            <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center">
               <i class="fa-solid fa-chess text-sm"></i>
             </div>
-            <h3 class="font-display font-bold text-base text-[#1D1D1F]">Brand Market Setup</h3>
+            <h3 class="font-display font-bold text-base text-black">Brand Market Setup</h3>
           </div>
-          <p class="text-xs sm:text-sm text-[#6E6E73] mb-4 leading-relaxed">
+          <p class="text-xs sm:text-sm text-black mb-4 leading-relaxed font-medium">
             Helping businesses set up their brand in the market, carve distinct identities, and communicate their core value proposition.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Brand Strategy</span>
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Positioning</span>
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Identity</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Brand Strategy</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Positioning</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Identity</span>
           </div>
         </div>
 
         <!-- Skill 6 -->
         <div class="white-card p-6" data-aos="fade-up" data-aos-delay="350">
           <div class="flex items-center gap-3.5 mb-3.5">
-            <div class="w-9 h-9 rounded-lg bg-black/5 border border-black/10 flex items-center justify-center text-[#1D1D1F]">
+            <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center">
               <i class="fa-solid fa-coins text-sm"></i>
             </div>
-            <h3 class="font-display font-bold text-base text-[#1D1D1F]">Financial Foundation (ACCA)</h3>
+            <h3 class="font-display font-bold text-base text-black">Financial Foundation (ACCA)</h3>
           </div>
-          <p class="text-xs sm:text-sm text-[#6E6E73] mb-4 leading-relaxed">
+          <p class="text-xs sm:text-sm text-black mb-4 leading-relaxed font-medium">
             Pursuing B.Com (ACCA), providing deep grounding in financial metrics, commercial accounting, and budgeting principles.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">ACCA</span>
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Financial Logic</span>
-            <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-appleTextDark font-medium">Budgeting</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">ACCA</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Financial Logic</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-100 border border-black/15 text-black font-semibold">Budgeting</span>
           </div>
         </div>
 
@@ -563,7 +538,7 @@
     </section>
 
 
-    <!-- FEATURED PROJECTS SECTION (Black Canvas, White Blocks) -->
+    <!-- FEATURED PROJECTS SECTION (Restored Dark Theme Panels) -->
     <section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/10">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16" data-aos="fade-up">
         <div>
@@ -577,134 +552,134 @@
 
       <div class="space-y-8">
 
-        <!-- Project 1: Stylehaven Fashion (White Card) -->
-        <div class="white-card p-7 sm:p-9" data-aos="fade-up">
+        <!-- Project 1: Stylehaven Fashion (Dark Panel) -->
+        <div class="dark-panel p-7 sm:p-9" data-aos="fade-up">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div class="lg:col-span-7">
               <div class="flex items-center gap-3 mb-3">
-                <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-black text-white">LIVE WEBSITE</span>
-                <span class="text-xs text-[#6E6E73] font-medium">Clothing Store E-Commerce</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-white text-black">LIVE WEBSITE</span>
+                <span class="text-xs text-zinc-400 font-medium">Clothing Store E-Commerce</span>
               </div>
-              <h3 class="font-display font-bold text-2xl sm:text-3xl text-[#1D1D1F] mb-3.5">Stylehaven Fashion Website</h3>
-              <p class="text-[#6E6E73] text-sm sm:text-base leading-relaxed mb-6">
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-white mb-3.5">Stylehaven Fashion Website</h3>
+              <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
                 Built a high-quality, modern website for a clothing store brand. Designed with Apple-grade aesthetic precision, seamless product layouts, and smooth mobile experience.
               </p>
               <div class="flex flex-wrap gap-2 mb-7">
-                <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-[#1D1D1F] font-semibold">AI Web Tools</span>
-                <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-[#1D1D1F] font-semibold">E-Commerce UX</span>
-                <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-[#1D1D1F] font-semibold">Brand Identity</span>
-                <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-[#1D1D1F] font-semibold">Mobile-First</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300 font-semibold">AI Web Tools</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300 font-semibold">E-Commerce UX</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300 font-semibold">Brand Identity</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300 font-semibold">Mobile-First</span>
               </div>
               <div>
-                <a href="https://stylehavenfashion.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 btn-black-solid font-bold text-sm">
+                <a href="https://stylehavenfashion.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 btn-dark-cta font-bold text-sm">
                   <span>Visit Stylehavenfashion.com</span>
                   <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                 </a>
               </div>
             </div>
             <div class="lg:col-span-5">
-              <div class="p-5 rounded-lg bg-[#F5F5F7] border border-black/10 shadow-sm group">
-                <div class="flex items-center justify-between pb-3 mb-3 border-b border-black/10">
+              <div class="p-5 rounded-lg bg-[#0E0E12] border border-white/10 shadow-inner group">
+                <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
                   <div class="flex gap-1.5">
-                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-400 inline-block"></span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-300 inline-block"></span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-200 inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-600 inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-700 inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-800 inline-block"></span>
                   </div>
-                  <a href="https://stylehavenfashion.com" target="_blank" class="text-xs text-[#1D1D1F] hover:underline font-mono font-bold">stylehavenfashion.com</a>
+                  <a href="https://stylehavenfashion.com" target="_blank" class="text-xs text-zinc-300 hover:text-white font-mono font-bold">stylehavenfashion.com</a>
                 </div>
-                <div class="aspect-video bg-white rounded-md flex flex-col items-center justify-center p-6 text-center border border-black/5 shadow-inner">
-                  <i class="fa-solid fa-bag-shopping text-3xl text-[#1D1D1F] mb-2.5 transition-transform group-hover:scale-110"></i>
-                  <span class="font-display font-bold text-[#1D1D1F] text-base">Stylehaven Fashion</span>
-                  <span class="text-xs text-[#6E6E73] mt-1">stylehavenfashion.com</span>
+                <div class="aspect-video bg-gradient-to-br from-zinc-900 to-black rounded-md flex flex-col items-center justify-center p-6 text-center border border-white/5">
+                  <i class="fa-solid fa-bag-shopping text-3xl text-white mb-2.5 transition-transform group-hover:scale-110"></i>
+                  <span class="font-display font-bold text-white text-base">Stylehaven Fashion</span>
+                  <span class="text-xs text-zinc-400 mt-1">stylehavenfashion.com</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Project 2: AI Smart Expense Dashboard (White Card) -->
-        <div class="white-card p-7 sm:p-9" data-aos="fade-up">
+        <!-- Project 2: AI Smart Expense Dashboard (Dark Panel) -->
+        <div class="dark-panel p-7 sm:p-9" data-aos="fade-up">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div class="lg:col-span-7">
               <div class="flex items-center gap-3 mb-3">
-                <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-black text-white">AI DASHBOARD</span>
-                <span class="text-xs text-[#6E6E73] font-medium">Financial Management</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-white text-black">AI DASHBOARD</span>
+                <span class="text-xs text-zinc-400 font-medium">Financial Management</span>
               </div>
-              <h3 class="font-display font-bold text-2xl sm:text-3xl text-[#1D1D1F] mb-3.5">High-Tech AI Expense Tracking Dashboard</h3>
-              <p class="text-[#6E6E73] text-sm sm:text-base leading-relaxed mb-6">
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-white mb-3.5">High-Tech AI Expense Tracking Dashboard</h3>
+              <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
                 An intelligent financial tracking dashboard designed to monitor and organize expenses, provide automated categorization insights, and streamline budgeting.
               </p>
               <div class="flex flex-wrap gap-2 mb-7">
-                <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-[#1D1D1F] font-semibold">AI Dashboard</span>
-                <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-[#1D1D1F] font-semibold">Expense Tracking</span>
-                <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-[#1D1D1F] font-semibold">Modern UI Layout</span>
-                <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-[#1D1D1F] font-semibold">Financial Logic</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300 font-semibold">AI Dashboard</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300 font-semibold">Expense Tracking</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300 font-semibold">Modern UI Layout</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300 font-semibold">Financial Logic</span>
               </div>
               <div>
-                <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 btn-black-tint font-semibold text-sm">
+                <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 btn-dark-outline font-semibold text-sm">
                   <i class="fa-solid fa-chart-pie text-sm"></i>
                   <span>Project Overview</span>
                 </a>
               </div>
             </div>
             <div class="lg:col-span-5">
-              <div class="p-5 rounded-lg bg-[#F5F5F7] border border-black/10 shadow-sm group">
-                <div class="flex items-center justify-between pb-3 mb-3 border-b border-black/10">
+              <div class="p-5 rounded-lg bg-[#0E0E12] border border-white/10 shadow-inner group">
+                <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
                   <div class="flex gap-1.5">
-                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-400 inline-block"></span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-300 inline-block"></span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-200 inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-600 inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-700 inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-800 inline-block"></span>
                   </div>
-                  <span class="text-xs text-[#6E6E73] font-mono">ai-expense-tracker</span>
+                  <span class="text-xs text-zinc-400 font-mono">ai-expense-tracker</span>
                 </div>
-                <div class="aspect-video bg-white rounded-md flex flex-col items-center justify-center p-6 text-center border border-black/5 shadow-inner">
-                  <i class="fa-solid fa-chart-pie text-3xl text-[#1D1D1F] mb-2.5 transition-transform group-hover:scale-110"></i>
-                  <span class="font-display font-bold text-[#1D1D1F] text-base">AI Expense Intelligence</span>
-                  <span class="text-xs text-[#6E6E73] mt-1">Smart Cashflow &amp; Budget Tracking</span>
+                <div class="aspect-video bg-gradient-to-br from-zinc-900 to-black rounded-md flex flex-col items-center justify-center p-6 text-center border border-white/5">
+                  <i class="fa-solid fa-chart-pie text-3xl text-white mb-2.5 transition-transform group-hover:scale-110"></i>
+                  <span class="font-display font-bold text-white text-base">AI Expense Intelligence</span>
+                  <span class="text-xs text-zinc-400 mt-1">Smart Cashflow &amp; Budget Tracking</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Project 3: Spigen Headphones Apple-Grade Showcase (White Card) -->
-        <div class="white-card p-7 sm:p-9" data-aos="fade-up">
+        <!-- Project 3: Spigen Headphones Apple-Grade Showcase (Dark Panel) -->
+        <div class="dark-panel p-7 sm:p-9" data-aos="fade-up">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div class="lg:col-span-7">
               <div class="flex items-center gap-3 mb-3">
-                <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-black text-white">SAMPLE SHOWCASE</span>
-                <span class="text-xs text-[#6E6E73] font-medium">Product Concept (Sample, Not Official)</span>
+                <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-white text-black">SAMPLE SHOWCASE</span>
+                <span class="text-xs text-zinc-400 font-medium">Product Concept (Sample, Not Official)</span>
               </div>
-              <h3 class="font-display font-bold text-2xl sm:text-3xl text-[#1D1D1F] mb-3.5">Spigen Headphones Apple-Grade Showcase</h3>
-              <p class="text-[#6E6E73] text-sm sm:text-base leading-relaxed mb-6">
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-white mb-3.5">Spigen Headphones Apple-Grade Showcase</h3>
+              <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
                 An Apple-grade concept showcase designed for Spigen headphones (sample product showcase), featuring sleek depth, product feature breakdowns, and smooth visuals.
               </p>
               <div class="flex flex-wrap gap-2 mb-7">
-                <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-[#1D1D1F] font-semibold">Apple-Grade Design</span>
-                <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-[#1D1D1F] font-semibold">visionOS Glass</span>
-                <span class="px-2.5 py-1 text-xs rounded-md bg-black/[0.04] border border-black/10 text-[#1D1D1F] font-semibold">Product Presentation</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300 font-semibold">Apple-Grade Design</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300 font-semibold">Glassmorphism</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300 font-semibold">Product Presentation</span>
               </div>
               <div>
-                <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 btn-black-tint font-semibold text-sm">
+                <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 btn-dark-outline font-semibold text-sm">
                   <i class="fa-solid fa-headphones text-sm"></i>
                   <span>Showcase Concept</span>
                 </a>
               </div>
             </div>
             <div class="lg:col-span-5">
-              <div class="p-5 rounded-lg bg-[#F5F5F7] border border-black/10 shadow-sm group">
-                <div class="flex items-center justify-between pb-3 mb-3 border-b border-black/10">
+              <div class="p-5 rounded-lg bg-[#0E0E12] border border-white/10 shadow-inner group">
+                <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
                   <div class="flex gap-1.5">
-                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-400 inline-block"></span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-300 inline-block"></span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-200 inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-600 inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-700 inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-zinc-800 inline-block"></span>
                   </div>
-                  <span class="text-xs text-[#6E6E73] font-mono">spigen-headphones-showcase</span>
+                  <span class="text-xs text-zinc-400 font-mono">spigen-headphones-showcase</span>
                 </div>
-                <div class="aspect-video bg-white rounded-md flex flex-col items-center justify-center p-6 text-center border border-black/5 shadow-inner">
-                  <i class="fa-solid fa-headphones-simple text-3xl text-[#1D1D1F] mb-2.5 transition-transform group-hover:scale-110"></i>
-                  <span class="font-display font-bold text-[#1D1D1F] text-base">Spigen Headphones Showcase</span>
-                  <span class="text-xs text-[#6E6E73] mt-1">Apple-Grade Product Concept</span>
+                <div class="aspect-video bg-gradient-to-br from-zinc-900 to-black rounded-md flex flex-col items-center justify-center p-6 text-center border border-white/5">
+                  <i class="fa-solid fa-headphones-simple text-3xl text-white mb-2.5 transition-transform group-hover:scale-110"></i>
+                  <span class="font-display font-bold text-white text-base">Spigen Headphones Showcase</span>
+                  <span class="text-xs text-zinc-400 mt-1">Apple-Grade Product Concept</span>
                 </div>
               </div>
             </div>
@@ -715,47 +690,47 @@
     </section>
 
 
-    <!-- LEADERSHIP & COMMUNITY SECTION (Black Canvas, White Block) -->
+    <!-- LEADERSHIP & COMMUNITY SECTION (Restored Dark Theme Panel) -->
     <section id="leadership" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/10">
-      <div class="white-card p-8 sm:p-10" data-aos="fade-up">
+      <div class="dark-panel p-8 sm:p-10" data-aos="fade-up">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div class="lg:col-span-8">
-            <span class="text-xs font-bold uppercase tracking-widest text-[#1D1D1F] px-3 py-1 rounded-md bg-black/5 border border-black/10">Leadership &amp; Service</span>
-            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-[#1D1D1F] mt-4 mb-4">Club Service Director — Rotaract Club</h2>
-            <p class="text-[#6E6E73] text-base leading-relaxed mb-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-zinc-300 px-3 py-1 rounded-md bg-white/10 border border-white/15">Leadership &amp; Service</span>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-4 mb-4">Club Service Director — Rotaract Club</h2>
+            <p class="text-zinc-300 text-base leading-relaxed mb-6">
               Serving as Club Service Director at the college Rotaract Club, actively leading community engagement, organizing events, and solving problems through creative collaboration.
             </p>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-              <div class="p-4 rounded-lg bg-[#F5F5F7] border border-black/5">
-                <i class="fa-solid fa-users text-[#1D1D1F] mb-2 text-base"></i>
-                <h4 class="font-semibold text-[#1D1D1F] text-sm">Community Engagement</h4>
-                <p class="text-xs text-[#6E6E73] mt-1">Leading social and club service initiatives.</p>
+              <div class="p-4 rounded-lg bg-white/[0.04] border border-white/10">
+                <i class="fa-solid fa-users text-white mb-2 text-base"></i>
+                <h4 class="font-semibold text-white text-sm">Community Engagement</h4>
+                <p class="text-xs text-zinc-400 mt-1">Leading social and club service initiatives.</p>
               </div>
-              <div class="p-4 rounded-lg bg-[#F5F5F7] border border-black/5">
-                <i class="fa-solid fa-lightbulb text-[#1D1D1F] mb-2 text-base"></i>
-                <h4 class="font-semibold text-[#1D1D1F] text-sm">Problem Solving</h4>
-                <p class="text-xs text-[#6E6E73] mt-1">Creative and pragmatic execution.</p>
+              <div class="p-4 rounded-lg bg-white/[0.04] border border-white/10">
+                <i class="fa-solid fa-lightbulb text-white mb-2 text-base"></i>
+                <h4 class="font-semibold text-white text-sm">Problem Solving</h4>
+                <p class="text-xs text-zinc-400 mt-1">Creative and pragmatic execution.</p>
               </div>
-              <div class="p-4 rounded-lg bg-[#F5F5F7] border border-black/5">
-                <i class="fa-solid fa-handshake text-[#1D1D1F] mb-2 text-base"></i>
-                <h4 class="font-semibold text-[#1D1D1F] text-sm">Team Collaboration</h4>
-                <p class="text-xs text-[#6E6E73] mt-1">Coordinating club members and activities.</p>
+              <div class="p-4 rounded-lg bg-white/[0.04] border border-white/10">
+                <i class="fa-solid fa-handshake text-white mb-2 text-base"></i>
+                <h4 class="font-semibold text-white text-sm">Team Collaboration</h4>
+                <p class="text-xs text-zinc-400 mt-1">Coordinating club members and activities.</p>
               </div>
             </div>
           </div>
-          <div class="lg:col-span-4 flex flex-col items-center justify-center p-6 rounded-lg bg-[#F5F5F7] border border-black/10 text-center">
-            <div class="w-14 h-14 rounded-lg bg-[#1D1D1F] text-white flex items-center justify-center text-2xl mb-3 shadow-sm">
+          <div class="lg:col-span-4 flex flex-col items-center justify-center p-6 rounded-lg bg-[#0E0E12] border border-white/10 text-center">
+            <div class="w-14 h-14 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-white text-2xl mb-3 shadow-sm">
               <i class="fa-solid fa-award"></i>
             </div>
-            <h4 class="font-display font-bold text-[#1D1D1F] text-base">Club Service Director</h4>
-            <p class="text-xs text-[#6E6E73] mt-1 font-medium">Rotaract Club | Kumaraguru College</p>
+            <h4 class="font-display font-bold text-white text-base">Club Service Director</h4>
+            <p class="text-xs text-zinc-400 mt-1 font-medium">Rotaract Club | Kumaraguru College</p>
           </div>
         </div>
       </div>
     </section>
 
 
-    <!-- CONTACT SECTION (Black Canvas, White Block) -->
+    <!-- CONTACT SECTION (Black Canvas, White Block with Solid Black Font) -->
     <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/10">
       <div class="max-w-4xl mx-auto text-center mb-12" data-aos="fade-up">
         <span class="text-xs font-bold uppercase tracking-widest text-zinc-300 px-3 py-1 rounded-md bg-white/10 border border-white/15">Get In Touch</span>
@@ -766,14 +741,14 @@
       </div>
 
       <div class="white-card p-8 sm:p-10 max-w-3xl mx-auto" data-aos="fade-up">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-6 p-5 rounded-lg bg-[#F5F5F7] border border-black/10 mb-6">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6 p-5 rounded-lg bg-zinc-50 border border-black/10 mb-6">
           <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-lg bg-[#1D1D1F] text-white flex items-center justify-center text-lg shadow-sm">
+            <div class="w-10 h-10 rounded-lg bg-black text-white flex items-center justify-center text-lg shadow-sm">
               <i class="fa-solid fa-envelope"></i>
             </div>
             <div class="text-left">
-              <div class="text-[11px] text-[#6E6E73] font-bold uppercase tracking-wider">Email Address</div>
-              <a href="mailto:tejasbusinessenquiries@gmail.com" class="text-base font-bold text-[#1D1D1F] hover:underline transition-colors">
+              <div class="text-[11px] text-black font-bold uppercase tracking-wider">Email Address</div>
+              <a href="mailto:tejasbusinessenquiries@gmail.com" class="text-base font-bold text-black hover:underline transition-colors">
                 tejasbusinessenquiries@gmail.com
               </a>
             </div>
@@ -784,26 +759,26 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-          <a href="https://www.linkedin.com/in/tejas-s-k-333a78359/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-lg bg-[#F5F5F7] border border-black/10 hover:border-black transition-all group">
+          <a href="https://www.linkedin.com/in/tejas-s-k-333a78359/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-lg bg-zinc-50 border border-black/10 hover:border-black transition-all group">
             <div class="flex items-center gap-3">
-              <i class="fa-brands fa-linkedin text-xl text-[#1D1D1F]"></i>
+              <i class="fa-brands fa-linkedin text-xl text-black"></i>
               <div class="text-left">
-                <div class="text-sm font-bold text-[#1D1D1F] group-hover:underline transition-colors">LinkedIn Profile</div>
-                <div class="text-xs text-[#6E6E73]">View Experience &amp; Connect</div>
+                <div class="text-sm font-bold text-black group-hover:underline transition-colors">LinkedIn Profile</div>
+                <div class="text-xs text-black font-medium">View Experience &amp; Connect</div>
               </div>
             </div>
-            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-400 group-hover:text-black transition-colors"></i>
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-black group-hover:scale-110 transition-transform"></i>
           </a>
 
-          <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-lg bg-[#F5F5F7] border border-black/10 hover:border-black transition-all group">
+          <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-lg bg-zinc-50 border border-black/10 hover:border-black transition-all group">
             <div class="flex items-center gap-3">
-              <i class="fa-brands fa-github text-xl text-[#1D1D1F]"></i>
+              <i class="fa-brands fa-github text-xl text-black"></i>
               <div class="text-left">
-                <div class="text-sm font-bold text-[#1D1D1F] group-hover:underline transition-colors">GitHub Profile</div>
-                <div class="text-xs text-[#6E6E73]">@Tejaaazz07</div>
+                <div class="text-sm font-bold text-black group-hover:underline transition-colors">GitHub Profile</div>
+                <div class="text-xs text-black font-medium">@Tejaaazz07</div>
               </div>
             </div>
-            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-400 group-hover:text-black transition-colors"></i>
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-black group-hover:scale-110 transition-transform"></i>
           </a>
         </div>
 
@@ -891,7 +866,7 @@
     const copyEmailBtn = document.getElementById('copyEmailBtn');
     copyEmailBtn.addEventListener('click', () => {
       navigator.clipboard.writeText('tejasbusinessenquiries@gmail.com').then(() => {
-        copyEmailBtn.innerHTML = '<i class="fa-solid fa-check mr-1 text-emerald-600"></i> Copied!';
+        copyEmailBtn.innerHTML = '<i class="fa-solid fa-check mr-1 text-emerald-400"></i> Copied!';
         setTimeout(() => {
           copyEmailBtn.innerHTML = '<i class="fa-solid fa-copy mr-1"></i> Copy';
         }, 2000);
