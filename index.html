@@ -289,25 +289,10 @@
 
 
     <!-- ========================================================= -->
-    <!-- INTRODUCTION SECTION (CINEMATIC BACKGROUND & SEAMLESS)    -->
+    <!-- INTRODUCTION SECTION (SEAMLESS TEXT & WHITE PROFILE BLOCK)-->
     <!-- ========================================================= -->
-    <section id="intro" class="relative overflow-hidden py-16 sm:py-24 pb-20 md:pb-28 border-b border-white/10 bg-[#000000]">
-      
-      <!-- Upscaled High-Res Introduction Background Image -->
-      <div class="absolute inset-0 z-0 select-none">
-        <img 
-          src="intro-bg.jpg" 
-          alt="Introduction Background" 
-          class="w-full h-full object-cover object-center filter brightness-[0.38] contrast-[1.15]"
-        />
-        <!-- Slight Tint & Vignette Overlays to differentiate from text -->
-        <div class="absolute inset-0 bg-black/55"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/80"></div>
-      </div>
-
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+    <section id="intro" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 pb-20 md:pb-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
         
         <!-- Intro Left Column: Seamless Text on Black Canvas -->
         <div class="lg:col-span-7 flex flex-col items-start" data-aos="fade-right" data-aos-duration="900">
@@ -724,67 +709,58 @@
 
 
   <!-- ========================================================= -->
-  <!-- LEADERSHIP SECTION: CINEMATIC BACKGROUND IMAGE            -->
+  <!-- LEADERSHIP SECTION: UPSCALED SPEAKER IMAGE BACKGROUND     -->
   <!-- ========================================================= -->
-  <section id="leadership" class="relative py-24 sm:py-32 border-b border-black/10 overflow-hidden bg-black text-white">
+  <section id="leadership" class="relative py-24 sm:py-28 overflow-hidden bg-black text-white border-b border-white/10">
     
-    <!-- Upscaled Leadership Background Image -->
-    <div class="absolute inset-0 z-0 select-none">
+    <!-- Background Image with Cinematic Vignette Overlay -->
+    <div class="absolute inset-0 z-0 select-none pointer-events-none">
       <img 
         src="leadership-bg.jpg" 
-        alt="Leadership Background" 
-        class="w-full h-full object-cover object-center filter brightness-[0.42] contrast-[1.18]"
+        alt="Leadership Keynote Speaker" 
+        class="w-full h-full object-cover object-center filter grayscale contrast-125 brightness-[0.40]"
       />
-      <!-- Gradient Overlays for Maximum Contrast & Premium Finish -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/30"></div>
+      <!-- Gradients for pristine contrast and depth -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/95 via-black/85 to-black/75"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/80"></div>
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="p-8 sm:p-12 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/20 shadow-2xl" data-aos="fade-up">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="p-8 sm:p-12 rounded-2xl bg-black/60 border border-white/15 backdrop-blur-md shadow-2xl" data-aos="fade-up">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           <div class="lg:col-span-8">
-            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white text-black text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
-              <i class="fa-solid fa-microphone-lines text-xs"></i>
-              <span>Leadership &amp; Public Speaking</span>
-            </span>
-            <h2 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight mt-2 mb-4">
-              Club Service Director — <span class="text-zinc-300">Rotaract Club</span>
-            </h2>
-            <p class="text-zinc-200 text-base sm:text-lg leading-relaxed mb-8 font-normal max-w-2xl">
-              Serving as Club Service Director at the college Rotaract Club, actively leading community engagement, organizing events, moderating sessions, and solving problems through creative collaboration.
+            <span class="text-xs font-bold uppercase tracking-widest text-zinc-300 px-3 py-1 rounded-md bg-white/10 border border-white/15 backdrop-blur-sm">Leadership &amp; Service</span>
+            <h2 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-4 mb-4">Club Service Director — Rotaract Club</h2>
+            <p class="text-zinc-200 text-base sm:text-lg leading-relaxed mb-8 font-normal">
+              Serving as Club Service Director at the college Rotaract Club, actively leading community engagement, organizing high-impact events, and driving team execution through creative problem-solving and collaboration.
             </p>
             
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-              <div class="p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-sm hover:border-white/30 transition-colors">
-                <i class="fa-solid fa-users text-white mb-2 text-base"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-white/25 transition-all">
+                <i class="fa-solid fa-users text-white mb-2 text-lg"></i>
                 <h4 class="font-bold text-white text-sm">Community Engagement</h4>
-                <p class="text-xs text-zinc-300 mt-1 font-medium">Leading social and club service initiatives.</p>
+                <p class="text-xs text-zinc-400 mt-1 font-normal">Leading social and club service initiatives.</p>
               </div>
-              <div class="p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-sm hover:border-white/30 transition-colors">
-                <i class="fa-solid fa-lightbulb text-white mb-2 text-base"></i>
+              <div class="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-white/25 transition-all">
+                <i class="fa-solid fa-lightbulb text-white mb-2 text-lg"></i>
                 <h4 class="font-bold text-white text-sm">Problem Solving</h4>
-                <p class="text-xs text-zinc-300 mt-1 font-medium">Creative and pragmatic execution.</p>
+                <p class="text-xs text-zinc-400 mt-1 font-normal">Creative and pragmatic execution.</p>
               </div>
-              <div class="p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-sm hover:border-white/30 transition-colors">
-                <i class="fa-solid fa-handshake text-white mb-2 text-base"></i>
+              <div class="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-white/25 transition-all">
+                <i class="fa-solid fa-handshake text-white mb-2 text-lg"></i>
                 <h4 class="font-bold text-white text-sm">Team Collaboration</h4>
-                <p class="text-xs text-zinc-300 mt-1 font-medium">Coordinating club members and activities.</p>
+                <p class="text-xs text-zinc-400 mt-1 font-normal">Coordinating club members and activities.</p>
               </div>
             </div>
           </div>
 
-          <div class="lg:col-span-4 flex flex-col items-center justify-center p-8 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-center shadow-lg">
+          <div class="lg:col-span-4 flex flex-col items-center justify-center p-8 rounded-xl bg-white/5 border border-white/15 backdrop-blur-md text-center shadow-xl">
             <div class="w-16 h-16 rounded-xl bg-white text-black flex items-center justify-center text-3xl mb-4 shadow-md">
               <i class="fa-solid fa-award"></i>
             </div>
-            <h3 class="font-display font-black text-white text-lg">Club Service Director</h3>
-            <p class="text-xs text-zinc-300 mt-1 font-bold">Rotaract Club | Kumaraguru College</p>
-            <div class="mt-4 pt-4 border-t border-white/15 w-full flex items-center justify-center gap-2 text-xs font-semibold text-zinc-300">
-              <i class="fa-solid fa-location-dot text-emerald-400"></i>
-              <span>Kumaraguru College of Arts &amp; Science</span>
-            </div>
+            <h4 class="font-display font-bold text-white text-lg">Club Service Director</h4>
+            <p class="text-xs text-zinc-400 mt-1 font-semibold">Rotaract Club | Kumaraguru College</p>
           </div>
 
         </div>
