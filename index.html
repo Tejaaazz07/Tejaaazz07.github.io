@@ -289,10 +289,25 @@
 
 
     <!-- ========================================================= -->
-    <!-- INTRODUCTION SECTION (SEAMLESS TEXT & WHITE PROFILE BLOCK)-->
+    <!-- INTRODUCTION SECTION (CINEMATIC BACKGROUND & SEAMLESS)    -->
     <!-- ========================================================= -->
-    <section id="intro" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 pb-20 md:pb-28">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+    <section id="intro" class="relative overflow-hidden py-16 sm:py-24 pb-20 md:pb-28 border-b border-white/10 bg-[#000000]">
+      
+      <!-- Upscaled High-Res Introduction Background Image -->
+      <div class="absolute inset-0 z-0 select-none">
+        <img 
+          src="intro-bg.jpg" 
+          alt="Introduction Background" 
+          class="w-full h-full object-cover object-center filter brightness-[0.38] contrast-[1.15]"
+        />
+        <!-- Slight Tint & Vignette Overlays to differentiate from text -->
+        <div class="absolute inset-0 bg-black/55"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/80"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
         
         <!-- Intro Left Column: Seamless Text on Black Canvas -->
         <div class="lg:col-span-7 flex flex-col items-start" data-aos="fade-right" data-aos-duration="900">
