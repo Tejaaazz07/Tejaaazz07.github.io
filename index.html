@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tejas S K — Apple-Grade Web Architect & Growth Strategist</title>
+  <meta name="description" content="Portfolio of Tejas S K - Crafting Apple-grade digital web experiences, growth strategy, Meta ads, SEO (#2 rank), and consumer psychology." />
+  <meta name="keywords" content="Tejas S K, Web Developer, AI Websites, Growth Strategist, SEO Specialist, ACCA, Portfolio" />
+  <meta name="author" content="Tejas S K" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Tejas S K — Apple-Grade Web Architect & Growth Strategist" />
+  <meta property="og:description" content="Crafting Apple-grade digital experiences, AI-powered web solutions, and high-conversion market growth." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://ui-avatars.com/api/?name=Tejas+S+K&background=2997FF&color=ffffff&size=512&bold=true" />
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- AOS (Animate on Scroll) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            deepSpace: '#080810',
+            glassBase: 'rgba(28, 28, 30, 0.6)',
+            glassBaseHover: 'rgba(38, 38, 42, 0.75)',
+            etchedBorder: 'rgba(255, 255, 255, 0.15)',
+            etchedBorderHover: 'rgba(255, 255, 255, 0.3)',
+            systemBlue: '#2997FF',
+            systemBlueGlow: 'rgba(41, 151, 255, 0.35)',
+            accentViolet: '#8B5CF6',
+            accentCyan: '#06B6D4',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          },
+          boxShadow: {
+            'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+            'glow-blue': '0 0 40px -10px rgba(41, 151, 255, 0.5)',
+            'glow-cyan': '0 0 40px -10px rgba(6, 182, 212, 0.4)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Glassmorphism & Ambient Glow Styles */
+    body {
+      background-color: #080810;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glass-panel {
+      background: rgba(28, 28, 30, 0.6);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-panel:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px -12px rgba(41, 151, 255, 0.25);
+    }
+
+    .glass-nav {
+      background: rgba(8, 8, 16, 0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Ambient Glowing Blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatBlob 18s ease-in-out infinite alternate;
+    }
+
+    .blob-1 {
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, #2997FF 0%, rgba(99, 102, 241, 0.8) 50%, transparent 70%);
+      top: -100px;
+      right: 5%;
+    }
+
+    .blob-2 {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, #8B5CF6 0%, rgba(236, 72, 153, 0.6) 50%, transparent 70%);
+      top: 350px;
+      left: -80px;
+      animation-delay: -5s;
+    }
+
+    .blob-3 {
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, #06B6D4 0%, rgba(41, 151, 255, 0.6) 50%, transparent 70%);
+      bottom: 200px;
+      right: 10%;
+      animation-delay: -9s;
+    }
+
+    @keyframes floatBlob {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+      }
+      50% {
+        transform: translate(30px, 45px) scale(1.08);
+      }
+      100% {
+        transform: translate(-30px, 20px) scale(0.95);
+      }
+    }
+
+    /* Apple-grade Text Gradient */
+    .gradient-text {
+      background: linear-gradient(135deg, #FFFFFF 0%, #D4D4D8 40%, #2997FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-text-blue {
+      background: linear-gradient(135deg, #2997FF 0%, #60A5FA 50%, #93C5FD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080810;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(41, 151, 255, 0.6);
+    }
+  </style>
+</head>
+<body class="relative min-h-screen selection:bg-systemBlue selection:text-white">
+
+  <!-- Ambient Glowing Gradient Aura Blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-systemBlue to-accentViolet flex items-center justify-center font-display font-black text-white text-lg shadow-glow-blue transition-transform group-hover:scale-105">
+          T
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-lg tracking-tight text-white group-hover:text-systemBlue transition-colors">Tejas S K</span>
+          <span class="text-[11px] font-medium text-zinc-400 -mt-1 tracking-wider uppercase">Portfolio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#about" class="text-sm font-medium text-zinc-300 hover:text-systemBlue transition-colors">About</a>
+        <a href="#skills" class="text-sm font-medium text-zinc-300 hover:text-systemBlue transition-colors">Competencies</a>
+        <a href="#projects" class="text-sm font-medium text-zinc-300 hover:text-systemBlue transition-colors">Projects</a>
+        <a href="#leadership" class="text-sm font-medium text-zinc-300 hover:text-systemBlue transition-colors">Leadership</a>
+        <a href="#contact" class="text-sm font-medium text-zinc-300 hover:text-systemBlue transition-colors">Contact</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="resume.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-white/5 hover:bg-white/10 text-white border border-white/15 hover:border-systemBlue transition-all">
+          <i class="fa-solid fa-file-lines text-systemBlue"></i>
+          <span>ATS Resume</span>
+        </a>
+        <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2 rounded-xl text-sm font-semibold bg-systemBlue hover:bg-blue-600 text-white shadow-glow-blue transition-all">
+          <span>Let's Connect</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-zinc-300 hover:text-white p-2 text-xl" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pt-2 pb-6 border-t border-white/10 bg-[#080810]/95 backdrop-blur-2xl">
+      <div class="flex flex-col gap-4">
+        <a href="#about" class="text-base font-medium text-zinc-300 hover:text-systemBlue mobile-link">About</a>
+        <a href="#skills" class="text-base font-medium text-zinc-300 hover:text-systemBlue mobile-link">Competencies</a>
+        <a href="#projects" class="text-base font-medium text-zinc-300 hover:text-systemBlue mobile-link">Projects</a>
+        <a href="#leadership" class="text-base font-medium text-zinc-300 hover:text-systemBlue mobile-link">Leadership</a>
+        <a href="#contact" class="text-base font-medium text-zinc-300 hover:text-systemBlue mobile-link">Contact</a>
+        <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
+          <a href="resume.html" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-white/5 border border-white/15 text-white">
+            <i class="fa-solid fa-file-lines text-systemBlue"></i>
+            <span>View ATS Resume</span>
+          </a>
+          <a href="#contact" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-systemBlue text-white shadow-glow-blue mobile-link">
+            <span>Get in Touch</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-28 sm:pt-36">
+
+    <!-- HERO SECTION (Glowing Gradient Blob Style) -->
+    <section id="hero" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-20 md:pt-16 md:pb-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Hero Left Column: Text and CTAs -->
+        <div class="lg:col-span-7 flex flex-col items-start" data-aos="fade-right" data-aos-duration="1000">
+          
+          <!-- Availability Badge -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/15 backdrop-blur-md mb-6">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span class="text-xs font-medium text-zinc-300 tracking-wide">Available for High-Impact Projects & Roles</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-6">
+            Crafting <span class="gradient-text">Apple-Grade</span> Digital Experiences &amp; <span class="gradient-text-blue">Growth Engines</span>
+          </h1>
+
+          <!-- Typed.js Dynamic Subtitle -->
+          <div class="text-lg sm:text-xl text-zinc-300 font-medium mb-6 min-h-[36px] flex items-center">
+            <span class="text-systemBlue mr-2 font-mono">&gt;</span>
+            <span id="typed-output" class="text-white font-semibold"></span>
+          </div>
+
+          <!-- Bio Paragraph -->
+          <p class="text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed mb-8">
+            I combine cutting-edge AI engineering, deep consumer UX psychology, and high-conversion market strategies to build standout web products. Currently pursuing <strong>B.Com (ACCA)</strong> at Kumaraguru College of Arts and Sciences.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+            <a href="#projects" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-systemBlue hover:bg-blue-600 text-white font-semibold text-base shadow-glow-blue transition-all">
+              <span>Explore Signature Work</span>
+              <i class="fa-solid fa-arrow-down text-sm"></i>
+            </a>
+            <a href="resume.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-white/5 hover:bg-white/10 text-white font-semibold text-base border border-white/15 hover:border-systemBlue transition-all">
+              <i class="fa-solid fa-file-arrow-down text-systemBlue"></i>
+              <span>ATS Resume</span>
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="flex items-center gap-4 mt-8 pt-6 border-t border-white/10 w-full">
+            <span class="text-xs uppercase tracking-widest text-zinc-400 font-medium">Connect:</span>
+            <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white hover:border-systemBlue transition-colors" title="GitHub">
+              <i class="fa-brands fa-github text-base"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/tejas-s-k-333a78359/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-systemBlue hover:border-systemBlue transition-colors" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in text-base"></i>
+            </a>
+            <a href="mailto:tejasbusinessenquiries@gmail.com" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-systemBlue hover:border-systemBlue transition-colors" title="Email">
+              <i class="fa-solid fa-envelope text-base"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Hero Right Column: Interactive Profile Card -->
+        <div class="lg:col-span-5" data-aos="fade-left" data-aos-duration="1000">
+          <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden">
+            
+            <!-- Corner Glow -->
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-systemBlue/20 rounded-full blur-2xl pointer-events-none"></div>
+
+            <!-- Profile Header -->
+            <div class="flex items-center gap-5 mb-6">
+              <div class="relative">
+                <img 
+                  src="profile.jpg" 
+                  onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Tejas+S+K&background=2997FF&color=ffffff&size=256&bold=true';" 
+                  alt="Tejas S K" 
+                  class="w-20 h-20 rounded-2xl object-cover border-2 border-white/20 shadow-lg"
+                />
+                <span class="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 border-2 border-[#1C1C1E] rounded-full"></span>
+              </div>
+              <div>
+                <h2 class="font-display font-bold text-xl text-white">Tejas S K</h2>
+                <p class="text-sm text-systemBlue font-medium">Web Architect &amp; Growth Strategist</p>
+                <p class="text-xs text-zinc-400 mt-0.5"><i class="fa-solid fa-location-dot text-zinc-500 mr-1"></i> Coimbatore, India</p>
+              </div>
+            </div>
+
+            <!-- Highlights Matrix -->
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
+                <div class="text-2xl font-display font-extrabold text-white">#2</div>
+                <div class="text-xs text-zinc-400 font-medium mt-0.5">SEO &amp; GEO Ranking</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
+                <div class="text-2xl font-display font-extrabold text-systemBlue">Apple Grade</div>
+                <div class="text-xs text-zinc-400 font-medium mt-0.5">Design Standard</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
+                <div class="text-2xl font-display font-extrabold text-white">ACCA</div>
+                <div class="text-xs text-zinc-400 font-medium mt-0.5">B.Com Finance Scholar</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
+                <div class="text-2xl font-display font-extrabold text-purple-400">Director</div>
+                <div class="text-xs text-zinc-400 font-medium mt-0.5">Rotaract Club Service</div>
+              </div>
+            </div>
+
+            <!-- Quick Pill Highlights -->
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/10">
+              <span class="px-2.5 py-1 text-xs rounded-lg bg-systemBlue/10 text-systemBlue border border-systemBlue/20 font-medium">✨ AI-Powered Dev</span>
+              <span class="px-2.5 py-1 text-xs rounded-lg bg-purple-500/10 text-purple-300 border border-purple-500/20 font-medium">🎯 Meta Ads</span>
+              <span class="px-2.5 py-1 text-xs rounded-lg bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 font-medium">📊 Brand Psychology</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ABOUT / BACKGROUND SECTION -->
+    <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/10">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="text-xs font-bold uppercase tracking-widest text-systemBlue px-3 py-1 rounded-full bg-systemBlue/10 border border-systemBlue/20">The Vision</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-3 mb-4">Where Modern Tech Meets Strategic Commerce</h2>
+        <p class="text-zinc-400 text-base sm:text-lg">Fusing analytical financial discipline with state-of-the-art AI website engineering and human-centered design.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1: Design & AI Tech -->
+        <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-systemBlue/10 border border-systemBlue/20 flex items-center justify-center text-systemBlue text-xl mb-6">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mb-3">Apple-Grade Web Craft</h3>
+            <p class="text-sm text-zinc-300 leading-relaxed">
+              I build web interfaces that radiate quality, seamless micro-interactions, and instant responsiveness. Leveraging cutting-edge AI workflows, I transform complex ideas into visually breathtaking, conversion-ready web products.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 text-xs font-semibold text-systemBlue flex items-center gap-1">
+            <span>Pixel-Perfect Execution</span>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </div>
+        </div>
+
+        <!-- Card 2: Consumer Psychology & Growth -->
+        <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-xl mb-6">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mb-3">Growth &amp; Consumer Mindset</h3>
+            <p class="text-sm text-zinc-300 leading-relaxed">
+              A website is only as valuable as the business results it generates. I decode user feedback loops, analyze cognitive friction, manage high-ROI Meta ad campaigns, and command #2 search engine &amp; generative AI rankings.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 text-xs font-semibold text-purple-400 flex items-center gap-1">
+            <span>Rank #2 SEO &amp; GEO Validated</span>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </div>
+        </div>
+
+        <!-- Card 3: Academic Foundation & Leadership -->
+        <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl mb-6">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mb-3">Academic &amp; Leadership Grit</h3>
+            <p class="text-sm text-zinc-300 leading-relaxed">
+              Pursuing <strong>B.Com (ACCA)</strong> at Kumaraguru College of Arts and Sciences, built upon schooling from Yuvabharathi Public School. Active as <strong>Club Service Director</strong> at Rotaract Club driving community initiatives.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 text-xs font-semibold text-cyan-400 flex items-center gap-1">
+            <span>Global Finance &amp; Service Ethos</span>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CORE COMPETENCIES / SKILLS SECTION -->
+    <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16" data-aos="fade-up">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-systemBlue px-3 py-1 rounded-full bg-systemBlue/10 border border-systemBlue/20">Skillset</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-3">Core Competencies &amp; Expertise</h2>
+        </div>
+        <p class="text-zinc-400 text-sm sm:text-base max-w-md mt-4 md:mt-0">
+          An interdisciplinary stack built around engineering, brand positioning, and commercial execution.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Skill 1 -->
+        <div class="glass-panel p-7 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-systemBlue">
+              <i class="fa-solid fa-laptop-code text-lg"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Apple-Grade Web Architecture</h3>
+          </div>
+          <p class="text-sm text-zinc-300 mb-4 leading-relaxed">
+            Crafting responsive, high-fidelity web experiences with seamless glassmorphism, tailored animations, and robust typography.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">HTML5/CSS3</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Tailwind CSS</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">JavaScript</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">AI Prompt Engineering</span>
+          </div>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="glass-panel p-7 rounded-3xl" data-aos="fade-up" data-aos-delay="150">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+              <i class="fa-solid fa-magnifying-glass-chart text-lg"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">SEO &amp; GEO (Rank #2)</h3>
+          </div>
+          <p class="text-sm text-zinc-300 mb-4 leading-relaxed">
+            Deep search engine optimization combined with Generative Engine Optimization (GEO) to dominate AI and search queries.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">On-Page SEO</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Generative AI Search</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">SERP Strategy</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Entity Optimization</span>
+          </div>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="glass-panel p-7 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400">
+              <i class="fa-solid fa-bullhorn text-lg"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Meta Ads &amp; Digital Marketing</h3>
+          </div>
+          <p class="text-sm text-zinc-300 mb-4 leading-relaxed">
+            Strategic ad campaign management, audience segmentation, creative copy generation, and data-backed ROAS optimization.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Meta Ads Manager</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Audience Funnels</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Social Content</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Ad Creative Gen</span>
+          </div>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="glass-panel p-7 rounded-3xl" data-aos="fade-up" data-aos-delay="250">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+              <i class="fa-solid fa-brain text-lg"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Consumer Psychology &amp; UX</h3>
+          </div>
+          <p class="text-sm text-zinc-300 mb-4 leading-relaxed">
+            Understanding how users think, make purchase decisions, and navigate friction points to design intuitive customer experiences.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">User Flow Mapping</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Feedback Loops</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Conversion UX</span>
+          </div>
+        </div>
+
+        <!-- Skill 5 -->
+        <div class="glass-panel p-7 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+              <i class="fa-solid fa-chess text-lg"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Brand Market Positioning</h3>
+          </div>
+          <p class="text-sm text-zinc-300 mb-4 leading-relaxed">
+            Helping startups and growing enterprises formulate distinct market identities, unique value propositions, and brand presence.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Market Research</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Brand Architecture</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Go-To-Market</span>
+          </div>
+        </div>
+
+        <!-- Skill 6 -->
+        <div class="glass-panel p-7 rounded-3xl" data-aos="fade-up" data-aos-delay="350">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+              <i class="fa-solid fa-coins text-lg"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Financial &amp; Business Acumen</h3>
+          </div>
+          <p class="text-sm text-zinc-300 mb-4 leading-relaxed">
+            Strong foundation in accounting, financial reporting, and cost management from B.Com (ACCA) professional curriculum.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">ACCA Curriculum</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Financial Analysis</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-zinc-300">Budgeting Logic</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- FEATURED PROJECTS SECTION -->
+    <section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16" data-aos="fade-up">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-systemBlue px-3 py-1 rounded-full bg-systemBlue/10 border border-systemBlue/20">Portfolio Showcase</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-3">Featured Projects &amp; Builds</h2>
+        </div>
+        <p class="text-zinc-400 text-sm sm:text-base max-w-md mt-4 md:mt-0">
+          Handcrafted digital products focused on luxury aesthetics, high performance, and real utility.
+        </p>
+      </div>
+
+      <div class="space-y-12">
+
+        <!-- Project 1: Stylehaven Fashion -->
+        <div class="glass-panel rounded-3xl p-8 sm:p-10" data-aos="fade-up">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">LIVE COMMERCIAL CLIENT</span>
+                <span class="text-xs text-zinc-400">E-Commerce &amp; Fashion</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-white mb-4">Stylehaven Fashion Store</h3>
+              <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
+                Engineered a premier online storefront for modern apparel retail. Designed with Apple-grade aesthetic precision, intuitive product discovery filters, swift checkout pathways, and robust mobile responsiveness.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span class="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/15 text-zinc-300">Modern Web Design</span>
+                <span class="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/15 text-zinc-300">UX Architecture</span>
+                <span class="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/15 text-zinc-300">Brand Identity</span>
+                <span class="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/15 text-zinc-300">High Conversion</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <a href="https://stylehavenfashion.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-systemBlue hover:bg-blue-600 text-white font-semibold text-sm shadow-glow-blue transition-all">
+                  <span>Visit Stylehaven</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+              </div>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="p-6 rounded-2xl bg-[#080810]/70 border border-white/15 shadow-2xl relative overflow-hidden group">
+                <div class="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+                  <div class="flex gap-1.5">
+                    <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                  </div>
+                  <span class="text-xs text-zinc-400 font-mono">stylehavenfashion.com</span>
+                </div>
+                <div class="aspect-video bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl flex flex-col items-center justify-center p-6 text-center border border-white/10">
+                  <i class="fa-solid fa-bag-shopping text-4xl text-systemBlue mb-3 transition-transform group-hover:scale-110"></i>
+                  <span class="font-display font-bold text-white text-lg">Stylehaven Fashion</span>
+                  <span class="text-xs text-zinc-400 mt-1">High-Conversion Apparel Experience</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: AI Smart Expense Dashboard -->
+        <div class="glass-panel rounded-3xl p-8 sm:p-10" data-aos="fade-up">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-500/10 text-purple-400 border border-purple-500/20">AI &amp; FINTECH SOLUTION</span>
+                <span class="text-xs text-zinc-400">Financial Engineering</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-white mb-4">High-Tech AI Expense Tracker</h3>
+              <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
+                An intelligent financial operating dashboard bridging ACCA accounting standards with automated AI analytics. Features real-time cash flow breakdown, smart category classification, budget forecasting, and interactive data visualizations.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span class="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/15 text-zinc-300">AI Data Analytics</span>
+                <span class="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/15 text-zinc-300">Financial Modeling</span>
+                <span class="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/15 text-zinc-300">Modern Dashboard UI</span>
+                <span class="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/15 text-zinc-300">ACCA Integrated Logic</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/15 hover:border-purple-400 font-semibold text-sm transition-all">
+                  <i class="fa-solid fa-code text-purple-400"></i>
+                  <span>Request Prototype Demo</span>
+                </a>
+              </div>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="p-6 rounded-2xl bg-[#080810]/70 border border-white/15 shadow-2xl relative overflow-hidden group">
+                <div class="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+                  <div class="flex gap-1.5">
+                    <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                  </div>
+                  <span class="text-xs text-zinc-400 font-mono">finance-ai-tracker.app</span>
+                </div>
+                <div class="aspect-video bg-gradient-to-br from-zinc-800 to-indigo-950/40 rounded-xl flex flex-col items-center justify-center p-6 text-center border border-white/10">
+                  <i class="fa-solid fa-chart-pie text-4xl text-purple-400 mb-3 transition-transform group-hover:scale-110"></i>
+                  <span class="font-display font-bold text-white text-lg">AI Expense Intelligence</span>
+                  <span class="text-xs text-zinc-400 mt-1">Smart Cashflow &amp; ACCA Categorization</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Spigen Headphones Apple-Grade Showcase -->
+        <div class="glass-panel rounded-3xl p-8 sm:p-10" data-aos="fade-up">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">CONCEPT &amp; DESIGN SYSTEM</span>
+                <span class="text-xs text-zinc-400">Interactive Product Showcase</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-white mb-4">Spigen Audio Product Showcase</h3>
+              <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
+                An Apple-grade concept showcase engineered for Spigen premium headphones. Implements dark-mode glassmorphic depth, dynamic soundwave visualizations, magnetic product exploration, and buttery smooth scroll reveals.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span class="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/15 text-zinc-300">Apple Aesthetic</span>
+                <span class="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/15 text-zinc-300">Glassmorphism</span>
+                <span class="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/15 text-zinc-300">Micro-Interactions</span>
+                <span class="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/15 text-zinc-300">3D Product Depth</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/15 hover:border-cyan-400 font-semibold text-sm transition-all">
+                  <i class="fa-solid fa-headphones text-cyan-400"></i>
+                  <span>Explore Design Specs</span>
+                </a>
+              </div>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="p-6 rounded-2xl bg-[#080810]/70 border border-white/15 shadow-2xl relative overflow-hidden group">
+                <div class="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+                  <div class="flex gap-1.5">
+                    <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                  </div>
+                  <span class="text-xs text-zinc-400 font-mono">spigen-audio.experience</span>
+                </div>
+                <div class="aspect-video bg-gradient-to-br from-zinc-800 to-cyan-950/40 rounded-xl flex flex-col items-center justify-center p-6 text-center border border-white/10">
+                  <i class="fa-solid fa-headphones-simple text-4xl text-cyan-400 mb-3 transition-transform group-hover:scale-110"></i>
+                  <span class="font-display font-bold text-white text-lg">Spigen Acoustic Concept</span>
+                  <span class="text-xs text-zinc-400 mt-1">Apple-Grade Dynamic Audio Web Design</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- LEADERSHIP & COMMUNITY SECTION -->
+    <section id="leadership" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/10">
+      <div class="glass-panel p-8 sm:p-12 rounded-3xl" data-aos="fade-up">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8">
+            <span class="text-xs font-bold uppercase tracking-widest text-systemBlue px-3 py-1 rounded-full bg-systemBlue/10 border border-systemBlue/20">Leadership &amp; Impact</span>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-3 mb-4">Club Service Director — Rotaract Club</h2>
+            <p class="text-zinc-300 text-base leading-relaxed mb-6">
+              Leading student initiatives, orchestrating community welfare programs, and driving campus engagement at Kumaraguru College of Arts and Sciences. Cultivating strong organizational leadership, team coordination, and empathetic communication.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+                <i class="fa-solid fa-users text-systemBlue mb-2 text-lg"></i>
+                <h4 class="font-semibold text-white text-sm">Community Mobilization</h4>
+                <p class="text-xs text-zinc-400 mt-1">Directing meaningful social &amp; club events.</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+                <i class="fa-solid fa-handshake text-purple-400 mb-2 text-lg"></i>
+                <h4 class="font-semibold text-white text-sm">Team Collaboration</h4>
+                <p class="text-xs text-zinc-400 mt-1">Inspiring cross-functional student teams.</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+                <i class="fa-solid fa-lightbulb text-amber-400 mb-2 text-lg"></i>
+                <h4 class="font-semibold text-white text-sm">Creative Problem Solving</h4>
+                <p class="text-xs text-zinc-400 mt-1">Designing impactful service solutions.</p>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-4 flex flex-col items-center justify-center p-6 rounded-2xl bg-[#080810]/60 border border-white/10 text-center">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-systemBlue to-accentViolet flex items-center justify-center text-white text-2xl mb-4 shadow-glow-blue">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <h4 class="font-display font-bold text-white text-lg">Youth Service Leadership</h4>
+            <p class="text-xs text-zinc-400 mt-1">Kumaraguru College of Arts &amp; Sciences</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/10">
+      <div class="max-w-4xl mx-auto text-center mb-12" data-aos="fade-up">
+        <span class="text-xs font-bold uppercase tracking-widest text-systemBlue px-3 py-1 rounded-full bg-systemBlue/10 border border-systemBlue/20">Initiate Dialogue</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-3 mb-4">Let's Build Something Extraordinary</h2>
+        <p class="text-zinc-400 text-base sm:text-lg">
+          Whether you need an Apple-grade website, high-conversion growth marketing, or want to discuss strategic opportunities.
+        </p>
+      </div>
+
+      <div class="glass-panel p-8 sm:p-12 rounded-3xl max-w-3xl mx-auto" data-aos="fade-up">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl bg-white/[0.03] border border-white/10 mb-8">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-systemBlue/10 border border-systemBlue/20 flex items-center justify-center text-systemBlue text-xl">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="text-left">
+              <div class="text-xs text-zinc-400 font-medium">Direct Email</div>
+              <a href="mailto:tejasbusinessenquiries@gmail.com" class="text-base sm:text-lg font-bold text-white hover:text-systemBlue transition-colors">
+                tejasbusinessenquiries@gmail.com
+              </a>
+            </div>
+          </div>
+          <button id="copyEmailBtn" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-semibold text-zinc-200 transition-all">
+            <i class="fa-solid fa-copy mr-1 text-systemBlue"></i> Copy
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="https://www.linkedin.com/in/tejas-s-k-333a78359/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-systemBlue transition-all group">
+            <div class="flex items-center gap-3">
+              <i class="fa-brands fa-linkedin text-2xl text-systemBlue"></i>
+              <div class="text-left">
+                <div class="text-sm font-bold text-white group-hover:text-systemBlue transition-colors">LinkedIn Profile</div>
+                <div class="text-xs text-zinc-400">Connect with Tejas</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-500 group-hover:text-systemBlue transition-colors"></i>
+          </a>
+
+          <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-systemBlue transition-all group">
+            <div class="flex items-center gap-3">
+              <i class="fa-brands fa-github text-2xl text-zinc-200"></i>
+              <div class="text-left">
+                <div class="text-sm font-bold text-white group-hover:text-systemBlue transition-colors">GitHub Profile</div>
+                <div class="text-xs text-zinc-400">@Tejaaazz07</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-zinc-500 group-hover:text-systemBlue transition-colors"></i>
+          </a>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a href="mailto:tejasbusinessenquiries@gmail.com?subject=Strategic%20Project%20Inquiry%20-%20Tejas%20S%20K" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-systemBlue hover:bg-blue-600 text-white font-bold text-base shadow-glow-blue transition-all w-full sm:w-auto">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>Send Email Message</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 py-12 relative z-10 bg-[#080810]/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-systemBlue/20 border border-systemBlue/30 flex items-center justify-center font-display font-bold text-systemBlue text-sm">
+          T
+        </div>
+        <p class="text-xs text-zinc-400">
+          &copy; <span id="year"></span> Tejas S K. Built with Apple-Grade Glassmorphism.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="#hero" class="text-xs text-zinc-400 hover:text-white transition-colors">Back to Top</a>
+        <a href="resume.html" class="text-xs text-systemBlue hover:underline font-medium">ATS Resume</a>
+        <a href="https://github.com/Tejaaazz07/Tejaaazz07.github.io" target="_blank" rel="noopener noreferrer" class="text-xs text-zinc-400 hover:text-white transition-colors">Source Code</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- SCRIPTS: Typed.js, AOS, and Logic -->
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      once: true,
+      duration: 800,
+      easing: 'ease-out-cubic',
+      offset: 60,
+    });
+
+    // Initialize Typed.js for dynamic hero subtitles
+    new Typed('#typed-output', {
+      strings: [
+        'AI-Powered Web Architect',
+        'Apple-Grade Digital Experience Designer',
+        'Growth &amp; Meta Ads Strategist',
+        'SEO &amp; GEO Specialist (#2 Ranked)',
+        'B.Com (ACCA) Scholar'
+      ],
+      typeSpeed: 45,
+      backSpeed: 25,
+      backDelay: 2000,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
+    });
+
+    // Mobile Navigation Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Dynamic Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Copy Email to Clipboard
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    copyEmailBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('tejasbusinessenquiries@gmail.com').then(() => {
+        copyEmailBtn.innerHTML = '<i class="fa-solid fa-check mr-1 text-emerald-400"></i> Copied!';
+        setTimeout(() => {
+          copyEmailBtn.innerHTML = '<i class="fa-solid fa-copy mr-1 text-systemBlue"></i> Copy';
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
