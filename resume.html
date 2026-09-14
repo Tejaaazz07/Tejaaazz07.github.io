@@ -26,10 +26,11 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Clean Apple Vision Box Container */
+    /* Clean Box Container with Reduced Curved Edges */
     .boxed-resume {
       background: #FFFFFF;
       border: 1.5px solid #E5E5EA;
+      border-radius: 12px;
       box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.03);
     }
 
@@ -44,18 +45,19 @@
       margin-bottom: 10px;
     }
 
-    /* Black Tint Button Utilities */
+    /* Black Tint Button Utilities (Reduced Curved Edges) */
     .btn-black-solid {
       background-color: #1D1D1F;
       color: #FFFFFF;
       border: 1px solid rgba(0, 0, 0, 0.8);
-      box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
       transition: all 0.2s ease;
     }
     .btn-black-solid:hover {
       background-color: #000000;
       transform: translateY(-1px);
-      box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.3);
+      box-shadow: 0 5px 14px 0 rgba(0, 0, 0, 0.3);
       color: #FFFFFF;
     }
 
@@ -63,6 +65,7 @@
       background-color: rgba(29, 29, 31, 0.06);
       color: #1D1D1F;
       border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 6px;
       transition: all 0.2s ease;
     }
     .btn-black-tint:hover {
@@ -89,6 +92,7 @@
       .boxed-resume {
         border: 1px solid #000000 !important;
         box-shadow: none !important;
+        border-radius: 0 !important;
         padding: 20px !important;
         margin: 0 !important;
         max-width: 100% !important;
@@ -103,38 +107,38 @@
 </head>
 <body class="py-6 sm:py-10 px-3 sm:px-6 min-h-screen bg-white">
 
-  <!-- Screen Top Action Bar (Apple Style with Black Tint) -->
-  <div class="no-print max-w-4xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 bg-[#F5F5F7] text-[#1D1D1F] p-4 rounded-2xl border border-black/10 shadow-sm">
+  <!-- Screen Top Action Bar -->
+  <div class="no-print max-w-4xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 bg-[#F5F5F7] text-[#1D1D1F] p-4 rounded-xl border border-black/10 shadow-sm">
     <div class="flex items-center gap-3">
-      <a href="index.html" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl btn-black-tint text-xs font-semibold">
+      <a href="index.html" class="inline-flex items-center gap-2 px-3.5 py-1.5 btn-black-tint text-xs font-semibold">
         <i class="fa-solid fa-arrow-left text-xs"></i>
         <span>Back to Portfolio</span>
       </a>
-      <span class="text-xs text-zinc-500 hidden sm:inline">Apple Vision Pro Clean ATS Format</span>
+      <span class="text-xs text-zinc-500 hidden sm:inline">Apple-Grade Clean ATS Format</span>
     </div>
 
     <div class="flex items-center gap-3">
-      <button onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl btn-black-solid text-xs font-bold">
+      <button onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-1.5 btn-black-solid text-xs font-bold">
         <i class="fa-solid fa-print"></i>
         <span>Print / Save as PDF</span>
       </button>
     </div>
   </div>
 
-  <!-- Boxed Resume Wrapper -->
-  <div class="boxed-resume max-w-4xl mx-auto p-6 sm:p-10 rounded-2xl">
+  <!-- Boxed Resume Wrapper (Reduced Curved Edges) -->
+  <div class="boxed-resume max-w-4xl mx-auto p-6 sm:p-10">
 
-    <!-- RESUME HEADER WITH PROMINENT ELEGANT PROFILE PICTURE -->
+    <!-- RESUME HEADER WITH PROFILE PICTURE -->
     <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 pb-6 border-b border-[#E5E5EA] mb-6">
       
-      <!-- Elegant Portrait Frame -->
+      <!-- Elegant Portrait Frame (Reduced Curves) -->
       <div class="relative flex-shrink-0">
-        <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border border-[#D1D1D6] p-1 bg-white shadow-sm">
+        <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-lg overflow-hidden border border-[#D1D1D6] p-1 bg-white shadow-sm">
           <img 
             src="profile.jpg" 
             onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Tejas+S+K&background=1D1D1F&color=ffffff&size=512&bold=true';" 
             alt="Tejas S K" 
-            class="w-full h-full object-cover object-top rounded-xl"
+            class="w-full h-full object-cover object-top rounded-md"
           />
         </div>
       </div>
@@ -148,29 +152,29 @@
 
         <!-- Hyperlink Action Buttons (Black Tinted) -->
         <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 text-xs">
-          <a href="mailto:tejasbusinessenquiries@gmail.com" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg btn-black-tint font-semibold">
+          <a href="mailto:tejasbusinessenquiries@gmail.com" class="inline-flex items-center gap-1.5 px-3 py-1.5 btn-black-tint font-semibold">
             <i class="fa-solid fa-envelope text-xs"></i>
             <span>Email Me</span>
           </a>
 
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#F5F5F7] border border-black/5 text-[#6E6E73] font-medium">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#F5F5F7] border border-black/5 text-[#6E6E73] font-medium">
             <i class="fa-solid fa-location-dot text-[#6E6E73]"></i>
             <span>Coimbatore, India</span>
           </span>
 
-          <a href="https://www.linkedin.com/in/tejas-s-k-333a78359/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg btn-black-tint font-semibold">
+          <a href="https://www.linkedin.com/in/tejas-s-k-333a78359/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 btn-black-tint font-semibold">
             <i class="fa-brands fa-linkedin text-xs"></i>
             <span>LinkedIn Profile</span>
             <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
           </a>
 
-          <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg btn-black-tint font-semibold">
+          <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 btn-black-tint font-semibold">
             <i class="fa-brands fa-github text-xs"></i>
             <span>GitHub</span>
             <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
           </a>
 
-          <a href="index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg btn-black-solid font-semibold">
+          <a href="index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 btn-black-solid font-semibold">
             <i class="fa-solid fa-globe text-xs"></i>
             <span>Live Portfolio</span>
           </a>
@@ -291,11 +295,11 @@
     <div>
       <h2 class="section-header">Strengths</h2>
       <div class="flex flex-wrap gap-2 text-xs text-[#1D1D1F]">
-        <span class="px-2.5 py-1 bg-[#F5F5F7] rounded-lg border border-[#E5E5EA] font-semibold">Creativity</span>
-        <span class="px-2.5 py-1 bg-[#F5F5F7] rounded-lg border border-[#E5E5EA] font-semibold">Problem Solving</span>
-        <span class="px-2.5 py-1 bg-[#F5F5F7] rounded-lg border border-[#E5E5EA] font-semibold">Community Engagement</span>
-        <span class="px-2.5 py-1 bg-[#F5F5F7] rounded-lg border border-[#E5E5EA] font-semibold">Consumer Psychology</span>
-        <span class="px-2.5 py-1 bg-[#F5F5F7] rounded-lg border border-[#E5E5EA] font-semibold">Brand Strategy</span>
+        <span class="px-2.5 py-1 bg-[#F5F5F7] rounded-md border border-[#E5E5EA] font-semibold">Creativity</span>
+        <span class="px-2.5 py-1 bg-[#F5F5F7] rounded-md border border-[#E5E5EA] font-semibold">Problem Solving</span>
+        <span class="px-2.5 py-1 bg-[#F5F5F7] rounded-md border border-[#E5E5EA] font-semibold">Community Engagement</span>
+        <span class="px-2.5 py-1 bg-[#F5F5F7] rounded-md border border-[#E5E5EA] font-semibold">Consumer Psychology</span>
+        <span class="px-2.5 py-1 bg-[#F5F5F7] rounded-md border border-[#E5E5EA] font-semibold">Brand Strategy</span>
       </div>
     </div>
 
