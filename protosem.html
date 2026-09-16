@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRICE ProtoSem — 20-Week Industry Innovation Programme | Tejas S K</title>
+  <meta name="description" content="PRICE ProtoSem: 20-week industry-integrated innovation programme solving real-world retail & commerce challenges through AI, analytics, intelligent systems, IoT, prototyping, and entrepreneurship." />
+  <meta name="keywords" content="ProtoSem, PRICE ProtoSem, Innovation Engineer Trainee, AI, Analytics, IoT, Prototyping, Entrepreneurship, Tejas S K" />
+  <meta name="author" content="Tejas S K" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="PRICE ProtoSem — 20-Week Innovation Programme Archive" />
+  <meta property="og:description" content="A structured 20-week professional journey solving real-world retail and commerce challenges through AI, IoT, prototyping, and entrepreneurship." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="hero-banner.png" />
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- AOS (Animate on Scroll) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css';" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            deepBlack: '#000000',
+            appleTextDark: '#1D1D1F',
+            appleTextMuted: '#86868B',
+            appleCard: '#0A0A0C',
+            accentBlue: '#2997FF',
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            display: ['Outfit', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #000000;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Dark Frosted Navigation Bar */
+    .dark-nav {
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Glassmorphism Card Panels */
+    .glass-panel {
+      background: rgba(18, 18, 22, 0.65);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-panel:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(24, 24, 30, 0.85);
+    }
+
+    /* Week Card Styling */
+    .week-card {
+      position: relative;
+      background: linear-gradient(145deg, rgba(24, 24, 28, 0.7) 0%, rgba(12, 12, 16, 0.8) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+    .week-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(41, 151, 255, 0.45);
+      box-shadow: 0 16px 36px -10px rgba(41, 151, 255, 0.15), 0 0 0 1px rgba(41, 151, 255, 0.25);
+    }
+    .week-card:hover .week-arrow {
+      transform: translateX(4px);
+      color: #2997FF;
+    }
+    .week-card:hover .week-num {
+      color: #FFFFFF;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Subtle Ambient Lighting */
+    .spatial-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      opacity: 0.16;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Buttons */
+    .btn-hero-white {
+      background-color: #FFFFFF;
+      color: #000000;
+      border: 1px solid #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
+      transition: all 0.2s ease;
+    }
+    .btn-hero-white:hover {
+      background-color: #E4E4E7;
+      transform: translateY(-1px);
+    }
+
+    .btn-hero-tint {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-hero-tint:hover {
+      background-color: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    /* Phase Filter Tabs */
+    .filter-tab {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .filter-tab.active {
+      background-color: #FFFFFF;
+      color: #000000;
+      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+    }
+    .filter-tab:not(.active):hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+    }
+
+    /* Modal Animation */
+    .modal-backdrop {
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #000000;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27272A;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3F3F46;
+    }
+  </style>
+</head>
+<body class="relative min-h-screen selection:bg-white selection:text-black bg-[#000000]">
+
+  <!-- Ambient Dark Background Light Orbs -->
+  <div class="spatial-orb w-[600px] h-[600px] bg-blue-600/20 -top-40 -right-20"></div>
+  <div class="spatial-orb w-[500px] h-[500px] bg-indigo-600/15 top-[600px] -left-32"></div>
+  <div class="spatial-orb w-[550px] h-[550px] bg-cyan-600/10 top-[1800px] -right-20"></div>
+
+  <!-- ========================================================= -->
+  <!-- NAVIGATION BAR (MATCHING EDITORIAL STYLE)                 -->
+  <!-- ========================================================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 dark-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex flex-col group">
+        <span class="font-display font-black text-sm sm:text-base tracking-wider text-white group-hover:text-zinc-300 transition-colors">TEJAS.INC</span>
+        <div class="border-b border-dotted border-white/40 my-0.5 w-24"></div>
+        <span class="text-[10px] tracking-wider text-zinc-400 uppercase font-semibold">created by tejas s k</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-xs font-bold tracking-widest uppercase">
+        <a href="index.html#intro" class="text-zinc-400 hover:text-white transition-colors">About</a>
+        <a href="index.html#skills" class="text-zinc-400 hover:text-white transition-colors">Skills</a>
+        <a href="index.html#projects" class="text-zinc-400 hover:text-white transition-colors">Projects</a>
+        <a href="index.html#leadership" class="text-zinc-400 hover:text-white transition-colors">Leadership</a>
+        <a href="protosem.html" class="text-white flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+          <span>ProtoSem</span>
+        </a>
+        <a href="index.html#contact" class="text-zinc-400 hover:text-white transition-colors">Contact</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="index.html" class="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-bold tracking-wider uppercase btn-hero-tint">
+          <i class="fa-solid fa-arrow-left text-xs"></i>
+          <span>Main Portfolio</span>
+        </a>
+        <a href="resume.html" class="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-bold tracking-wider uppercase btn-hero-white">
+          <i class="fa-solid fa-file-lines text-xs"></i>
+          <span>ATS Resume</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-white hover:text-zinc-300 p-2 text-xl" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pt-2 pb-6 border-t border-white/10 bg-[#000000]/95 backdrop-blur-2xl">
+      <div class="flex flex-col gap-4 text-xs font-bold tracking-widest uppercase">
+        <a href="index.html#intro" class="text-zinc-200 hover:text-white mobile-link">About</a>
+        <a href="index.html#skills" class="text-zinc-200 hover:text-white mobile-link">Skills</a>
+        <a href="index.html#projects" class="text-zinc-200 hover:text-white mobile-link">Projects</a>
+        <a href="index.html#leadership" class="text-zinc-200 hover:text-white mobile-link">Leadership</a>
+        <a href="protosem.html" class="text-white font-black mobile-link flex items-center justify-between bg-white/10 px-3 py-2 rounded-lg border border-white/15">
+          <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>ProtoSem</span>
+          <span class="text-[9px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 border border-blue-500/30 font-medium">Active</span>
+        </a>
+        <a href="index.html#contact" class="text-zinc-200 hover:text-white mobile-link">Contact</a>
+        <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
+          <a href="index.html" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold btn-hero-tint">
+            <i class="fa-solid fa-arrow-left text-xs"></i>
+            <span>Back to Main Portfolio</span>
+          </a>
+          <a href="resume.html" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold btn-hero-white">
+            <i class="fa-solid fa-file-lines text-xs"></i>
+            <span>View ATS Resume</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- HERO / INTRO AREA: PROTOSEM INNOVATION ARCHIVE            -->
+  <!-- ========================================================= -->
+  <section class="relative pt-32 sm:pt-36 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
+    <div class="flex flex-col gap-6" data-aos="fade-up">
+      
+      <!-- Section Tag & Badge Hierarchy -->
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-zinc-300 px-3 py-1 rounded-full bg-white/5 border border-white/15 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+          PROTOSEM
+        </span>
+        <span class="text-[11px] font-semibold uppercase tracking-wider text-blue-400 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
+          Innovation Engineer Trainee
+        </span>
+        <span class="text-[11px] font-medium tracking-wide text-zinc-400">
+          20-Week Industry-Integrated Innovation Programme
+        </span>
+      </div>
+
+      <!-- Main Heading & Title -->
+      <div class="max-w-4xl">
+        <h1 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1]">
+          PRICE ProtoSem
+        </h1>
+        <p class="text-zinc-400 text-base sm:text-lg lg:text-xl font-normal mt-3 leading-relaxed max-w-3xl">
+          A structured 20-week professional journey exploring practical technology solutions for real-world retail and commerce challenges.
+        </p>
+      </div>
+
+      <!-- Verified Description Box -->
+      <div class="glass-panel p-6 sm:p-8 rounded-2xl max-w-5xl border border-white/10 mt-2">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 text-base">
+            <i class="fa-solid fa-atom"></i>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-zinc-300">Programme Mission &amp; Scope</h3>
+            <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+              Selected for a 20-week industry-integrated innovation programme focused on solving real-world retail and commerce challenges through AI, analytics, intelligent systems, IoT, prototyping, and entrepreneurship. Working with industry problem statements to explore, develop, and validate practical technology solutions beyond conventional classroom learning.
+            </p>
+          </div>
+        </div>
+      </div>
+</div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- DOMAIN / FOCUS DISCIPLINES (5 CORE AREAS)                 -->
+  <!-- ========================================================= -->
+  <section class="relative py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
+    <div class="mb-8" data-aos="fade-up">
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-bold uppercase tracking-widest text-zinc-400">Focus Areas</span>
+        <div class="h-px w-12 bg-white/20"></div>
+      </div>
+      <h2 class="font-display font-bold text-2xl sm:text-3xl text-white mt-1">
+        Programme Disciplines &amp; Key Domains
+      </h2>
+      <p class="text-xs sm:text-sm text-zinc-400 mt-1">Core technical and venture pillars driving the 20-week solutions framework.</p>
+    </div>
+
+    <!-- 5 Architectural Domain Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4" data-aos="fade-up" data-aos-delay="100">
+      
+      <!-- Discipline 1 -->
+      <div class="glass-panel p-5 rounded-xl flex flex-col justify-between border border-white/10 group hover:border-blue-400/30">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] font-mono text-zinc-500 group-hover:text-blue-400 transition-colors">01 // DOMAIN</span>
+            <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 group-hover:text-blue-400 group-hover:bg-blue-500/10 transition-colors">
+              <i class="fa-solid fa-store text-xs"></i>
+            </div>
+          </div>
+          <h3 class="font-bold text-sm sm:text-base text-white leading-snug">
+            Phygital Retail &amp; Intelligent Commerce
+          </h3>
+        </div>
+        <p class="text-xs text-zinc-400 mt-3 leading-relaxed">
+          Bridging physical storefront friction with contextual, high-conversion digital experiences.
+        </p>
+      </div>
+
+      <!-- Discipline 2 -->
+      <div class="glass-panel p-5 rounded-xl flex flex-col justify-between border border-white/10 group hover:border-indigo-400/30">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] font-mono text-zinc-500 group-hover:text-indigo-400 transition-colors">02 // DOMAIN</span>
+            <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 group-hover:text-indigo-400 group-hover:bg-indigo-500/10 transition-colors">
+              <i class="fa-solid fa-brain text-xs"></i>
+            </div>
+          </div>
+          <h3 class="font-bold text-sm sm:text-base text-white leading-snug">
+            AI &amp; Analytics
+          </h3>
+        </div>
+        <p class="text-xs text-zinc-400 mt-3 leading-relaxed">
+          Predictive modeling, customer decision telemetry, algorithmic pricing, and automated insights.
+        </p>
+      </div>
+
+      <!-- Discipline 3 -->
+      <div class="glass-panel p-5 rounded-xl flex flex-col justify-between border border-white/10 group hover:border-cyan-400/30">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] font-mono text-zinc-500 group-hover:text-cyan-400 transition-colors">03 // DOMAIN</span>
+            <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 group-hover:text-cyan-400 group-hover:bg-cyan-500/10 transition-colors">
+              <i class="fa-solid fa-microchip text-xs"></i>
+            </div>
+          </div>
+          <h3 class="font-bold text-sm sm:text-base text-white leading-snug">
+            Intelligent Systems &amp; IoT
+          </h3>
+        </div>
+        <p class="text-xs text-zinc-400 mt-3 leading-relaxed">
+          Sensory retail telemetry, smart checkout nodes, edge devices, and reactive inventory tracking.
+        </p>
+      </div>
+
+      <!-- Discipline 4 -->
+      <div class="glass-panel p-5 rounded-xl flex flex-col justify-between border border-white/10 group hover:border-emerald-400/30">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] font-mono text-zinc-500 group-hover:text-emerald-400 transition-colors">04 // DOMAIN</span>
+            <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 group-hover:text-emerald-400 group-hover:bg-emerald-500/10 transition-colors">
+              <i class="fa-solid fa-cubes-stacked text-xs"></i>
+            </div>
+          </div>
+          <h3 class="font-bold text-sm sm:text-base text-white leading-snug">
+            Prototyping
+          </h3>
+        </div>
+        <p class="text-xs text-zinc-400 mt-3 leading-relaxed">
+          Rapid hardware &amp; digital prototyping, iterative user testing, and interactive proofs-of-concept.
+        </p>
+      </div>
+
+      <!-- Discipline 5 -->
+      <div class="glass-panel p-5 rounded-xl flex flex-col justify-between border border-white/10 group hover:border-amber-400/30">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] font-mono text-zinc-500 group-hover:text-amber-400 transition-colors">05 // DOMAIN</span>
+            <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 group-hover:text-amber-400 group-hover:bg-amber-500/10 transition-colors">
+              <i class="fa-solid fa-chart-line text-xs"></i>
+            </div>
+          </div>
+          <h3 class="font-bold text-sm sm:text-base text-white leading-snug">
+            Entrepreneurship
+          </h3>
+        </div>
+        <p class="text-xs text-zinc-400 mt-3 leading-relaxed">
+          Product-market fit calibration, business modeling, unit economics, and venture validation.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- THE 20-WEEK JOURNEY & FOUR-PHASE STRUCTURE                -->
+  <!-- ========================================================= -->
+  <section class="relative py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10" id="journey">
+    
+    <!-- Section Header & Phase Filter -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10" data-aos="fade-up">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-zinc-400 px-3 py-1 rounded-md bg-white/5 border border-white/10">
+          Programme Archive
+        </span>
+        <h2 class="font-display font-black text-3xl sm:text-4xl text-white mt-3">
+          The 20-Week Innovation Log
+        </h2>
+        <p class="text-zinc-400 text-sm sm:text-base mt-2 max-w-2xl">
+          Four continuous phases capturing problem framing, prototyping, system validation, and venture piloting. Select a phase to explore specific weekly chapters.
+        </p>
+      </div>
+
+      <!-- Phase Navigation Filter Buttons -->
+      <div class="flex flex-wrap items-center gap-2 bg-zinc-900/80 p-1.5 rounded-xl border border-white/10" id="phaseFilterContainer">
+        <button class="filter-tab active px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase" data-filter="all">
+          All (20)
+        </button>
+        <button class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase text-zinc-400" data-filter="1">
+          Phase 01 <span class="text-[10px] font-mono opacity-60">01–05</span>
+        </button>
+        <button class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase text-zinc-400" data-filter="2">
+          Phase 02 <span class="text-[10px] font-mono opacity-60">06–10</span>
+        </button>
+        <button class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase text-zinc-400" data-filter="3">
+          Phase 03 <span class="text-[10px] font-mono opacity-60">11–15</span>
+        </button>
+        <button class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase text-zinc-400" data-filter="4">
+          Phase 04 <span class="text-[10px] font-mono opacity-60">16–20</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Phase Summary Banner -->
+    <div id="phaseBanner" class="mb-8 p-5 rounded-xl glass-panel border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4" data-aos="fade-up">
+      <div class="flex items-center gap-4">
+        <div id="phaseBannerIcon" class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/25 flex items-center justify-center text-blue-400 font-mono font-bold text-sm">
+          01-04
+        </div>
+        <div>
+          <h4 id="phaseBannerTitle" class="text-sm sm:text-base font-bold text-white">Full Programme Continuum (Weeks 01–20)</h4>
+          <p id="phaseBannerSubtitle" class="text-xs text-zinc-400 mt-0.5">Showing all 20 weekly modules across the 4 structured programme phases.</p>
+        </div>
+      </div>
+      <div class="text-right flex-shrink-0">
+        <span id="phaseBannerCount" class="text-xs font-mono text-zinc-400">20 / 20 Chapters Available</span>
+      </div>
+    </div>
+
+    <!-- Dynamic 20-Week Container -->
+    <div id="weeksGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5" data-aos="fade-up">
+      <!-- Injected via JavaScript data structure -->
+    </div>
+
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- FUTURE CHAPTER PREVIEW MODAL                              -->
+  <!-- ========================================================= -->
+  <div id="chapterModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-backdrop">
+    <div class="relative w-full max-w-lg bg-[#0C0C0E] border border-white/15 rounded-2xl p-6 sm:p-8 shadow-2xl transform transition-all">
+      
+      <!-- Close Button -->
+      <button id="closeModalBtn" class="absolute top-5 right-5 text-zinc-400 hover:text-white p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <!-- Modal Content Header -->
+      <div class="flex items-center gap-2 mb-4">
+        <span id="modalPhaseBadge" class="text-[10px] font-mono uppercase tracking-wider text-blue-400 px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 font-semibold">
+          PHASE 01
+        </span>
+        <span class="text-[10px] font-mono uppercase tracking-wider text-amber-400 px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 font-semibold">
+          FIELD NOTES IN PROGRESS
+        </span>
+      </div>
+
+      <h3 id="modalWeekTitle" class="font-display font-black text-2xl sm:text-3xl text-white">
+        WEEK 01
+      </h3>
+      <p class="text-xs font-mono text-zinc-500 mt-1" id="modalRouteSlug">
+        Destination Route: /protosem/week-01
+      </p>
+
+      <div class="my-6 p-4 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-zinc-300 leading-relaxed">
+        <p class="mb-2">
+          This weekly chapter is currently being compiled as part of the live PRICE ProtoSem 20-week innovation trajectory.
+        </p>
+        <p class="text-xs text-zinc-400">
+          Once published, this node will unlock the detailed technical breakdown, prototyping field notes, architecture diagrams, and industry problem-statement validation.
+        </p>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="flex items-center justify-between pt-2">
+        <span class="text-[11px] font-mono text-zinc-500">PRICE ProtoSem Archive</span>
+        <button id="modalDismissBtn" class="px-4 py-2 rounded-lg text-xs font-bold btn-hero-white">
+          Understood
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- EDITORIAL FOOTER                                          -->
+  <!-- ========================================================= -->
+  <footer class="mt-20 border-t border-white/10 bg-[#000000] py-14 px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+      
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
+        <a href="index.html" class="flex flex-col group">
+          <span class="font-display font-black text-base tracking-wider text-white">TEJAS.INC</span>
+          <div class="border-b border-dotted border-white/40 my-0.5 w-24"></div>
+          <span class="text-[10px] tracking-wider text-zinc-400 uppercase font-semibold">created by tejas s k</span>
+        </a>
+        <p class="text-xs text-zinc-500 mt-2 max-w-sm">
+          PRICE ProtoSem Innovation Trainee · Building high-value digital experiences &amp; intelligent commerce systems.
+        </p>
+      </div>
+
+      <!-- Footer Quick Nav -->
+      <div class="flex flex-wrap justify-center gap-6 text-xs font-bold tracking-widest uppercase text-zinc-400">
+        <a href="index.html" class="hover:text-white transition-colors">Main Portfolio</a>
+        <a href="index.html#projects" class="hover:text-white transition-colors">Projects</a>
+        <a href="resume.html" class="hover:text-white transition-colors">ATS Resume</a>
+        <a href="index.html#contact" class="hover:text-white transition-colors">Contact</a>
+      </div>
+
+      <!-- Socials & Connect -->
+      <div class="flex items-center gap-3">
+        <a href="https://www.linkedin.com/in/tejas-s-k-333a78359/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all text-sm" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/Tejaaazz07" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all text-sm" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="mailto:tejasbusinessenquiries@gmail.com" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all text-sm" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto border-t border-white/5 mt-10 pt-6 text-center text-[11px] text-zinc-600 font-mono">
+      &copy; <span id="year">2026</span> Tejas S K. All rights reserved. PRICE ProtoSem Innovation Trainee.
+    </div>
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- SCRIPTS: DATA-DRIVEN WEEK ENGINE & INTERACTIONS          -->
+  <!-- ========================================================= -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" onerror="this.onerror=null;this.src='https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js';"></script>
+  <script>
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        once: true,
+        duration: 700,
+        easing: 'ease-out-cubic',
+        offset: 30,
+      });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    const protoSemWeeks = [
+      { week: 1, phase: 1, slug: "week-01", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 2, phase: 1, slug: "week-02", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 3, phase: 1, slug: "week-03", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 4, phase: 1, slug: "week-04", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 5, phase: 1, slug: "week-05", status: "Coming Soon", note: "Field Notes in Progress" },
+
+      { week: 6, phase: 2, slug: "week-06", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 7, phase: 2, slug: "week-07", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 8, phase: 2, slug: "week-08", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 9, phase: 2, slug: "week-09", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 10, phase: 2, slug: "week-10", status: "Coming Soon", note: "Field Notes in Progress" },
+
+      { week: 11, phase: 3, slug: "week-11", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 12, phase: 3, slug: "week-12", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 13, phase: 3, slug: "week-13", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 14, phase: 3, slug: "week-14", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 15, phase: 3, slug: "week-15", status: "Coming Soon", note: "Field Notes in Progress" },
+
+      { week: 16, phase: 4, slug: "week-16", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 17, phase: 4, slug: "week-17", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 18, phase: 4, slug: "week-18", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 19, phase: 4, slug: "week-19", status: "Coming Soon", note: "Field Notes in Progress" },
+      { week: 20, phase: 4, slug: "week-20", status: "Coming Soon", note: "Field Notes in Progress" }
+    ];
+
+    const phaseMeta = {
+      all: {
+        title: "Full Programme Continuum (Weeks 01–20)",
+        subtitle: "Showing all 20 weekly modules across the 4 structured programme phases.",
+        icon: "01-04",
+        count: "20 / 20 Chapters Available"
+      },
+      1: {
+        title: "Phase 01: Weeks 01–05",
+        subtitle: "Problem space immersion, stakeholder mapping & retail technology domain discovery.",
+        icon: "PH-01",
+        count: "5 Weekly Nodes"
+      },
+      2: {
+        title: "Phase 02: Weeks 06–10",
+        subtitle: "Architectural framing, ideation sprints & initial prototype proof-of-concept.",
+        icon: "PH-02",
+        count: "5 Weekly Nodes"
+      },
+      3: {
+        title: "Phase 03: Weeks 11–15",
+        subtitle: "Hardware/software integration, system testing & real-world validation loops.",
+        icon: "PH-03",
+        count: "5 Weekly Nodes"
+      },
+      4: {
+        title: "Phase 04: Weeks 16–20",
+        subtitle: "Commercial validation, venture economics, pilot deployment & final showcase.",
+        icon: "PH-04",
+        count: "5 Weekly Nodes"
+      }
+    };
+
+    function formatWeekNumber(num) {
+      return num < 10 ? `0${num}` : `${num}`;
+    }
+
+    const weeksGrid = document.getElementById('weeksGrid');
+    
+    function renderWeekCards(filter = 'all') {
+      weeksGrid.innerHTML = '';
+      const filteredWeeks = filter === 'all' 
+        ? protoSemWeeks 
+        : protoSemWeeks.filter(w => w.phase === parseInt(filter));
+
+      filteredWeeks.forEach((item) => {
+        const formatted = formatWeekNumber(item.week);
+        const card = document.createElement('div');
+        card.className = 'week-card p-5 flex flex-col justify-between group';
+        card.setAttribute('data-week', item.week);
+        card.setAttribute('data-phase', item.phase);
+        card.setAttribute('data-slug', item.slug);
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', `Week ${formatted}: ${item.note}`);
+
+        card.innerHTML = `
+          <div>
+            <!-- Top Metadata Row -->
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-mono tracking-widest text-zinc-500 uppercase">
+                PHASE 0${item.phase}
+              </span>
+              <span class="text-[9px] font-mono uppercase tracking-wider text-blue-400/90 px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20">
+                ${item.status}
+              </span>
+            </div>
+
+            <!-- Primary Heading: WEEK XX -->
+            <div class="flex items-baseline gap-2">
+              <span class="font-display font-black text-2xl sm:text-3xl text-zinc-200 week-num transition-colors">
+                WEEK ${formatted}
+              </span>
+            </div>
+            
+            <!-- Secondary Status Description -->
+            <p class="text-xs font-mono text-zinc-400 mt-2 flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80"></span>
+              <span>${item.note}</span>
+            </p>
+          </div>
+
+          <!-- Bottom Action Cue -->
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400 group-hover:text-zinc-200 transition-colors">
+            <span class="text-[11px] font-mono">Future Story / Blog</span>
+            <div class="flex items-center gap-1 text-zinc-400 week-arrow transition-transform">
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </div>
+          </div>
+        `;
+
+        card.addEventListener('click', () => openWeekModal(item));
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openWeekModal(item);
+          }
+        });
+
+        weeksGrid.appendChild(card);
+      });
+    }
+
+    const chapterModal = document.getElementById('chapterModal');
+    const modalPhaseBadge = document.getElementById('modalPhaseBadge');
+    const modalWeekTitle = document.getElementById('modalWeekTitle');
+    const modalRouteSlug = document.getElementById('modalRouteSlug');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modalDismissBtn = document.getElementById('modalDismissBtn');
+
+    function openWeekModal(item) {
+      const formatted = formatWeekNumber(item.week);
+      modalPhaseBadge.textContent = `PHASE 0${item.phase}`;
+      modalWeekTitle.textContent = `WEEK ${formatted}`;
+      modalRouteSlug.textContent = `Planned Route: /protosem/${item.slug}`;
+      chapterModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeWeekModal() {
+      chapterModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    closeModalBtn?.addEventListener('click', closeWeekModal);
+    modalDismissBtn?.addEventListener('click', closeWeekModal);
+    chapterModal?.addEventListener('click', (e) => {
+      if (e.target === chapterModal) closeWeekModal();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !chapterModal.classList.contains('hidden')) {
+        closeWeekModal();
+      }
+    });
+
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const phaseBannerTitle = document.getElementById('phaseBannerTitle');
+    const phaseBannerSubtitle = document.getElementById('phaseBannerSubtitle');
+    const phaseBannerIcon = document.getElementById('phaseBannerIcon');
+    const phaseBannerCount = document.getElementById('phaseBannerCount');
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => {
+          t.classList.remove('active', 'text-black');
+          t.classList.add('text-zinc-400');
+        });
+        tab.classList.add('active', 'text-black');
+        tab.classList.remove('text-zinc-400');
+
+        const filter = tab.getAttribute('data-filter');
+        const meta = phaseMeta[filter] || phaseMeta['all'];
+        phaseBannerTitle.textContent = meta.title;
+        phaseBannerSubtitle.textContent = meta.subtitle;
+        phaseBannerIcon.textContent = meta.icon;
+        phaseBannerCount.textContent = meta.count;
+
+        renderWeekCards(filter);
+      });
+    });
+
+    renderWeekCards('all');
+  </script>
+</body>
+</html>
